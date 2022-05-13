@@ -27,6 +27,6 @@ export const ElliseImage = styled.img`
    margin: 0 6px 15px 0;
 `
 export const HeadingAndDateContainer = styled.div(({ addThreeDots }) => [
-   addThreeDots ? tw`flex flex-col items-start` : tw`flex flex-row `,
-   console.log(addThreeDots)
+   addThreeDots && tw`flex flex-col items-start`,
+   !addThreeDots && tw`flex flex-row`
 ])

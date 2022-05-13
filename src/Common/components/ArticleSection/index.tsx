@@ -1,11 +1,12 @@
 import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript'
 import ProfilewithEllipse from '../ArticleProfile'
 import ArticleTag from '../ArticleTag'
+import InputBarComponenent from '../BottomInputBar'
+import Linebreak from '../HorizontalLine/'
 import {
    ArticleComponentMainPage,
    WhatIsZeroHeading,
    GetTagsInRow,
-   Linebreak,
    Content,
    BottomContainer,
    CorrectLogo,
@@ -58,6 +59,19 @@ const ArticleComponent = () => (
          <DomainExpert> Ana Arubia (UI/UX Domain Expert)</DomainExpert>
       </BottomContainer>
       <Linebreak />
+      <ProfilewithEllipse
+         addThreeDots={false}
+         Url='https://res.cloudinary.com/image-link-getter/image/upload/v1647793795/Screenshot_2022-03-20_215818_ec0cww.png'
+         AlterText='Logo'
+         Name='Ashoka T.'
+      />
+      <Content>
+         I’m usually optimistic about it. And these difficult times just helped
+         me reinforce that! I’m not sure if it’s the same for all the tech
+         companies, but it seems to me that tech companies were little affected
+         by all this.
+      </Content>
+      <InputBarComponenent />
    </ArticleComponentMainPage>
 )
 

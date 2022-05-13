@@ -2,9 +2,8 @@ import tw, { theme } from 'twin.macro'
 import styled from 'styled-components'
 
 export const ArticleComponentMainPage = styled.div`
-   ${tw`text-black container mt-9 mr-20 mb-9 ml-20 pt-9 pr-9 rounded-sm	bg-white	border rounded border-gray-400`}
+   ${tw`text-black min-h-0 container mt-9 mr-20 mb-9 ml-20 pt-9 pr-9 rounded-sm	bg-white	border rounded border-gray-400`}
    width: 1072px;
-   height: 653px;
    margin: 32px 80px 32px 48px;
    padding: 32px 24px;
 `
@@ -16,10 +15,6 @@ export const WhatIsZeroHeading = styled.div`
 
 export const GetTagsInRow = styled.div`
    ${tw`flex`}
-`
-export const Linebreak = styled.hr`
-   ${tw`h-px mt-4 mr-0 mb-6 ml-1 text-gray-400`}
-   width: 1020px;
 `
 
 export const Content = styled.p`
