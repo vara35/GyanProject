@@ -15,7 +15,12 @@ module.exports = {
          lg: '1024px',
          xl: '1280px'
       },
-
+      extend: {
+         spacing: {
+            lgwidth: '1072px',
+            lgheight: '653px'
+         }
+      },
       colors: {
          transparent: 'transparent',
          current: 'currentColor',
@@ -134,7 +139,6 @@ module.exports = {
             900: '#702459'
          }
       },
-
       spacing: {
          px: '1px',
          '0': '0',
@@ -154,7 +158,8 @@ module.exports = {
          '40': '10rem',
          '48': '12rem',
          '56': '14rem',
-         '64': '16rem'
+         '64': '16rem',
+         '128px': '128px'
       },
       backgroundColor: theme => theme('colors'),
       backgroundOpacity: theme => theme('opacity'),

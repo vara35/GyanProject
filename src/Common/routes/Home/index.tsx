@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
+import ArticleComponent from '../../components/ArticleSection'
 // import { Link } from 'react-router-dom'
 // import { observer } from 'mobx-react'
 // import 'twin.macro'
 // import { Button, LensProvider } from '@ib/nebula-system'
 
-import {
-   tailwindContainerCSS,
-   TailwindContainer,
-   MainContainer
-} from './styledComponents'
+import { tailwindContainerCSS, TailwindContainer } from './styledComponents'
 // @observer
 // class Home extends Component {
 //    render(): React.ReactElement {
@@ -39,18 +36,6 @@ import {
 
 // export default Home
 
-type MyProps = {
-   // using `interface` is also ok
-   message: string
-}
-type MyState = {
-   count: number // like this
-}
-class Home extends React.Component<MyProps, MyState> {
-   state = { count: 0 }
-   render() {
-      return <MainContainer>Hello</MainContainer>
-   }
-}
+const Home = () => <ArticleComponent />
 
 export default Home
