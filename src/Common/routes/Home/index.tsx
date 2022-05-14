@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ArticleComponent from '../../components/ArticleSection'
 import CommentsComponents from '../../components/CommentsSection'
+import WritePostScreenComponent from '../../components/WritePostScreen'
+
 // import { Link } from 'react-router-dom'
 // import { observer } from 'mobx-react'
 // import 'twin.macro'
@@ -37,6 +39,6 @@ import { tailwindContainerCSS, TailwindContainer } from './styledComponents'
 
 // export default Home
 
-const Home = () => <CommentsComponents />
+const Home = () => <WritePostScreenComponent />
 
 export default Home

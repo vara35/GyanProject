@@ -2,10 +2,10 @@ import tw, { theme } from 'twin.macro'
 import styled from 'styled-components'
 
 export const ArticleComponentMainPage = styled.div`
-   ${tw`text-black min-h-0 container mt-9 mr-20 mb-9 ml-20 pt-9 pr-9 rounded-sm	bg-white	border rounded border-gray-400`}
+   ${tw`text-black min-h-0 rounded-sm bg-white	border rounded border-gray-400`}
    width: 1072px;
-   margin: 32px 80px 32px 48px;
-   padding: 32px 24px;
+   margin: 48px 78px 33px 48px;
+   padding: 32px 48px 48px 32px;
 `
 export const WhatIsZeroHeading = styled.div`
    ${tw`text-black container mt-2 mr-6 mb-6 ml-12 font-sans text-gray-600 font-black leading-tight text-2xl text-blue-600`}
