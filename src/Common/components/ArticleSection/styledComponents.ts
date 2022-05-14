@@ -1,11 +1,15 @@
-import tw, { theme } from 'twin.macro'
+import tw from 'twin.macro'
 import styled from 'styled-components'
 
 export const ArticleComponentMainPage = styled.div`
-   ${tw`text-black min-h-0 rounded-sm bg-white	border rounded border-gray-400`}
+   ${tw`text-black rounded-sm bg-white	border rounded border-gray-400`}
    width: 1072px;
-   margin: 48px 78px 33px 48px;
-   padding: 32px 48px 48px 32px;
+   height: 653px;
+   margin: 32px 80px 32px 48px;
+   padding: 32px 24px;
+   border-radius: 4px;
+   border: solid 1px #d7dfe9;
+   background-color: var(--white);
 `
 export const WhatIsZeroHeading = styled.div`
    ${tw`text-black container mt-2 mr-6 mb-6 ml-12 font-sans text-gray-600 font-black leading-tight text-2xl text-blue-600`}
@@ -20,17 +24,37 @@ export const GetTagsInRow = styled.div`
 export const Content = styled.p`
    ${tw`h-12 mt-1 mr-0 mb-5 ml-12 text-sm font-sans leading-tight text-gray-500`}
    width: 976px;
+   margin: 4px 0 21px 8px;
 `
 export const BottomContainer = styled.div`
-   ${tw`flex items-center ml-12`}
+   ${tw`flex items-center h-4 mb-6`}
 `
 export const AppoveText = styled.p`
-   ${tw`w-16 h-4 mt-6 mr-0 mb-8 ml-2 text-xs`}
+   ${tw`w-16 h-4 mt-6 mr-0 mb-8 ml-2 text-xs font-sans`}
+   margin: 25px 1px 31px 10px;
+   width: 70px;
 `
 export const CorrectLogo = styled.img`
    ${tw`w-6 h-6 mt-5 mr-4 mb-6 ml-2`}
+   margin: 21px 16px 27px 8px;
 `
 export const DomainExpert = styled.div`
    ${tw`h-4 mt-6 mr-0 mb-8 ml-3 font-sans text-sm font-black text-blue-800`}
-   width: 189px;
+   width: 240px;
+   margin: 25px 257px 31px 12px;
+`
+export const SecondContent = styled.p`
+   ${tw`font-sans text-sm`}
+   width: 552px;
+   height: 72px;
+   margin: 4px 123px 0px 16px;
+   color: #7e858e;
+`
+export const SeeAllNames = styled.p`
+   width: 95px;
+   height: 16px;
+   margin: 16px 424px 32px 18px;
+   font-family: HKGrotesk;
+   font-size: 12px;
+   font-weight: 600;
 `

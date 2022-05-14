@@ -11,7 +11,10 @@ export const Heading = styled.h1`
    width: 808px;
 `
 export const GetTagInRow = styled.div`
-   ${tw`flex items-center`}
+   ${tw`flex items-center`};
+   .rect-box-container {
+      font-size: 12px;
+   }
 `
 export const Content = styled.p`
    ${tw` mt-0 mr-0 mb-72 ml-0 text-xl font-sans text-gray-400`}

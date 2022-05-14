@@ -1,9 +1,8 @@
-import ArticleTag from '../ArticleTag'
+import Tag from '../ArticleTag'
 import RectangleBox from '../RectangleBoxWithIcons'
 import WritePostButton from '../WritePostBottomButton'
 
-const text =
-   'IS SIMPLICITY A real thing? Or is design the pursuit of something else'
+const text = `'IS SIMPLICITY A real thing? Or is design the pursuit of something else'
 'entirely? A Logic 101 professor once explained to the  I was i'
 'that a major factorinscreaming matches between people is the lack f a'
 'shared definition f a key term. Clean, for example, can be measured'
@@ -18,7 +17,7 @@ const text =
 "may be a semantic debate.But it's an important one, because the word"
 'simple also gets used in thepresence ofstakeholders and coworkers who'
 "may have no idea what simplicitymeans in the context f a user's"
-'experience.'
+'experience.'`
 
 import {
    WritePostMainContainer,
@@ -27,26 +26,18 @@ import {
    Content
 } from './syledComponents'
 
+const names: Array<string> = ['Review', 'Save Draft', 'Submit']
+
 const WritePostScreenComponent = () => (
    <WritePostMainContainer>
       <Heading>The Evolution of UI/UX Designers Into Product Designers</Heading>
       <GetTagInRow>
-         <ArticleTag
-            addColor={false}
-            Url='https://res.cloudinary.com/image-link-getter/image/upload/v1652431382/tag_3x_lfir1a.png'
-            AlterText='Tag'
-            Name='uisolver'
-         />
-         <ArticleTag
-            addColor={false}
-            Url='https://res.cloudinary.com/image-link-getter/image/upload/v1652431382/tag_3x_lfir1a.png'
-            AlterText='Tag'
-            Name='uisolver'
-         />
+         <Tag />
+         <Tag />
          <RectangleBox />
       </GetTagInRow>
-      <Content></Content>
-      <WritePostButton />
+      <Content>{text}</Content>
+      <WritePostButton names={names} />
    </WritePostMainContainer>
 )
 
