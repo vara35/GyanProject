@@ -2,7 +2,7 @@ import tw from 'twin.macro'
 import styled from 'styled-components'
 
 export const TagContainer = styled.div`
-   ${tw`flex bg-blue-100 w-24 h-6 mt-6 mr-3 mb-8 ml-4 pt-1 pr-2 pb-1 pl-0 rounded-sm`}
+   ${tw`flex bg-blue-100 w-24 h-6 mt-6 mr-3 mb-2 ml-4 pt-1 pr-2 pb-1 pl-0 rounded-sm`}
    background: ${props => props.bgColor}
 
 `

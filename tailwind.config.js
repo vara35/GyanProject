@@ -16,7 +16,7 @@ module.exports = {
          xl: '1280px'
       },
       extend: {
-         spacing: {
+         width: {
             lgwidth: '1072px',
             lgheight: '653px'
          }

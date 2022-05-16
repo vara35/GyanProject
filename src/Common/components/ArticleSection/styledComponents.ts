@@ -2,14 +2,9 @@ import tw from 'twin.macro'
 import styled from 'styled-components'
 
 export const ArticleComponentMainPage = styled.div`
-   ${tw`text-black rounded-sm bg-white	border rounded border-gray-400`}
-   width: 1072px;
+   ${tw`text-black mt-8 mb-20 mr-8 ml-12 px-6 py-6 rounded-sm bg-white	border rounded border-gray-400`}
    height: 653px;
-   margin: 32px 80px 32px 48px;
-   padding: 32px 24px;
-   border-radius: 4px;
-   border: solid 1px #d7dfe9;
-   background-color: var(--white);
+   width: 1072px;
 `
 export const WhatIsZeroHeading = styled.div`
    ${tw`text-black container mt-2 mr-6 mb-6 ml-12 font-sans text-gray-600 font-black leading-tight text-2xl text-blue-600`}
@@ -22,9 +17,8 @@ export const GetTagsInRow = styled.div`
 `
 
 export const Content = styled.p`
-   ${tw`h-12 mt-1 mr-0 mb-5 ml-12 text-sm font-sans leading-tight text-gray-500`}
+   ${tw`h-12 mt-1 mr-0 mb-5 ml-4 text-sm font-sans leading-tight text-gray-500`}
    width: 976px;
-   margin: 4px 0 21px 8px;
 `
 export const BottomContainer = styled.div`
    ${tw`flex items-center h-4 mb-6`}

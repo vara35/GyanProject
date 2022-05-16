@@ -21,7 +21,7 @@ const ImageAndDate = (props: ImageAndDateProps) => {
          <Logo src={Url} alt='AlterText' />
          <HeadingAndDateContainer isHorizontal={isHorizontal}>
             <Heading>{Name}</Heading>
-            <Date> {DateText}</Date>
+            <Date isHorizontal={isHorizontal}> {DateText}</Date>
          </HeadingAndDateContainer>
       </NameAndDateContainer>
    )

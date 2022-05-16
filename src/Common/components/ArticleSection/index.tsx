@@ -34,6 +34,12 @@ const SecondContentText = `I’m usually optimistic about it. And these difficul
 
 const seeAllText = 'See all comments'
 
+const CorrectIcon =
+   'https://res.cloudinary.com/image-link-getter/image/upload/v1652438530/Hover_3x_swcpq0.png'
+
+const ApprovedText = 'Approved by'
+const DomainText = 'Ana Arubia (UI/UX Domain Expert)'
+
 const ArticleComponent = () => (
    <ArticleComponentMainPage>
       <ProfilewithEllipse
@@ -51,9 +57,9 @@ const ArticleComponent = () => (
       <HeadingAndTagsContainer>
          <Content>{ContentText}</Content>
          <BottomContainer>
-            <CorrectLogo src='https://res.cloudinary.com/image-link-getter/image/upload/v1652438530/Hover_3x_swcpq0.png' />
-            <AppoveText>Approved by</AppoveText>
-            <DomainExpert> Ana Arubia (UI/UX Domain Expert)</DomainExpert>
+            <CorrectLogo src={CorrectIcon} />
+            <AppoveText>{ApprovedText}</AppoveText>
+            <DomainExpert>{DomainText}</DomainExpert>
          </BottomContainer>
       </HeadingAndTagsContainer>
       <Linebreak />
