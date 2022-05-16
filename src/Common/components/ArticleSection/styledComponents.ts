@@ -19,6 +19,7 @@ export const GetTagsInRow = styled.div`
 export const Content = styled.p`
    ${tw`h-12 mt-1 mr-0 mb-5 ml-4 text-sm font-sans leading-tight text-gray-500`}
    width: 976px;
+   line-height: 1.71;
 `
 export const BottomContainer = styled.div`
    ${tw`flex items-center h-4 mb-6`}
@@ -43,6 +44,7 @@ export const SecondContent = styled.p`
    height: 72px;
    margin: 4px 123px 0px 16px;
    color: #7e858e;
+   line-height: 1.71;
 `
 export const SeeAllNames = styled.p`
    width: 95px;

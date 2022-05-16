@@ -1,5 +1,13 @@
-import { InputBar } from './styledComponents'
+import { InputBarMainContainer, InputBar, SendIcon } from './styledComponents'
 
-const InputBarComponenent = () => <InputBar type='search' />
+const SendIconUrl =
+   'https://res.cloudinary.com/image-link-getter/image/upload/v1652679220/Icon_Stroke_3x_sfzt9p.png'
 
-export default InputBar
+const InputBarComponenent = () => (
+   <InputBarMainContainer>
+      <InputBar type='search' placeholder='Write a comment...' />
+      <SendIcon src={SendIconUrl} />
+   </InputBarMainContainer>
+)
+
+export default InputBarComponenent
