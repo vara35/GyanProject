@@ -10,7 +10,7 @@ export const NameAndDateContainer = styled.div`
 
 export const HeadingAndDateContainer = styled.div`
    ${tw`flex`}
-   ${props => (props.isHorizontal ? tw`flex-row items-end` : tw`flex-col`)}
+   ${props => (props.isHorizontal ? tw`flex-row items-end mb-2` : tw`flex-col`)}
 `
 
 export const Heading = styled.h1`

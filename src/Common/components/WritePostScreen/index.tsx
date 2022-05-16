@@ -33,11 +33,10 @@ const WritePostScreenComponent = () => (
       <Heading>The Evolution of UI/UX Designers Into Product Designers</Heading>
       <GetTagInRow>
          <Tag />
-         <Tag />
          <RectangleBox />
       </GetTagInRow>
       <Content>{text}</Content>
-      <WritePostButton names={names} />
+      <WritePostButton names={names} bgColor={false} />
    </WritePostMainContainer>
 )
 

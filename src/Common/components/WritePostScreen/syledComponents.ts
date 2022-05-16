@@ -20,4 +20,5 @@ export const Content = styled.p`
    ${tw` mt-0 mr-0 mb-72 ml-0 text-xl font-sans text-gray-400`}
    width: 994px;
    height: 320px;
+   line-height: 1.6;
 `
