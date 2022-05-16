@@ -18,6 +18,6 @@ export const Heading = styled.h1`
 `
 
 export const Date = styled.p`
-   ${tw`w-40 h-6 mt-0 mr-96 mb-2 ml-4 font-sans text-xs not-italic leading-tight text-gray-600 `}
+   ${tw`w-40 h-6 mt-0 mr-72 mb-2 ml-4 font-sans text-xs not-italic leading-tight text-gray-600 `}
    ${props => (props.isHorizontal ? tw`mb-0` : tw`mb-2`)}
 `

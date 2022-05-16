@@ -14,7 +14,7 @@ interface ProfileWithHeartIconProps {
    Url: string
    Name: string
    isHorizontal: boolean
-   HeartsCountNumber: number
+   HeartsCountNumber?: number
 }
 
 const ProfileWithHeartIcon = (props: ProfileWithHeartIconProps) => {
@@ -23,7 +23,9 @@ const ProfileWithHeartIcon = (props: ProfileWithHeartIconProps) => {
       <ProfileWithHeartIconMainContainer>
          <ImageAndDate isHorizontal={isHorizontal} Name={Name} Url={Url} />
          <HeartIconContainer>
-            <HeartsCount>{HeartsCountNumber}</HeartsCount>
+            {HeartsCountNumber !== undefined && (
+               <HeartsCount>{HeartsCountNumber}</HeartsCount>
+            )}
             <HeartImage src={heartImageUrl} al='HeartLogo' />
          </HeartIconContainer>
       </ProfileWithHeartIconMainContainer>
