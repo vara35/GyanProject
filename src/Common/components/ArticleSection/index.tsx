@@ -3,6 +3,7 @@ import InputBarComponenent from '../BottomInputBar'
 import Linebreak from '../HorizontalLine/'
 import HeadingAndTags from '../HeadingAndTags'
 import ImageAndDate from '../ImageAndDate'
+import ProfileWithHeartIcon from '../ProfileWithHeartIcon'
 
 import { HeadingAndTagsContainer } from '../HeadingAndTags/styledComponents'
 import {
@@ -40,6 +41,8 @@ const CorrectIcon =
 const ApprovedText = 'Approved by'
 const DomainText = 'Ana Arubia (UI/UX Domain Expert)'
 
+const HeartsCountNumber = 4
+
 const ArticleComponent = () => (
    <ArticleComponentMainPage>
       <ProfilewithEllipse
@@ -64,10 +67,11 @@ const ArticleComponent = () => (
       </HeadingAndTagsContainer>
       <Linebreak />
       <HeadingAndTagsContainer>
-         <ImageAndDate
+         <ProfileWithHeartIcon
             Url={ProfilewithEllipseImage.url}
             Name='Ashoka T.'
             isHorizontal={true}
+            HeartsCountNumber={HeartsCountNumber}
          />
          <HeadingAndTagsContainer>
             <SecondContent>{SecondContentText}</SecondContent>
