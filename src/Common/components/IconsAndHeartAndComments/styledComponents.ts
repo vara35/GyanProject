@@ -9,7 +9,7 @@ export const CommentsText = styled.p`
    ${tw`font-sans h-6`}
    width: 89px;
    margin: 0 0 0 4px;
-   font-size: 16px;
+   font-size: 15px;
    line-height: 1.5;
    color: #0b69ff;
 `

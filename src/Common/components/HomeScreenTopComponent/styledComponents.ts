@@ -14,7 +14,7 @@ export const ProvideSpaceBetween = styled.div`
 `
 
 export const ProvideFlex = styled.div`
-   ${tw`flex flex-row items-center`}
+   ${tw`flex flex-row items-center `}
 `
 export const CommonContainer = styled.div`
    ${tw``}
