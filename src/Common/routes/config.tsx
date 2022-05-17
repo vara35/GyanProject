@@ -11,6 +11,7 @@ import CounterWithToast from './CounterWithToast'
 import Home from './Home'
 import WritePostScreen from './WritePostScreen'
 import WritePlainScreen from './WritePostPlainScreen'
+import HomeScreen from './HomeScreen'
 
 export const routes = (): React.ReactElement => (
    <Router>
@@ -18,6 +19,7 @@ export const routes = (): React.ReactElement => (
          <Route exact path='/' component={Home} />
          <Route exact path='/WritePostScreen' component={WritePostScreen} />
          <Route exact path='/WritePlainScreen' component={WritePlainScreen} />
+         <Route exact path='/HomeScreen' component={HomeScreen} />
          <Route path='/counter' component={CounterWithToast} />
          <Route
             path={NOT_FOUND_PAGE_PATH}

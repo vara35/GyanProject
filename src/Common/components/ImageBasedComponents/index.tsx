@@ -5,17 +5,24 @@ interface ImageBasedComponentsProps {
    height: string
    color?: string
    margin?: string
+   fontSize?: string
 }
 
 const ImageBasedComponents = (props: ImageBasedComponentsProps) => {
-   const { imageUrl, height, color, margin } = props
+   const { imageUrl, height, color, margin, fontSize = '6px' } = props
    return (
       <>
          {imageUrl && (
             <ImageBasedIcon src={imageUrl} height={height} margin={margin} />
          )}
          {imageUrl === undefined && (
-            <ImageBasedContainer color={color}>PV</ImageBasedContainer>
+            <ImageBasedContainer
+               height={height}
+               color={color}
+               fontSize={fontSize}
+            >
+               UI
+            </ImageBasedContainer>
          )}
       </>
    )
