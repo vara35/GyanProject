@@ -13,7 +13,7 @@ import WritePostScreen from './WritePostScreen'
 import WritePlainScreen from './WritePostPlainScreen'
 import HomeScreen from './HomeScreen'
 import PlatFormDomainPage from './PlatFormDomainPage'
-
+import CreatePage from './CreatePage'
 export const routes = (): React.ReactElement => (
    <Router>
       <Switch>
@@ -21,6 +21,7 @@ export const routes = (): React.ReactElement => (
          <Route exact path='/writepostscreen' component={WritePostScreen} />
          <Route exact path='/writeplainscreen' component={WritePlainScreen} />
          <Route exact path='/homescreen' component={HomeScreen} />
+         <Route exact path='/createpage' component={CreatePage} />
          <Route
             exact
             path='/platformdomainpage'

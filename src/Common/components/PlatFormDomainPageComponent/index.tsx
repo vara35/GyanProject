@@ -24,6 +24,7 @@ import { CommentsText } from '../IconsAndHeartAndComments/styledComponents'
 import InputBarComponenent from '../BottomInputBar'
 import PlatFormSubComponent from '../PlatFormSubComponent'
 import {
+   PlatFormDomainPageComponentContainer,
    PlatFormText,
    ProvideSpaceBetweenForPlatFormPage
 } from './styledComponents'
@@ -50,7 +51,7 @@ const PlatFormDomainConstants = {
 const PlatFormDomainPageComponent = () => (
    <>
       <HomeScreenTopComponent />
-      <ArticleComponentMainPage>
+      <PlatFormDomainPageComponentContainer>
          <ProvideSpaceBetween>
             <ImageAndDate
                Url={PlatFormDomainConstants.url1}
@@ -124,7 +125,7 @@ const PlatFormDomainPageComponent = () => (
             <SeeAllNames>{PlatFormDomainConstants.seeAllText}</SeeAllNames>
             <InputBarComponenent />
          </HeadingAndTagsContainer>
-      </ArticleComponentMainPage>
+      </PlatFormDomainPageComponentContainer>
 
       <PlatFormSubComponent />
    </>
