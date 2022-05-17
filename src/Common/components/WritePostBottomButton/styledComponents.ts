@@ -7,5 +7,5 @@ export const Button = styled.button`
    color: ${props => props.color};
 `
 export const ButtonMainContainer = styled.div`
-   ${tw`flex justify-end items-center bg-gray-500`}
+   ${tw`flex justify-end items-center`}
 `

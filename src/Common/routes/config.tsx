@@ -12,14 +12,20 @@ import Home from './Home'
 import WritePostScreen from './WritePostScreen'
 import WritePlainScreen from './WritePostPlainScreen'
 import HomeScreen from './HomeScreen'
+import PlatFormDomainPage from './PlatFormDomainPage'
 
 export const routes = (): React.ReactElement => (
    <Router>
       <Switch>
          <Route exact path='/' component={Home} />
-         <Route exact path='/WritePostScreen' component={WritePostScreen} />
-         <Route exact path='/WritePlainScreen' component={WritePlainScreen} />
-         <Route exact path='/HomeScreen' component={HomeScreen} />
+         <Route exact path='/writepostscreen' component={WritePostScreen} />
+         <Route exact path='/writeplainscreen' component={WritePlainScreen} />
+         <Route exact path='/homescreen' component={HomeScreen} />
+         <Route
+            exact
+            path='/platformdomainpage'
+            component={PlatFormDomainPage}
+         />
          <Route path='/counter' component={CounterWithToast} />
          <Route
             path={NOT_FOUND_PAGE_PATH}

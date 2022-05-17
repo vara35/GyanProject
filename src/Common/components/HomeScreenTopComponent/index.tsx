@@ -1,9 +1,11 @@
 import UxAndUiComponent from '../UxAndUiComponent'
 import ImageBasedComponents from '../ImageBasedComponents'
+import HrLine from '../HorizontalLine'
 
 import { GetTagInRow } from '../WritePostScreen/syledComponents'
 import { HeadingAndTagsContainer } from '../HeadingAndTags/styledComponents'
 import { CommentsNumber } from '../HeartAndComments/styledComponents'
+
 import {
    HomeScreenMainContainer,
    ProvideSpaceBetween,
@@ -107,6 +109,7 @@ const TopComponent = () => (
             </CommentsNumber>
          </ProvideFlex>
       </ProvideFlex>
+      <HrLine />
    </HomeScreenMainContainer>
 )
 
