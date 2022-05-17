@@ -4,8 +4,12 @@ import DescriptionOfComments from '../CommentsDescription'
 import Linebreak from '../HorizontalLine'
 import ProfileWithHeartIcon from '../ProfileWithHeartIcon'
 
-import { HeadingAndTagsContainer } from '../HeadingAndTags/styledComponents'
+import {
+   HeadingAndTagsContainer,
+   ImageAndCommentsContainerForalignSelf
+} from '../HeadingAndTags/styledComponents'
 import { GetTagInRow } from '../WritePostScreen/syledComponents'
+import IconsAndHeartAndComments from '../IconsAndHeartAndComments'
 import { MainContainer, ContentBottomImage } from './styledComponents'
 
 const ProfileObj = {
@@ -32,10 +36,13 @@ const CommentsComponents = () => (
       <ProfilewithEllipse Url={ProfileObj.url1} Name='Ashoka T.' />
       <HeadingAndTagsContainer>
          <DescriptionOfComments ContentText={ContentTextObj.Text1} />
-         <GetTagInRow>
-            <ContentBottomImage src={ProfileObj.ContentBottomImage1} />
-            <ContentBottomImage src={ProfileObj.ContentBottomImage2} />
-         </GetTagInRow>
+         <ImageAndCommentsContainerForalignSelf>
+            <GetTagInRow>
+               <ContentBottomImage src={ProfileObj.ContentBottomImage1} />
+               <ContentBottomImage src={ProfileObj.ContentBottomImage2} />
+            </GetTagInRow>
+            <IconsAndHeartAndComments />
+         </ImageAndCommentsContainerForalignSelf>
       </HeadingAndTagsContainer>
       <Linebreak />
       <ProfileWithHeartIcon

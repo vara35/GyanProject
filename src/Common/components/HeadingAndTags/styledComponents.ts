@@ -9,3 +9,7 @@ export const WhatIsZeroHeading = styled.div`
 export const HeadingAndTagsContainer = styled.div`
    margin-left: 45px;
 `
+
+export const ImageAndCommentsContainerForalignSelf = styled.div`
+   ${tw`flex justify-between`}
+`

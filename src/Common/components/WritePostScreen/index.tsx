@@ -28,9 +28,11 @@ import {
 
 const names: Array<string> = ['Review', 'Save Draft', 'Submit']
 
+const EvalutionText = 'The Evolution of UI/UX Designers Into Product Designers'
+
 const WritePostScreenComponent = () => (
    <WritePostMainContainer>
-      <Heading>The Evolution of UI/UX Designers Into Product Designers</Heading>
+      <Heading>{EvalutionText} </Heading>
       <GetTagInRow>
          <Tag />
          <RectangleBox />
