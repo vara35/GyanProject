@@ -7,9 +7,12 @@ export const ArticleComponentMainPage = styled.div`
    width: 1072px;
 `
 export const WhatIsZeroHeading = styled.div`
-   ${tw`text-black container mt-2 mr-6 mb-6 ml-12 font-sans text-gray-600 font-black leading-tight text-2xl text-blue-600`}
-   width: 688px;
-   height: 32px;
+   ${tw`text-black h-8 mt-2 mr-6 mb-6 ml-12  font-sans text-gray-600 font-black text-2xl`}
+   width: 740px;
+   color: #171f46;
+   margin: 0px 115px 10px 16px;
+   line-height: 1.33;
+   font-size: 24px;
 `
 
 export const GetTagsInRow = styled.div`

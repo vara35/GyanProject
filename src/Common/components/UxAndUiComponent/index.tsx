@@ -8,7 +8,7 @@ interface UxAndUiComponentProps {
    height?: string
    color?: string
    fontSize?: string
-   uiText?: string
+   uiText1?: string
    marginRight?: string
    marginLeft?: string
 }
@@ -18,7 +18,7 @@ const UxAndUiComponent = (props: UxAndUiComponentProps) => {
       height = '53px',
       color = '#ffbbd3',
       fontSize = '15.9px',
-      uiText = '24px',
+      uiText1 = '24px',
       marginRight = '710px',
       marginLeft = '16px'
    } = props
@@ -31,7 +31,7 @@ const UxAndUiComponent = (props: UxAndUiComponentProps) => {
             fontSize={fontSize}
          />
          <UiText
-            uiText={uiText}
+            uiText1={uiText1}
             marginRight={marginRight}
             marginLeft={marginLeft}
          >
