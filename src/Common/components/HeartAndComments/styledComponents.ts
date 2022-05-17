@@ -16,5 +16,6 @@ export const CommentsNumber = styled.p`
    margin: 0 0 0 4px;
    font-size: 15px;
    line-height: 1.5;
-   color: #ff0b37;
+   color: ${props => props.color};
+   margin-right: ${props => props.margin};
 `

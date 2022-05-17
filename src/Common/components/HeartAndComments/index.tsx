@@ -6,16 +6,20 @@ import {
 
 interface HeartAndCommentsProps {
    heartImage: string
+   color?: string
+   margin?: string
 }
 
 const number = 12
 
 const HeartAndComments = (props: HeartAndCommentsProps) => {
-   const { heartImage } = props
+   const { heartImage, color = '#ff0b37', margin = '5px' } = props
    return (
       <HeartAndCommentsContainer>
          <HeartIcon src={heartImage} />
-         <CommentsNumber>{number}</CommentsNumber>
+         <CommentsNumber color={color} margin={margin}>
+            {number}
+         </CommentsNumber>
       </HeartAndCommentsContainer>
    )
 }

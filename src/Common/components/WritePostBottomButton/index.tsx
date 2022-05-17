@@ -1,19 +1,22 @@
-import { Button, MainContainer } from './styledComponents'
+import { Button, ButtonMainContainer } from './styledComponents'
 
 interface WritePostButtonProps {
    names: string[]
    bgColor?: boolean
+   color?: string
 }
 
 const WritePostButton = (props: WritePostButtonProps) => {
-   const { names, bgColor } = props
+   const { names, bgColor, color } = props
 
    return (
-      <MainContainer>
-         <Button bgColor={bgColor}>{names[0]}</Button>
+      <ButtonMainContainer>
+         <Button bgColor={bgColor} color={color}>
+            {names[0]}
+         </Button>
          <Button bgColor={bgColor}>{names[1]}</Button>
          <Button bgColor={bgColor}>{names[2]}</Button>
-      </MainContainer>
+      </ButtonMainContainer>
    )
 }
 
