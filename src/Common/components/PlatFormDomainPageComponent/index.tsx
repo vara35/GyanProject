@@ -100,7 +100,7 @@ const PlatFormDomainPageComponent = () => (
                   <DomainExpert>
                      {PlatFormDomainConstants.domainText}
                   </DomainExpert>
-               </BottomContainer>{' '}
+               </BottomContainer>
                <ProvideFlex>
                   <HeartAndComments heartImage={PlatFormDomainConstants.url3} />
                   <ImageBasedComponents

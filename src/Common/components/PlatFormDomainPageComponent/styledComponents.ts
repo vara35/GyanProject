@@ -2,7 +2,7 @@ import tw from 'twin.macro'
 import styled from 'styled-components'
 
 export const PlatFormText = styled.p`
-   ${tw`font-sans text-lg font-medium font-sans`}
+   ${tw`font-sans text-base font-medium font-sans`}
    width: 976px;
   height: 72px;
   margin: 4px 23px 28px 8px;
@@ -12,6 +12,6 @@ export const PlatFormText = styled.p`
 `
 
 export const ProvideSpaceBetweenForPlatFormPage = styled.div`
-   ${tw`flex flex-row justify-between h-10 `}
+   ${tw`flex flex-row justify-between h-16`}
 }
 `
