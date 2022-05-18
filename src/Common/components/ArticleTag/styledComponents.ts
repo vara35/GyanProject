@@ -6,9 +6,11 @@ export const TagContainer = styled.div`
    background: ${props => props.bgColor}
 
    width: 88px;
-  margin: 24px 13px 32px 17px;
+  margin: 24px 13px 32px 0px;
   padding: 3px 8px 5px;
   border-radius: 2px;
+
+  margin-top: ${props => props.marginTop}
 `
 
 export const TagName = styled.p`

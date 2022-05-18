@@ -1,0 +1,83 @@
+import Tag from '../ArticleTag'
+import SelectFolder from '../SelectFolder'
+
+import { ElliseImage } from '../ArticleProfile/styledComponents'
+import { ProvideSpaceBetween } from '../HomeScreenTopComponent/styledComponents'
+import { Date } from '../ImageAndDate/styledComponents'
+
+import {
+   PlatFormReviewFirstPageContanier,
+   BackTextEle,
+   PlatFormFirstPageText,
+   PlatFormText,
+   PlatFormImage,
+   ImageBottomTextEle,
+   PlatFormMiddleContainer
+} from './styledComponents'
+
+const PlatFormReviewFirstPageConstants = {
+   threeDotsImage:
+      'https://res.cloudinary.com/image-link-getter/image/upload/v1648359358/Screenshot_2022-03-27_110434_oesthh.png',
+   backToHomepageText: 'Back to Homepage',
+   headingText: 'The Evolution of UI/UX Designers Into Product Designers',
+   dateText: '• 06/20/2019 at 6:43 PM',
+   text1: `Zero UI is a style that’s been looming in the shadow for some time, but is just now emerging. The idea is easy to understand — the less the user has to think about the interface, the better and more natural it feels. John Brownlee explains the specifics,and how this style is changing everything. `,
+   text2: `Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla.`,
+   text3: `Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet nullam quis risus eget urna mollis ornare vec id elit non mi porta gravida at eget metus sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod.`,
+   text4: `UX designers take it as dogma that UIs should be simple, but what does that really mean? Robert Hoekman Jr. challengesour preconceptions of “simple,” and dissects what is the true attractive element in these rather complex interfaces.`,
+   text5: `IS SIMPLICITY A real thing? Or is design the pursuit of something else entirely? A Logic 101 professor once explained to the class I was in that a major factorin screaming matches between people is the lack of a shared definition of a key term. "Clean," for example, can be measured in degrees. It can mean very different things to people depending on their standards of cleanliness. Then there'sawordlike"simple.
+   "Two people can have very different definitions of a wordlike that. Designers, in particular, most definitely do.When many of them say "simple," they mean to describe something incrediblyeasy to use. Whenothers say it, they're referencing the relative complexity of a thing, whether it's a problem, a solution, a piece of code, or something else. To this extent, I admit that what I'm proposing here may be a semantic debate.
+   But it's an important one, because the word "simple" also gets used in thepresence of stakeholders and coworkers who may have no idea what simplicitymeans in the context of a user's experience. `,
+   platFormMainImageUrl:
+      'https://res.cloudinary.com/image-link-getter/image/upload/v1652854893/Evalution_of_Ui_Pic_1_3x_ebemeo.jpg',
+   bottomText: 'Credit: Cliff Hawkins/Getty Images',
+   importentText: 'Important information',
+   importantDescri: `Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridionec sed odio dui sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis.`
+}
+
+const PlatFormReviewFirstPage = () => (
+   <PlatFormReviewFirstPageContanier>
+      <ProvideSpaceBetween>
+         <BackTextEle>
+            {PlatFormReviewFirstPageConstants.backToHomepageText}
+         </BackTextEle>
+         <ElliseImage src={PlatFormReviewFirstPageConstants.threeDotsImage} />
+      </ProvideSpaceBetween>
+      <PlatFormFirstPageText>
+         {PlatFormReviewFirstPageConstants.headingText}
+      </PlatFormFirstPageText>
+      <Date>{PlatFormReviewFirstPageConstants.dateText}</Date>
+      <Tag marginTop='2px' />
+      <PlatFormText marginRight='10px' marginLeft='14px' color='#171f46'>
+         {PlatFormReviewFirstPageConstants.text1}
+      </PlatFormText>
+      <PlatFormImage
+         src={PlatFormReviewFirstPageConstants.platFormMainImageUrl}
+      />
+      <ImageBottomTextEle color='#b5b7c4' fontSize='14px' width='220px'>
+         {PlatFormReviewFirstPageConstants.bottomText}
+      </ImageBottomTextEle>
+      <PlatFormText marginRight='10px' marginLeft='14px' color='#171f46'>
+         {PlatFormReviewFirstPageConstants.text2}
+      </PlatFormText>
+      <PlatFormMiddleContainer>
+         <ImageBottomTextEle color='#000000' fontSize='16px' width='317px'>
+            {PlatFormReviewFirstPageConstants.importentText}
+         </ImageBottomTextEle>
+         <ImageBottomTextEle color='' fontSize='14px' width='622px'>
+            {PlatFormReviewFirstPageConstants.importantDescri}
+         </ImageBottomTextEle>
+      </PlatFormMiddleContainer>
+      <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
+         {PlatFormReviewFirstPageConstants.text3}
+      </PlatFormText>
+      <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
+         {PlatFormReviewFirstPageConstants.text4}
+      </PlatFormText>
+      <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
+         {PlatFormReviewFirstPageConstants.text5}
+      </PlatFormText>
+      <SelectFolder />
+   </PlatFormReviewFirstPageContanier>
+)
+export default PlatFormReviewFirstPage
