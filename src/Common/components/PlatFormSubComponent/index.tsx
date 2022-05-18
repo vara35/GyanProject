@@ -7,8 +7,10 @@ import ImageBasedComponents from '../ImageBasedComponents'
 import UxAndUiComponent from '../UxAndUiComponent'
 
 import { ContentBottomImage } from '../CommentsSection/styledComponents'
-import { HeadingAndTagsContainer } from '../HeadingAndTags/styledComponents'
-import { WhatIsZeroHeading } from '../ArticleSection/styledComponents'
+import {
+   HeadingAndTagsContainer,
+   WhatIsZeroHeading
+} from '../HeadingAndTags/styledComponents'
 import {
    ProvideFlex,
    ProvideSpaceBetween

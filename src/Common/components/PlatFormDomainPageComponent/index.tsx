@@ -14,10 +14,12 @@ import {
    BottomContainer,
    CorrectLogo,
    DomainExpert,
-   SeeAllNames,
-   WhatIsZeroHeading
+   SeeAllNames
 } from '../ArticleSection/styledComponents'
-import { HeadingAndTagsContainer } from '../HeadingAndTags/styledComponents'
+import {
+   HeadingAndTagsContainer,
+   WhatIsZeroHeading
+} from '../HeadingAndTags/styledComponents'
 import HeartAndComments from '../HeartAndComments'
 import ImageBasedComponents from '../ImageBasedComponents'
 import { CommentsText } from '../IconsAndHeartAndComments/styledComponents'
@@ -26,7 +28,8 @@ import PlatFormSubComponent from '../PlatFormSubComponent'
 import {
    PlatFormDomainPageComponentContainer,
    PlatFormText,
-   ProvideSpaceBetweenForPlatFormPage
+   ProvideSpaceBetweenForPlatFormPage,
+   SeeAllNamesInPlatForm
 } from './styledComponents'
 
 const PlatFormDomainConstants = {

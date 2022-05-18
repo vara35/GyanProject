@@ -10,7 +10,7 @@ export const HomeScreenMainContainer = styled.div`
    width: 1072px;
 `
 export const ProvideSpaceBetween = styled.div`
-   ${tw`flex flex-row justify-between items-center`}
+   ${tw`flex flex-row justify-between items-center  h-10`}
 `
 
 export const ProvideFlex = styled.div`
