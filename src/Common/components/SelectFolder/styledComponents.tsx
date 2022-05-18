@@ -12,9 +12,9 @@ export const SelectFolderMainContainer = styled.div`
 `
 
 export const SelectFolderHeading = styled.h1`
-   ${tw`h-4 font-sans`}
+   ${tw`font-sans`}
    width: 396px;
-   margin: 0 2px 4px 12px;
+   margin: 2px 2px 4px 12px;
    font-weight: 600;
    color: #171f46;
    color: ${props => props.color};

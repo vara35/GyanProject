@@ -5,8 +5,7 @@ export const ImageBasedIcon = styled.img`
    ${tw``}
   height :  ${props => props.height};
   width : ${props => props.height};
-  margin-left :  ${props => props.margin}
-
+  margin-left :  ${props => props.margin};
 
 
 `

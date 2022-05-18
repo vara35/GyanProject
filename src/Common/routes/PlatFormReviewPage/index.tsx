@@ -1,5 +1,12 @@
 import PlatFormReviewFirstPage from '../../components/PlatFormReviewFirstPage'
+import PlatFormReviewSecondPage from '../../components/PlatFormReviewSecondPage'
 
-const PlatFormReviewPage = () => <PlatFormReviewFirstPage />
+import { PlatFormReviewPageContainer } from './styledComponents'
 
+const PlatFormReviewPage = () => (
+   <PlatFormReviewPageContainer>
+      <PlatFormReviewFirstPage />
+      <PlatFormReviewSecondPage />
+   </PlatFormReviewPageContainer>
+)
 export default PlatFormReviewPage

@@ -65,4 +65,5 @@ export const ButtonInReviewPage = styled.button`
    padding: 8px 20px;
    border-radius: 4px;
    background-color: #0b69ff;
+   color: #ffffff;
 `
