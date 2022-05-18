@@ -5,6 +5,7 @@ import { ElliseImage } from '../ArticleProfile/styledComponents'
 import { ProvideSpaceBetween } from '../HomeScreenTopComponent/styledComponents'
 import { Date } from '../ImageAndDate/styledComponents'
 
+import { SelectFolderHeading } from '../SelectFolder/styledComponents'
 import {
    PlatFormReviewFirstPageContanier,
    BackTextEle,
@@ -34,6 +35,8 @@ const PlatFormReviewFirstPageConstants = {
    importentText: 'Important information',
    importantDescri: `Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridionec sed odio dui sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis.`
 }
+
+const url = 'https://en.m.wikipedia.org/wiki/Observer_pattern'
 
 const PlatFormReviewFirstPage = () => (
    <PlatFormReviewFirstPageContanier>
@@ -78,6 +81,9 @@ const PlatFormReviewFirstPage = () => (
          {PlatFormReviewFirstPageConstants.text5}
       </PlatFormText>
       <SelectFolder />
+      <SelectFolderHeading color='#0b69ff' fontSize='16px' width='363px'>
+         {url}
+      </SelectFolderHeading>
    </PlatFormReviewFirstPageContanier>
 )
 export default PlatFormReviewFirstPage

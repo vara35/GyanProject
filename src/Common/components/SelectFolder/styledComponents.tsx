@@ -10,3 +10,16 @@ export const SelectFolderMainContainer = styled.div`
    border-radius: 4px;
    border: solid 1px #d7dfe9;
 `
+
+export const SelectFolderHeading = styled.h1`
+   ${tw`h-4 font-sans`}
+   width: 396px;
+   margin: 0 2px 4px 12px;
+   font-weight: 600;
+   color: #171f46;
+   color: ${props => props.color};
+   font-size: ${props => props.fontSize};
+
+   width: ${props => props.width};
+   font-weight: normal;
+`
