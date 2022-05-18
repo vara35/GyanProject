@@ -18,7 +18,7 @@ export const BackTextEle = styled.p`
 `
 
 export const PlatFormFirstPageText = styled.h1`
-   ${tw`font-sans mt-8 mr-2 mb-1 ml-0 h-20 text-xs text-3xl`}
+   ${tw`font-sans mt-0 mr-2 mb-1 ml-0 h-20 text-xs text-3xl`}
    width: 672px;
    line-height: 1.25;
    color: #000000;
@@ -55,4 +55,14 @@ export const PlatFormMiddleContainer = styled.div`
    opacity: 0.16;
    background-color: #d7dfe9;
    margin-top: 24px;
+`
+
+export const ButtonInReviewPage = styled.button`
+   ${tw``}
+   width: 70px;
+   height: 40px;
+   margin: 34px 39px 0 85px;
+   padding: 8px 20px;
+   border-radius: 4px;
+   background-color: #0b69ff;
 `

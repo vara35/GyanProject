@@ -2,7 +2,11 @@ import Tag from '../ArticleTag'
 import SelectFolder from '../SelectFolder'
 
 import { ElliseImage } from '../ArticleProfile/styledComponents'
-import { ProvideSpaceBetween } from '../HomeScreenTopComponent/styledComponents'
+import {
+   ButtonContainer,
+   ButtonInTopComponent,
+   ProvideSpaceBetween
+} from '../HomeScreenTopComponent/styledComponents'
 import { Date } from '../ImageAndDate/styledComponents'
 
 import { SelectFolderHeading } from '../SelectFolder/styledComponents'
@@ -13,7 +17,8 @@ import {
    PlatFormText,
    PlatFormImage,
    ImageBottomTextEle,
-   PlatFormMiddleContainer
+   PlatFormMiddleContainer,
+   ButtonInReviewPage
 } from './styledComponents'
 
 const PlatFormReviewFirstPageConstants = {
@@ -33,7 +38,8 @@ const PlatFormReviewFirstPageConstants = {
       'https://res.cloudinary.com/image-link-getter/image/upload/v1652854893/Evalution_of_Ui_Pic_1_3x_ebemeo.jpg',
    bottomText: 'Credit: Cliff Hawkins/Getty Images',
    importentText: 'Important information',
-   importantDescri: `Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridionec sed odio dui sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis.`
+   importantDescri: `Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridionec sed odio dui sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis.`,
+   buttonText: 'Save'
 }
 
 const url = 'https://en.m.wikipedia.org/wiki/Observer_pattern'
@@ -81,9 +87,14 @@ const PlatFormReviewFirstPage = () => (
          {PlatFormReviewFirstPageConstants.text5}
       </PlatFormText>
       <SelectFolder />
-      <SelectFolderHeading color='#0b69ff' fontSize='16px' width='363px'>
+      <SelectFolderHeading color='#0b69ff' fontSize='15px' width='363px'>
          {url}
       </SelectFolderHeading>
+      <ButtonContainer>
+         <ButtonInReviewPage>
+            {PlatFormReviewFirstPageConstants.buttonText}
+         </ButtonInReviewPage>
+      </ButtonContainer>
    </PlatFormReviewFirstPageContanier>
 )
 export default PlatFormReviewFirstPage
