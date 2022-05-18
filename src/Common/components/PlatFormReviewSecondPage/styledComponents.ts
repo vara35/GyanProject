@@ -27,3 +27,10 @@ export const TendingTextEle = styled.h2`
 export const IconAndCommentsInSecondPage = styled.div`
    ${tw`flex flex-row justify-end items-center`}
 `
+
+export const ProvideFlexForIcons = styled.div`
+   ${props =>
+      props.isShow
+         ? tw`flex flex-col justify-between`
+         : tw`flex flex-row justify-between items-center`}
+`

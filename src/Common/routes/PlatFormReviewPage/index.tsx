@@ -5,8 +5,8 @@ import { PlatFormReviewPageContainer } from './styledComponents'
 
 const PlatFormReviewPage = () => (
    <PlatFormReviewPageContainer>
-      <PlatFormReviewFirstPage />
-      <PlatFormReviewSecondPage />
+      <PlatFormReviewFirstPage isShow={false} />
+      <PlatFormReviewSecondPage isShow={false} />
    </PlatFormReviewPageContainer>
 )
 export default PlatFormReviewPage

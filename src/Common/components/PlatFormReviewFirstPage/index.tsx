@@ -84,64 +84,83 @@ const showAuthor = () => (
    </>
 )
 
-const check = true
+interface PlatFormReviewFirstPageProps {
+   isShow: boolean
+}
 
-const PlatFormReviewFirstPage = () => (
-   <PlatFormReviewFirstPageContanier>
-      <ReminderContainer>
+const PlatFormReviewFirstPage = (props: PlatFormReviewFirstPageProps) => {
+   const { isShow } = props
+   return (
+      <PlatFormReviewFirstPageContanier>
+         {isShow && (
+            <ReminderContainer>
+               <ProvideSpaceBetween>
+                  <ImageBasedComponents
+                     imageUrl={reminderUrl.url1}
+                     height='24px'
+                  />
+                  <SelectFolderHeading
+                     color='#ffb800'
+                     fontSize='16px'
+                     width='424px'
+                  >
+                     {reminderText}
+                  </SelectFolderHeading>
+                  <ImageBasedComponents
+                     imageUrl={reminderUrl.url2}
+                     height='16px'
+                  />
+               </ProvideSpaceBetween>
+            </ReminderContainer>
+         )}
          <ProvideSpaceBetween>
-            <ImageBasedComponents imageUrl={reminderUrl.url1} height='24px' />
-            <SelectFolderHeading color='#ffb800' fontSize='16px' width='424px'>
-               {reminderText}
-            </SelectFolderHeading>
-            <ImageBasedComponents imageUrl={reminderUrl.url2} height='16px' />
+            <BackTextEle>
+               {PlatFormReviewFirstPageConstants.backToHomepageText}
+            </BackTextEle>
+            <ElliseImage
+               src={PlatFormReviewFirstPageConstants.threeDotsImage}
+            />
          </ProvideSpaceBetween>
-      </ReminderContainer>
-      <ProvideSpaceBetween>
-         <BackTextEle>
-            {PlatFormReviewFirstPageConstants.backToHomepageText}
-         </BackTextEle>
-         <ElliseImage src={PlatFormReviewFirstPageConstants.threeDotsImage} />
-      </ProvideSpaceBetween>
-      <PlatFormFirstPageText>
-         {PlatFormReviewFirstPageConstants.headingText}
-      </PlatFormFirstPageText>
-      {check ? dateAndContent() : showAuthor()}
-      <PlatFormImage
-         src={PlatFormReviewFirstPageConstants.platFormMainImageUrl}
-      />
-      <ImageBottomTextEle color='#b5b7c4' fontSize='14px' width='220px'>
-         {PlatFormReviewFirstPageConstants.bottomText}
-      </ImageBottomTextEle>
-      <PlatFormText marginRight='10px' marginLeft='14px' color='#171f46'>
-         {PlatFormReviewFirstPageConstants.text2}
-      </PlatFormText>
-      <PlatFormMiddleContainer>
-         <ImageBottomTextEle color='#000000' fontSize='16px' width='317px'>
-            {PlatFormReviewFirstPageConstants.importentText}
+         <PlatFormFirstPageText>
+            {PlatFormReviewFirstPageConstants.headingText}
+         </PlatFormFirstPageText>
+         {isShow ? showAuthor() : dateAndContent()}
+         <PlatFormImage
+            src={PlatFormReviewFirstPageConstants.platFormMainImageUrl}
+         />
+         <ImageBottomTextEle color='#b5b7c4' fontSize='14px' width='220px'>
+            {PlatFormReviewFirstPageConstants.bottomText}
          </ImageBottomTextEle>
-         <ImageBottomTextEle color='' fontSize='14px' width='622px'>
-            {PlatFormReviewFirstPageConstants.importantDescri}
-         </ImageBottomTextEle>
-      </PlatFormMiddleContainer>
-      <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
-         {PlatFormReviewFirstPageConstants.text3}
-      </PlatFormText>
-      <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
-         {PlatFormReviewFirstPageConstants.text4}
-      </PlatFormText>
-      <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
-         {PlatFormReviewFirstPageConstants.text5}
-      </PlatFormText>
-      <SelectFolder />
-      <SelectFolderHeading color='#0b69ff' fontSize='15px' width='363px'>
-         {url}
-      </SelectFolderHeading>
-      <ButtonContainer>
-         <ButtonInReviewPage>
-            {PlatFormReviewFirstPageConstants.buttonText}
-         </ButtonInReviewPage>
-      </ButtonContainer>
-   </PlatFormReviewFirstPageContanier>
-)
+         <PlatFormText marginRight='10px' marginLeft='14px' color='#171f46'>
+            {PlatFormReviewFirstPageConstants.text2}
+         </PlatFormText>
+         <PlatFormMiddleContainer>
+            <ImageBottomTextEle color='#000000' fontSize='16px' width='317px'>
+               {PlatFormReviewFirstPageConstants.importentText}
+            </ImageBottomTextEle>
+            <ImageBottomTextEle color='' fontSize='14px' width='622px'>
+               {PlatFormReviewFirstPageConstants.importantDescri}
+            </ImageBottomTextEle>
+         </PlatFormMiddleContainer>
+         <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
+            {PlatFormReviewFirstPageConstants.text3}
+         </PlatFormText>
+         <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
+            {PlatFormReviewFirstPageConstants.text4}
+         </PlatFormText>
+         <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
+            {PlatFormReviewFirstPageConstants.text5}
+         </PlatFormText>
+         <SelectFolder />
+         <SelectFolderHeading color='#0b69ff' fontSize='15px' width='363px'>
+            {url}
+         </SelectFolderHeading>
+         <ButtonContainer>
+            <ButtonInReviewPage>
+               {PlatFormReviewFirstPageConstants.buttonText}
+            </ButtonInReviewPage>
+         </ButtonContainer>
+      </PlatFormReviewFirstPageContanier>
+   )
+}
 export default PlatFormReviewFirstPage
