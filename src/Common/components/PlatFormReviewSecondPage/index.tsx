@@ -98,7 +98,7 @@ const PlatFormReviewSecondPage = () => (
          {PlatFormReviewSecondPageProps.tendingText}
       </TendingTextEle>
       <PlatFormReviewSecondPageContainer
-         height='221px'
+         height='235px'
          width='264px'
          marginTop='12px'
       >
@@ -138,7 +138,7 @@ const PlatFormReviewSecondPage = () => (
       </PlatFormReviewSecondPageContainer>
 
       <PlatFormReviewSecondPageContainer
-         height='221px'
+         height='210px'
          width='264px'
          marginTop='12px'
       >

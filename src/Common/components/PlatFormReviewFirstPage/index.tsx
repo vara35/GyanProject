@@ -4,12 +4,13 @@ import SelectFolder from '../SelectFolder'
 import { ElliseImage } from '../ArticleProfile/styledComponents'
 import {
    ButtonContainer,
-   ButtonInTopComponent,
+   ProvideFlex,
    ProvideSpaceBetween
 } from '../HomeScreenTopComponent/styledComponents'
 import { Date } from '../ImageAndDate/styledComponents'
 
 import { SelectFolderHeading } from '../SelectFolder/styledComponents'
+import ImageBasedComponents from '../ImageBasedComponents'
 import {
    PlatFormReviewFirstPageContanier,
    BackTextEle,
@@ -18,7 +19,8 @@ import {
    PlatFormImage,
    ImageBottomTextEle,
    PlatFormMiddleContainer,
-   ButtonInReviewPage
+   ButtonInReviewPage,
+   ReminderContainer
 } from './styledComponents'
 
 const PlatFormReviewFirstPageConstants = {
@@ -43,9 +45,58 @@ const PlatFormReviewFirstPageConstants = {
 }
 
 const url = 'https://en.m.wikipedia.org/wiki/Observer_pattern'
+const authorName = 'Author'
+const authoroName1 = 'Dove Fedrick'
+
+const devFabrickUrl =
+   'https://res.cloudinary.com/image-link-getter/image/upload/v1652789866/Dovefedrick_2_3x_as5uso.png'
+
+const reminderUrl = {
+   url1:
+      'https://res.cloudinary.com/image-link-getter/image/upload/v1652874707/Inbox_3x_h95jfl.png',
+   url2:
+      'https://res.cloudinary.com/image-link-getter/image/upload/v1652874699/Close_-_16px_xtohhz.svg'
+}
+
+const reminderText = 'The updating articale along with updated feature'
+
+const dateAndContent = () => (
+   <>
+      <Date>{PlatFormReviewFirstPageConstants.dateText}</Date>
+      <Tag marginTop='2px' />
+      <PlatFormText marginRight='10px' marginLeft='14px' color='#171f46'>
+         {PlatFormReviewFirstPageConstants.text1}
+      </PlatFormText>
+   </>
+)
+
+const showAuthor = () => (
+   <>
+      <SelectFolderHeading color='#7e858e' fontSize='12px' width='56px'>
+         {authorName}
+      </SelectFolderHeading>
+      <ProvideFlex>
+         <ImageBasedComponents imageUrl={devFabrickUrl} height='32px' />
+         <SelectFolderHeading color='#7e858e' fontSize='14px' width='83px'>
+            {authoroName1}
+         </SelectFolderHeading>
+      </ProvideFlex>
+   </>
+)
+
+const check = true
 
 const PlatFormReviewFirstPage = () => (
    <PlatFormReviewFirstPageContanier>
+      <ReminderContainer>
+         <ProvideSpaceBetween>
+            <ImageBasedComponents imageUrl={reminderUrl.url1} height='24px' />
+            <SelectFolderHeading color='#ffb800' fontSize='16px' width='424px'>
+               {reminderText}
+            </SelectFolderHeading>
+            <ImageBasedComponents imageUrl={reminderUrl.url2} height='16px' />
+         </ProvideSpaceBetween>
+      </ReminderContainer>
       <ProvideSpaceBetween>
          <BackTextEle>
             {PlatFormReviewFirstPageConstants.backToHomepageText}
@@ -55,11 +106,7 @@ const PlatFormReviewFirstPage = () => (
       <PlatFormFirstPageText>
          {PlatFormReviewFirstPageConstants.headingText}
       </PlatFormFirstPageText>
-      <Date>{PlatFormReviewFirstPageConstants.dateText}</Date>
-      <Tag marginTop='2px' />
-      <PlatFormText marginRight='10px' marginLeft='14px' color='#171f46'>
-         {PlatFormReviewFirstPageConstants.text1}
-      </PlatFormText>
+      {check ? dateAndContent() : showAuthor()}
       <PlatFormImage
          src={PlatFormReviewFirstPageConstants.platFormMainImageUrl}
       />

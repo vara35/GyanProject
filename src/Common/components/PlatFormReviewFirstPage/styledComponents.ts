@@ -67,3 +67,14 @@ export const ButtonInReviewPage = styled.button`
    background-color: #0b69ff;
    color: #ffffff;
 `
+
+export const ReminderContainer = styled.div`
+   ${tw``}
+   width: 552px;
+   height: 56px;
+   margin: 0 0 24px 80px;
+   padding: 16px 24px;
+   border-radius: 4px;
+   border: solid 1px #ffb800;
+   background-color: #fff8e6;
+`
