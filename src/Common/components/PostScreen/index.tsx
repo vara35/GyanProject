@@ -2,7 +2,7 @@ import PlatFormReviewFirstPage from '../PlatFormReviewFirstPage'
 
 const PostScreen = () => (
    <>
-      <PlatFormReviewFirstPage isShow={false} />
+      <PlatFormReviewFirstPage isShow={true} width='768px' height='1925px' />
    </>
 )
 

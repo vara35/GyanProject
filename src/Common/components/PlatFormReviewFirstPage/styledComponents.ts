@@ -3,12 +3,12 @@ import styled from 'styled-components'
 
 export const PlatFormReviewFirstPageContanier = styled.div`
    ${tw`mt-6 mr-10 ml-12 pt-6 pr-12 pl-12 `}
-   width: 768px;
-   height: 1651px;
    margin-bottom: 262px;
    padding-bottom: 178px;
    border: solid 1px #d7dfe9;
    background-color: #ffffff;
+   height: ${props => props.height};
+   width: ${props => props.width};
 `
 export const BackTextEle = styled.p`
    ${tw`font-sans ml-1 h-4 text-xs`}
@@ -44,7 +44,8 @@ export const ImageBottomTextEle = styled.p`
    line-height: 1.71;
    width: ${props => props.width};
    font-size: ${props => props.fontSize};
-
+   margin-top: ${props => props.marginTop};
+   margin-bottom: ${props => props.marginBottom};
    color: ${props => props.color};
 `
 
@@ -58,9 +59,8 @@ export const PlatFormMiddleContainer = styled.div`
 `
 
 export const ButtonInReviewPage = styled.button`
-   ${tw``}
+   ${tw`h-10`}
    width: 70px;
-   height: 40px;
    margin: 34px 39px 0 85px;
    padding: 8px 20px;
    border-radius: 4px;
@@ -77,4 +77,11 @@ export const ReminderContainer = styled.div`
    border-radius: 4px;
    border: solid 1px #ffb800;
    background-color: #fff8e6;
+`
+
+export const HrLineInPatFormPage = styled.div`
+   ${tw`mt-6 mr-2 mb-6 ml-0`}
+   width: 672px;
+   height: 1px;
+   background-color: #d7dfe9;
 `

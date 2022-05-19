@@ -15,7 +15,7 @@ import HomeScreen from './HomeScreen'
 import PlatFormDomainPage from './PlatFormDomainPage'
 import CreatePage from './CreatePage'
 import PlatFormReviewPage from './PlatFormReviewPage'
-import PostScreen from './PostScreenComponent'
+import PostScreenComponent from './PostScreenComponent'
 export const routes = (): React.ReactElement => (
    <Router>
       <Switch>
@@ -34,7 +34,7 @@ export const routes = (): React.ReactElement => (
             path='/platformreviewpage'
             component={PlatFormReviewPage}
          />
-         <Route exact path='/postscreen' component={PostScreen} />
+         <Route exact path='/postscreen' component={PostScreenComponent} />
 
          <Route path='/counter' component={CounterWithToast} />
          <Route

@@ -1,5 +1,10 @@
 import Tag from '../ArticleTag'
 import SelectFolder from '../SelectFolder'
+import InputBarComponenent from '../BottomInputBar'
+import ProfileWithHeartIcon from '../ProfileWithHeartIcon'
+
+import { SecondContent, SeeAllNames } from '../ArticleSection/styledComponents'
+import { HeadingAndTagsContainer } from '../HeadingAndTags/styledComponents'
 
 import { ElliseImage } from '../ArticleProfile/styledComponents'
 import {
@@ -11,6 +16,7 @@ import { Date } from '../ImageAndDate/styledComponents'
 
 import { SelectFolderHeading } from '../SelectFolder/styledComponents'
 import ImageBasedComponents from '../ImageBasedComponents'
+import HrLine from '../HorizontalLine'
 import {
    PlatFormReviewFirstPageContanier,
    BackTextEle,
@@ -20,7 +26,8 @@ import {
    ImageBottomTextEle,
    PlatFormMiddleContainer,
    ButtonInReviewPage,
-   ReminderContainer
+   ReminderContainer,
+   HrLineInPatFormPage
 } from './styledComponents'
 
 const PlatFormReviewFirstPageConstants = {
@@ -60,6 +67,20 @@ const reminderUrl = {
 
 const reminderText = 'The updating articale along with updated feature'
 
+const ProfilewithEllipseImage = {
+   url:
+      'https://res.cloudinary.com/image-link-getter/image/upload/v1647793795/Screenshot_2022-03-20_215818_ec0cww.png'
+}
+
+const HeartsCountNumber = 4
+
+const SecondContentText = `I’m usually optimistic about it. And these difficult times just
+   helped me reinforce that! I’m not sure if it’s the same for all the
+   tech companies, but it seems to me that tech companies were little
+   affected by all this.`
+
+const seeAllText = 'See all comments'
+
 const dateAndContent = () => (
    <>
       <Date>{PlatFormReviewFirstPageConstants.dateText}</Date>
@@ -86,12 +107,14 @@ const showAuthor = () => (
 
 interface PlatFormReviewFirstPageProps {
    isShow: boolean
+   width?: string
+   height?: string
 }
 
 const PlatFormReviewFirstPage = (props: PlatFormReviewFirstPageProps) => {
-   const { isShow } = props
+   const { isShow, width = '768px', height = '1651px' } = props
    return (
-      <PlatFormReviewFirstPageContanier>
+      <PlatFormReviewFirstPageContanier width={width} height={height}>
          {isShow && (
             <ReminderContainer>
                <ProvideSpaceBetween>
@@ -128,9 +151,11 @@ const PlatFormReviewFirstPage = (props: PlatFormReviewFirstPageProps) => {
          <PlatFormImage
             src={PlatFormReviewFirstPageConstants.platFormMainImageUrl}
          />
-         <ImageBottomTextEle color='#b5b7c4' fontSize='14px' width='220px'>
-            {PlatFormReviewFirstPageConstants.bottomText}
-         </ImageBottomTextEle>
+         {!isShow && (
+            <ImageBottomTextEle color='#b5b7c4' fontSize='14px' width='220px'>
+               {PlatFormReviewFirstPageConstants.bottomText}
+            </ImageBottomTextEle>
+         )}
          <PlatFormText marginRight='10px' marginLeft='14px' color='#171f46'>
             {PlatFormReviewFirstPageConstants.text2}
          </PlatFormText>
@@ -145,6 +170,17 @@ const PlatFormReviewFirstPage = (props: PlatFormReviewFirstPageProps) => {
          <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
             {PlatFormReviewFirstPageConstants.text3}
          </PlatFormText>
+         {isShow && (
+            <ImageBottomTextEle
+               color='#b5b7c4'
+               fontSize='14px'
+               width='220px'
+               marginTop='41px'
+               marginBottom='39px'
+            >
+               {PlatFormReviewFirstPageConstants.bottomText}
+            </ImageBottomTextEle>
+         )}
          <PlatFormText marginRight='16px' marginLeft='16px' color='#171f46'>
             {PlatFormReviewFirstPageConstants.text4}
          </PlatFormText>
@@ -155,11 +191,32 @@ const PlatFormReviewFirstPage = (props: PlatFormReviewFirstPageProps) => {
          <SelectFolderHeading color='#0b69ff' fontSize='15px' width='363px'>
             {url}
          </SelectFolderHeading>
-         <ButtonContainer>
-            <ButtonInReviewPage>
-               {PlatFormReviewFirstPageConstants.buttonText}
-            </ButtonInReviewPage>
-         </ButtonContainer>
+         {!isShow && (
+            <ButtonContainer>
+               <ButtonInReviewPage>
+                  {PlatFormReviewFirstPageConstants.buttonText}
+               </ButtonInReviewPage>
+            </ButtonContainer>
+         )}
+
+         {isShow && (
+            <>
+               <HrLineInPatFormPage />
+               <HeadingAndTagsContainer>
+                  <ProfileWithHeartIcon
+                     Url={ProfilewithEllipseImage.url}
+                     Name='Ashoka T.'
+                     isHorizontal={true}
+                     HeartsCountNumber={HeartsCountNumber}
+                  />
+                  <HeadingAndTagsContainer>
+                     <SecondContent>{SecondContentText}</SecondContent>
+                     <SeeAllNames>{seeAllText}</SeeAllNames>
+                     <InputBarComponenent />
+                  </HeadingAndTagsContainer>
+               </HeadingAndTagsContainer>
+            </>
+         )}
       </PlatFormReviewFirstPageContanier>
    )
 }

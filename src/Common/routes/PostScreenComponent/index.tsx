@@ -1,12 +1,13 @@
 import PlatFormReviewFirstPage from '../../components/PlatFormReviewFirstPage'
 import PlatFormReviewSecondPage from '../../components/PlatFormReviewSecondPage'
+import PostScreen from '../../components/PostScreen'
 
 import { PlatFormReviewPageContainer } from '../PlatFormReviewPage/styledComponents'
 
-const PostScreen = () => (
+const PostScreenComponent = () => (
    <PlatFormReviewPageContainer>
-      <PlatFormReviewFirstPage isShow={true} />
+      <PostScreen />
       <PlatFormReviewSecondPage isShow={true} />
    </PlatFormReviewPageContainer>
 )
-export default PostScreen
+export default PostScreenComponent

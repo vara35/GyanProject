@@ -10,3 +10,7 @@ export const tailwindContainerCSS = styled.div`
    /* background: linear-gradient(#db00ff, #0047ff); */
    ${tw`h-40`}
 `
+
+export const ProvideFlexRow = styled.div`
+   ${tw`flex flex-row`}
+`
