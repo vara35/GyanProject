@@ -38,10 +38,66 @@ const heartImage =
 const folder =
    'https://res.cloudinary.com/image-link-getter/image/upload/v1652699131/Icon_3x_tct3fm.png'
 
-const PlatFormBottomComponent = () => (
-   <PlatFormBottomMainContainer>
-      <SeeAllNames>{PlatFormBottomComponentProps.seeAllText}</SeeAllNames>
-      <FirstUserContainer>
+interface PlatFormBottomComponentConstants {
+   isShow?: boolean
+}
+
+const PlatFormBottomComponent = (props: PlatFormBottomComponentConstants) => {
+   const { isShow } = props
+   return (
+      <PlatFormBottomMainContainer>
+         <SeeAllNames>{PlatFormBottomComponentProps.seeAllText}</SeeAllNames>
+         {isShow && (
+            <FirstUserContainer>
+               <ImageAndDate
+                  Url={PlatFormBottomComponentProps.user1Url}
+                  Name='Ashoka.T'
+                  isHorizontal={true}
+               />
+               <HeadingAndTagsContainer>
+                  <PlatFormBottomText>
+                     {PlatFormBottomComponentProps.text1}
+                  </PlatFormBottomText>
+                  <ProvideFlex>
+                     <CorrectLogoAndApproveText />
+                     <ProvideFlex>
+                        <HeartAndComments heartImage={heartImage} />
+                        <ImageBasedComponents height='16px' imageUrl={folder} />
+                     </ProvideFlex>
+                  </ProvideFlex>
+               </HeadingAndTagsContainer>
+               <HeadingAndTagsContainer>
+                  <SeeAllNames>
+                     {PlatFormBottomComponentProps.seeAllText}
+                  </SeeAllNames>
+               </HeadingAndTagsContainer>
+            </FirstUserContainer>
+         )}
+         <ImageAndDate
+            Url={PlatFormBottomComponentProps.user1Url}
+            Name='Ashoka.T'
+            isHorizontal={true}
+         />
+         <HeadingAndTagsContainer>
+            <SelectFolderHeading>
+               {PlatFormBottomComponentProps.text2}
+            </SelectFolderHeading>
+            <ImageContainer>
+               <ImageAndDate
+                  Url={PlatFormBottomComponentProps.user1Url}
+                  Name='Ashoka.T'
+                  isHorizontal={true}
+               />
+               <HeadingAndTagsContainer>
+                  <SelectFolderHeading>
+                     {PlatFormBottomComponentProps.text2}
+                  </SelectFolderHeading>
+                  <SeeAllNames>
+                     {PlatFormBottomComponentProps.seeAllText}
+                  </SeeAllNames>
+               </HeadingAndTagsContainer>
+            </ImageContainer>
+         </HeadingAndTagsContainer>
          <ImageAndDate
             Url={PlatFormBottomComponentProps.user1Url}
             Name='Ashoka.T'
@@ -49,71 +105,25 @@ const PlatFormBottomComponent = () => (
          />
          <HeadingAndTagsContainer>
             <PlatFormBottomText>
-               {PlatFormBottomComponentProps.text1}
+               {PlatFormBottomComponentProps.text3}
             </PlatFormBottomText>
-            <ProvideFlex>
-               <CorrectLogoAndApproveText />
-               <ProvideFlex>
-                  <HeartAndComments heartImage={heartImage} />
-                  <ImageBasedComponents height='16px' imageUrl={folder} />
-               </ProvideFlex>
-            </ProvideFlex>
          </HeadingAndTagsContainer>
+         <ButtonContainer>
+            <HeartAndComments heartImage={heartImage} />
+            <ImageBasedComponents height='16px' imageUrl={folder} />
+         </ButtonContainer>
+         <ImageAndDate
+            Url={PlatFormBottomComponentProps.user1Url}
+            Name='Ashoka.T'
+            isHorizontal={true}
+         />
          <HeadingAndTagsContainer>
-            <SeeAllNames>{PlatFormBottomComponentProps.seeAllText}</SeeAllNames>
+            <PlatFormBottomText>
+               {PlatFormBottomComponentProps.text3}
+            </PlatFormBottomText>
          </HeadingAndTagsContainer>
-      </FirstUserContainer>
-      <ImageAndDate
-         Url={PlatFormBottomComponentProps.user1Url}
-         Name='Ashoka.T'
-         isHorizontal={true}
-      />
-      <HeadingAndTagsContainer>
-         <SelectFolderHeading>
-            {PlatFormBottomComponentProps.text2}
-         </SelectFolderHeading>
-         <ImageContainer>
-            <ImageAndDate
-               Url={PlatFormBottomComponentProps.user1Url}
-               Name='Ashoka.T'
-               isHorizontal={true}
-            />
-            <HeadingAndTagsContainer>
-               <SelectFolderHeading>
-                  {PlatFormBottomComponentProps.text2}
-               </SelectFolderHeading>
-               <SeeAllNames>
-                  {PlatFormBottomComponentProps.seeAllText}
-               </SeeAllNames>
-            </HeadingAndTagsContainer>
-         </ImageContainer>
-      </HeadingAndTagsContainer>
-      <ImageAndDate
-         Url={PlatFormBottomComponentProps.user1Url}
-         Name='Ashoka.T'
-         isHorizontal={true}
-      />
-      <HeadingAndTagsContainer>
-         <PlatFormBottomText>
-            {PlatFormBottomComponentProps.text3}
-         </PlatFormBottomText>
-      </HeadingAndTagsContainer>
-      <ButtonContainer>
-         <HeartAndComments heartImage={heartImage} />
-         <ImageBasedComponents height='16px' imageUrl={folder} />
-      </ButtonContainer>
-      <ImageAndDate
-         Url={PlatFormBottomComponentProps.user1Url}
-         Name='Ashoka.T'
-         isHorizontal={true}
-      />
-      <HeadingAndTagsContainer>
-         <PlatFormBottomText>
-            {PlatFormBottomComponentProps.text3}
-         </PlatFormBottomText>
-      </HeadingAndTagsContainer>
-      <InputBarComponenent />
-   </PlatFormBottomMainContainer>
-)
-
+         <InputBarComponenent />
+      </PlatFormBottomMainContainer>
+   )
+}
 export default PlatFormBottomComponent

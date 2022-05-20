@@ -19,6 +19,7 @@ import PostScreenComponent from './PostScreenComponent'
 import CardsPage from './CardsPage'
 import PlatFormHomePage from './PlatFormHomePage'
 import SecondPlatFormReviewPage from './SecondPlatFormReviewPage'
+import PlatFormPageSingleEle from './PlatFormPageSingleLeftEle'
 export const routes = (): React.ReactElement => (
    <Router>
       <Switch>
@@ -39,11 +40,17 @@ export const routes = (): React.ReactElement => (
          />
          <Route exact path='/postscreen' component={PostScreenComponent} />
          <Route exact path='/cardspage' component={CardsPage} />
-         <Route path='/counter' component={CounterWithToast} />
-         <Route path='/platformhomepage' component={PlatFormHomePage} />
+         <Route exact path='/counter' component={CounterWithToast} />
+         <Route exact path='/platformhomepage' component={PlatFormHomePage} />
          <Route
+            exact
             path='/secondplatformreviewpage'
             component={SecondPlatFormReviewPage}
+         />
+         <Route
+            exact
+            path='/PlatFormPageSingleEle'
+            component={PlatFormPageSingleEle}
          />
          <Route
             path={NOT_FOUND_PAGE_PATH}

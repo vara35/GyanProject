@@ -7,7 +7,7 @@ import { CommonContainer } from '../../components/HomeScreenTopComponent/styledC
 import PlatFormBottomComponent from '../../components/PlatFormBottomComponent'
 import PlatFormReviewSecondPage from '../../components/PlatFormReviewSecondPage'
 
-const SecondPlatFormReviewPage = () => (
+const PlatFormPageSingleEle = () => (
    <>
       <ProvideFlexRow>
          <LeftMenu />
@@ -16,12 +16,11 @@ const SecondPlatFormReviewPage = () => (
             <ProvideFlexRow>
                <CommonContainer>
                   <PlatFormReviewFirstPage isShow={false} />
-                  <PlatFormBottomComponent isShow={true} />
+                  <PlatFormBottomComponent isShow={false} />
                </CommonContainer>
-               <PlatFormReviewSecondPage isShow={false} />
             </ProvideFlexRow>
          </CommonContainer>
       </ProvideFlexRow>
    </>
 )
-export default SecondPlatFormReviewPage
+export default PlatFormPageSingleEle
