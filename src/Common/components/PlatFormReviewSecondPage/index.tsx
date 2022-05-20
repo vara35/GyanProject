@@ -1,25 +1,19 @@
 import HeartAndComments from '../HeartAndComments'
 import ImageBasedComponents from '../ImageBasedComponents'
 import Tag from '../ArticleTag'
+import AuthorDetails from '../AuthorDetails'
 
-import { CommentsNumber } from '../HeartAndComments/styledComponents'
 import {
    CommonContainer,
-   ProvideFlex,
-   ProvideSpaceBetween
+   ProvideFlex
 } from '../HomeScreenTopComponent/styledComponents'
 import { SelectFolderHeading } from '../SelectFolder/styledComponents'
-import { ImageAndCommentsContainer } from '../IconsAndHeartAndComments/styledComponents'
 import {
    IconAndCommentsInSecondPage,
    PlatFormReviewSecondPageContainer,
    ProvideFlexForIcons,
-   SecondPageImage,
    TendingTextEle
 } from './styledComponents'
-
-const imageUrl =
-   'https://res.cloudinary.com/image-link-getter/image/upload/v1652865955/image_3x_u7tyks.png'
 
 const PlatFormReviewSecondPageProps = {
    heading: `Dove Fedrick`,
@@ -57,36 +51,7 @@ const PlatFormReviewSecondPage = (props: PlatFormReviewSecondPageProps) => {
 
    return (
       <CommonContainer>
-         <PlatFormReviewSecondPageContainer
-            height='394px'
-            width='264px'
-            PlatFormReviewSecondPageProps
-            marginTop='24px'
-         >
-            <SecondPageImage src={imageUrl} />
-            <SelectFolderHeading color='#000000' fontSize='16px' width='96px'>
-               {PlatFormReviewSecondPageProps.heading}
-            </SelectFolderHeading>
-            <SelectFolderHeading color='#7e858e' fontSize='12px' width='154px'>
-               {PlatFormReviewSecondPageProps.text1}
-            </SelectFolderHeading>
-            <SelectFolderHeading color='#000000' fontSize='14px' width='232px'>
-               {PlatFormReviewSecondPageProps.text2}
-            </SelectFolderHeading>
-            <ProvideSpaceBetween>
-               <CommonContainer>*</CommonContainer>
-               <SelectFolderHeading
-                  color='#0b69ff'
-                  fontSize='12px'
-                  width='110px'
-               >
-                  {PlatFormReviewSecondPageProps.text3}
-               </SelectFolderHeading>
-               <CommentsNumber color='#ff0b37' margin=''>
-                  {num}
-               </CommentsNumber>
-            </ProvideSpaceBetween>
-         </PlatFormReviewSecondPageContainer>
+         <AuthorDetails />
          <PlatFormReviewSecondPageContainer
             height={isHeight}
             width='265px'
