@@ -3,7 +3,7 @@ import {
    BottomContainer,
    CorrectLogo,
    DomainExpert
-} from '../ArticleSection/styledComponents'
+} from '../AllDomainsFirstComponent/styledComponents'
 
 const PlatFormDomainConstants = {
    correctIcon:

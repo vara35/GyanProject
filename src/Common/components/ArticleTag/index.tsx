@@ -1,4 +1,4 @@
-import { GetTagsInRow } from '../ArticleSection/styledComponents'
+import { GetTagsInRow } from '../AllDomainsFirstComponent/styledComponents'
 import { TagContainer, TagName, TagImage } from './styledComponents'
 
 const ArticleTag = {

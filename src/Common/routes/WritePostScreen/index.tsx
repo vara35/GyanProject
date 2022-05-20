@@ -1,8 +1,8 @@
-import WritePostScreenComponent from '../../components/WritePostScreen'
+import WritePostPlainScreenComponents from '../../components/WritePostPlainScreen'
 import Header from '../../components/Header'
 import LeftMenu from '../../components/LeftMenu'
 
-import { ProvideFlexRow } from '../Home/styledComponents'
+import { ProvideFlexRow } from '../AllDomainsPage/styledComponents'
 import { CommonContainer } from '../../components/HomeScreenTopComponent/styledComponents'
 
 const WritePostScreen = () => (
@@ -11,10 +11,9 @@ const WritePostScreen = () => (
          <LeftMenu />
          <CommonContainer>
             <Header />
-            <WritePostScreenComponent />
+            <WritePostPlainScreenComponents />
          </CommonContainer>
       </ProvideFlexRow>
    </>
 )
-
 export default WritePostScreen

@@ -1,6 +1,6 @@
 import ProfilewithEllipse from '../ArticleProfile'
 import InputBarComponenent from '../BottomInputBar'
-import Linebreak from '../HorizontalLine/'
+import Linebreak from '../HorizontalLine'
 import HeadingAndTags from '../HeadingAndTags'
 import ImageAndDate from '../ImageAndDate'
 import ProfileWithHeartIcon from '../ProfileWithHeartIcon'

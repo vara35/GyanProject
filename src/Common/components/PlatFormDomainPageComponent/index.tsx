@@ -18,7 +18,7 @@ import {
    CorrectLogo,
    DomainExpert,
    SeeAllNames
-} from '../ArticleSection/styledComponents'
+} from '../AllDomainsFirstComponent/styledComponents'
 import {
    HeadingAndTagsContainer,
    WhatIsZeroHeading

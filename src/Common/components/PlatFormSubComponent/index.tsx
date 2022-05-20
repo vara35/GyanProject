@@ -6,7 +6,7 @@ import ImageAndDate from '../ImageAndDate'
 import ImageBasedComponents from '../ImageBasedComponents'
 import UxAndUiComponent from '../UxAndUiComponent'
 
-import { ContentBottomImage } from '../CommentsSection/styledComponents'
+import { ContentBottomImage } from '../AllDomainsSecondPage/styledComponents'
 import {
    HeadingAndTagsContainer,
    WhatIsZeroHeading

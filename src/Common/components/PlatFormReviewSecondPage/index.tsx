@@ -44,7 +44,7 @@ interface PlatFormReviewSecondPageProps {
    isShow: boolean
 }
 
-const PlatFormReviewSecondPage = (props: PlatFormReviewSecondPageProps) => {
+const PlatFormReview = (props: PlatFormReviewSecondPageProps) => {
    const { isShow } = props
    const isHeight = isShow ? '127px' : '92px'
    const marginTop = isShow ? '88px' : '27px'
@@ -188,4 +188,4 @@ const PlatFormReviewSecondPage = (props: PlatFormReviewSecondPageProps) => {
    )
 }
 
-export default PlatFormReviewSecondPage
+export default PlatFormReview

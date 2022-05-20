@@ -4,13 +4,13 @@ import PlatFormReviewFirstPage from '../../components/PlatFormReviewFirstPage'
 import PlatFormBottomComponent from '../../components/PlatFormBottomComponent'
 import AuthorDetails from '../../components/AuthorDetails'
 
-import { ProvideFlexRow } from '../Home/styledComponents'
+import { ProvideFlexRow } from '../AllDomainsPage/styledComponents'
 import { CommonContainer } from '../../components/HomeScreenTopComponent/styledComponents'
 import { ButtonElement } from './styledComponents'
 
 const acceptText = 'Accept'
 
-const PlatFormPageSingleEle = () => (
+const PlatFormReviewPageSecond = () => (
    <>
       <ProvideFlexRow>
          <LeftMenu />
@@ -43,4 +43,4 @@ const PlatFormPageSingleEle = () => (
       </ProvideFlexRow>
    </>
 )
-export default PlatFormPageSingleEle
+export default PlatFormReviewPageSecond

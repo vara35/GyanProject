@@ -8,26 +8,41 @@ import {
 import PageNotFound404 from '../components/PageNotFound404'
 
 import CounterWithToast from './CounterWithToast'
-import Home from './Home'
-import WritePostScreen from './WritePostScreen'
-import WritePlainScreen from './WritePostPlainScreen'
-import HomeScreen from './HomeScreen'
-import PlatFormDomainPage from './PlatFormDomainPage'
-import CreatePage from './CreatePage'
-import PlatFormReviewPage from './PlatFormReviewPage'
-import PostScreenComponent from './PostScreenComponent'
 import CardsPage from './CardsPage'
-import PlatFormHomePage from './PlatFormHomePage'
+
+import AllDomainsPage from './AllDomainsPage'
+import PostScreen from './PostScreen'
+import CreatingCreatePostPage from './CreatingCreatePostPage'
 import SecondPlatFormReviewPage from './SecondPlatFormReviewPage'
-import PlatFormPageSingleEle from './PlatFormPageSingleLeftEle'
+import PlatFormHomePage from './PlatFormHomePage'
+import SecondPlatFormPostPage from './SecondPlatFormPostPage'
+import PlatFormReviewPageSecond from './PlatFormReviewPageSecond'
+import WritePostTextEnterScreen from './WritePostTextEnterScreen'
+import PlatFormDomainPage from './PlatFormDomainPage'
+import HomeScreen from './HomeScreen'
+import PostScreenComponent from './PostScreenComponent'
+import PostScreenPage from './PostScreen'
 export const routes = (): React.ReactElement => (
    <Router>
       <Switch>
-         <Route exact path='/' component={Home} />
-         <Route exact path='/writepostscreen' component={WritePostScreen} />
-         <Route exact path='/writeplainscreen' component={WritePlainScreen} />
+         <Route exact path='/alldomainspage' component={AllDomainsPage} />
+         <Route
+            exact
+            path='/PostScreenComponent'
+            component={PostScreenComponent}
+         />
+         <Route
+            exact
+            path='/writeposttextenterscreen'
+            component={WritePostTextEnterScreen}
+         />
+         <Route exact path='/PostScreenPage' component={PostScreenPage} />
          <Route exact path='/homescreen' component={HomeScreen} />
-         <Route exact path='/createpage' component={CreatePage} />
+         <Route
+            exact
+            path='/creatingcreatepostpage'
+            component={CreatingCreatePostPage}
+         />
          <Route
             exact
             path='/platformdomainpage'
@@ -35,10 +50,10 @@ export const routes = (): React.ReactElement => (
          />
          <Route
             exact
-            path='/platformreviewpage'
-            component={PlatFormReviewPage}
+            path='/SecondPlatFormPostPage'
+            component={SecondPlatFormPostPage}
          />
-         <Route exact path='/postscreen' component={PostScreenComponent} />
+         <Route exact path='/postscreen' component={PostScreen} />
          <Route exact path='/cardspage' component={CardsPage} />
          <Route exact path='/counter' component={CounterWithToast} />
          <Route exact path='/platformhomepage' component={PlatFormHomePage} />
@@ -49,8 +64,8 @@ export const routes = (): React.ReactElement => (
          />
          <Route
             exact
-            path='/PlatFormPageSingleEle'
-            component={PlatFormPageSingleEle}
+            path='/platformreviewpagesecond'
+            component={PlatFormReviewPageSecond}
          />
          <Route
             path={NOT_FOUND_PAGE_PATH}

@@ -7,7 +7,7 @@ import { ProvideFlexRow } from '../AllDomainsPage/styledComponents'
 import { CommonContainer } from '../../components/HomeScreenTopComponent/styledComponents'
 import { PlatFormReviewPageContainer } from '../SecondPlatFormPostPage/styledComponents'
 
-const PostScreenComponent = () => (
+const PostScreenPage = () => (
    <>
       <ProvideFlexRow>
          <LeftMenu />
@@ -23,4 +23,4 @@ const PostScreenComponent = () => (
       </ProvideFlexRow>
    </>
 )
-export default PostScreenComponent
+export default PostScreenPage

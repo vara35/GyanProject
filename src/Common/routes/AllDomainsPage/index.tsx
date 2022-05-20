@@ -1,12 +1,12 @@
-import ArticleComponent from '../../components/ArticleSection'
-import CommentsComponents from '../../components/CommentsSection'
+import ArticleComponent from '../../components/AllDomainsFirstComponent'
+import CommentsComponents from '../../components/AllDomainsSecondPage'
 import Header from '../../components/Header'
 import LeftMenu from '../../components/LeftMenu'
 
 import { CommonContainer } from '../../components/HomeScreenTopComponent/styledComponents'
 import { ProvideFlexRow } from './styledComponents'
 
-const Home = () => (
+const AllDomainsPage = () => (
    <ProvideFlexRow>
       <LeftMenu />
       <CommonContainer>
@@ -17,4 +17,4 @@ const Home = () => (
    </ProvideFlexRow>
 )
 
-export default Home
+export default AllDomainsPage

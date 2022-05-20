@@ -3,7 +3,10 @@ import SelectFolder from '../SelectFolder'
 import InputBarComponenent from '../BottomInputBar'
 import ProfileWithHeartIcon from '../ProfileWithHeartIcon'
 
-import { SecondContent, SeeAllNames } from '../ArticleSection/styledComponents'
+import {
+   SecondContent,
+   SeeAllNames
+} from '../AllDomainsFirstComponent/styledComponents'
 import { HeadingAndTagsContainer } from '../HeadingAndTags/styledComponents'
 
 import { ElliseImage } from '../ArticleProfile/styledComponents'

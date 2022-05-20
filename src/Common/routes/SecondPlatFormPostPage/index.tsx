@@ -1,13 +1,13 @@
 import PlatFormReviewFirstPage from '../../components/PlatFormReviewFirstPage'
-import PlatFormReviewSecondPage from '../../components/PlatFormReviewSecondPage'
+import PlatFormReview from '../../components/PlatFormReviewSecondPage'
 import Header from '../../components/Header'
 import LeftMenu from '../../components/LeftMenu'
 
-import { ProvideFlexRow } from '../Home/styledComponents'
+import { ProvideFlexRow } from '../AllDomainsPage/styledComponents'
 import { CommonContainer } from '../../components/HomeScreenTopComponent/styledComponents'
 import { PlatFormReviewPageContainer } from './styledComponents'
 
-const PlatFormReviewPage = () => (
+const SecondPlatFormPostPage = () => (
    <>
       <ProvideFlexRow>
          <LeftMenu />
@@ -16,11 +16,11 @@ const PlatFormReviewPage = () => (
             <>
                <PlatFormReviewPageContainer>
                   <PlatFormReviewFirstPage isShow={false} />
-                  <PlatFormReviewSecondPage isShow={false} />
+                  <PlatFormReview isShow={false} />
                </PlatFormReviewPageContainer>
             </>
          </CommonContainer>
       </ProvideFlexRow>
    </>
 )
-export default PlatFormReviewPage
+export default SecondPlatFormPostPage

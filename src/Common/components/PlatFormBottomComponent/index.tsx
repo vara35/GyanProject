@@ -4,7 +4,7 @@ import ImageAndDate from '../ImageAndDate'
 import {
    BottomContainer,
    SeeAllNames
-} from '../ArticleSection/styledComponents'
+} from '../AllDomainsFirstComponent/styledComponents'
 import { HeadingAndTagsContainer } from '../HeadingAndTags/styledComponents'
 import HeartAndComments from '../HeartAndComments'
 import {
