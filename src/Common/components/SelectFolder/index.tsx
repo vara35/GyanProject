@@ -2,11 +2,11 @@ import ImageBasedComponents from '../ImageBasedComponents'
 
 import { ElliseImage } from '../ArticleProfile/styledComponents'
 import { CommonContainer } from '../HomeScreenTopComponent/styledComponents'
-import { ImageBottomTextEle } from '../PlatFormReviewFirstPage/styledComponents'
 import {
    SelectFolderMainContainer,
-   SelectFolderHeading
+   SelectFolderHeadingForFolder
 } from './styledComponents'
+
 const url =
    'https://res.cloudinary.com/image-link-getter/image/upload/v1652858480/Icon_3x_pusrry.png'
 const text1 = 'Death Star original maps and blueprint.pdf'
@@ -18,12 +18,20 @@ const SelectFolder = () => (
    <SelectFolderMainContainer>
       <ImageBasedComponents imageUrl={url} height='30px' />
       <CommonContainer>
-         <SelectFolderHeading color='#171f46' fontSize='12px' width='396px'>
+         <SelectFolderHeadingForFolder
+            color='#171f46'
+            fontSize='12px'
+            width='396px'
+         >
             {text1}
-         </SelectFolderHeading>
-         <SelectFolderHeading color='#7e858e' fontSize='12px' width='217px'>
+         </SelectFolderHeadingForFolder>
+         <SelectFolderHeadingForFolder
+            color='#7e858e'
+            fontSize='12px'
+            width='217px'
+         >
             {text2}
-         </SelectFolderHeading>
+         </SelectFolderHeadingForFolder>
       </CommonContainer>
       <ElliseImage src={threeDotsImage} />
    </SelectFolderMainContainer>

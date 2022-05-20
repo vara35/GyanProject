@@ -11,9 +11,8 @@ export const PlatFormReviewSecondPageContainer = styled.div`
    width: ${props => props.width};
 `
 export const SecondPageImage = styled.img`
-   ${tw`p-4 rounded mt-0 mr-0 mb-3 ml-0`}
+   ${tw`rounded mt-0 mr-0 mb-3 ml-0`}
    width: 232px;
-   height: 144px;
    border-radius: 4px;
 `
 
