@@ -50,12 +50,11 @@ export const ImageBottomTextEle = styled.p`
 `
 
 export const PlatFormMiddleContainer = styled.div`
-   ${tw``}
+   ${tw`p-6`}
    width: 672px;
    height: 128px;
    opacity: 0.16;
    background-color: #d7dfe9;
-   margin-top: 24px;
 `
 
 export const ButtonInReviewPage = styled.button`
@@ -69,12 +68,10 @@ export const ButtonInReviewPage = styled.button`
 `
 
 export const ReminderContainer = styled.div`
-   ${tw``}
+   ${tw`rounded mt-0 mr-0 mb-6 ml-20`}
    width: 552px;
    height: 56px;
-   margin: 0 0 24px 80px;
    padding: 16px 24px;
-   border-radius: 4px;
    border: solid 1px #ffb800;
    background-color: #fff8e6;
 `
