@@ -1,22 +1,23 @@
-import CreatePageComponent from '../../components/CreatePageComponent'
+import ArticleComponent from '../../components/ArticleSection'
+import CommentsComponents from '../../components/CommentsSection'
 import Header from '../../components/Header'
 import LeftMenu from '../../components/LeftMenu'
 
 import { ProvideFlexRow } from '../Home/styledComponents'
 import { CommonContainer } from '../../components/HomeScreenTopComponent/styledComponents'
 
-const CreatePage = () => (
+const PlatFormHomePage = () => (
    <>
       <ProvideFlexRow>
          <LeftMenu />
          <CommonContainer>
             <Header />
             <>
-               <CreatePageComponent />
+               <ArticleComponent />
+               <CommentsComponents />
             </>
          </CommonContainer>
       </ProvideFlexRow>
    </>
 )
-
-export default CreatePage
+export default PlatFormHomePage

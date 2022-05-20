@@ -1,4 +1,8 @@
 import HomeScreenTopComponent from '../HomeScreenTopComponent'
+import PlatFormDomainMiddleContainer from '../PlatFormDomainMiddlePage'
+
+import PlatFormSubComponent from '../PlatFormSubComponent'
+
 import ImageAndDate from '../ImageAndDate'
 import UxAndUiComponent from '../UxAndUiComponent'
 import Tag from '../ArticleTag'
@@ -10,7 +14,6 @@ import {
 } from '../HomeScreenTopComponent/styledComponents'
 import {
    AppoveText,
-   ArticleComponentMainPage,
    BottomContainer,
    CorrectLogo,
    DomainExpert,
@@ -24,7 +27,6 @@ import HeartAndComments from '../HeartAndComments'
 import ImageBasedComponents from '../ImageBasedComponents'
 import { CommentsText } from '../IconsAndHeartAndComments/styledComponents'
 import InputBarComponenent from '../BottomInputBar'
-import PlatFormSubComponent from '../PlatFormSubComponent'
 import {
    PlatFormDomainPageComponentContainer,
    PlatFormText,
@@ -51,6 +53,7 @@ const PlatFormDomainConstants = {
    domainText: 'Ana Arubia (UI/UX Domain Expert)',
    seeAllText: 'See all comments'
 }
+
 const PlatFormDomainPageComponent = () => (
    <>
       <HomeScreenTopComponent />
@@ -86,36 +89,7 @@ const PlatFormDomainPageComponent = () => (
             </ProvideSpaceBetweenForPlatFormPage>
          </HeadingAndTagsContainer>
          <HrLine />
-         <ImageAndDate
-            Url={PlatFormDomainConstants.url2}
-            Name='Augusto Cesar .'
-            isHorizontal={true}
-         />
-         <HeadingAndTagsContainer>
-            <PlatFormText>
-               {PlatFormDomainConstants.platFormContex1}
-            </PlatFormText>
-            <ProvideSpaceBetween>
-               <BottomContainer>
-                  <CorrectLogo src={PlatFormDomainConstants.correctIcon} />
-                  <AppoveText>
-                     {PlatFormDomainConstants.approvedText}
-                  </AppoveText>
-                  <DomainExpert>
-                     {PlatFormDomainConstants.domainText}
-                  </DomainExpert>
-               </BottomContainer>
-               <ProvideFlex>
-                  <HeartAndComments heartImage={PlatFormDomainConstants.url3} />
-                  <ImageBasedComponents
-                     imageUrl={PlatFormDomainConstants.url4}
-                     height='15px'
-                     margin='16px'
-                  />
-                  <CommentsText>{PlatFormDomainConstants.comNum}</CommentsText>
-               </ProvideFlex>
-            </ProvideSpaceBetween>
-         </HeadingAndTagsContainer>
+         <PlatFormDomainMiddleContainer />
          <ImageAndDate
             Url={PlatFormDomainConstants.url2}
             Name='Augusto Cesar .'
@@ -129,7 +103,6 @@ const PlatFormDomainPageComponent = () => (
             <InputBarComponenent />
          </HeadingAndTagsContainer>
       </PlatFormDomainPageComponentContainer>
-
       <PlatFormSubComponent />
    </>
 )

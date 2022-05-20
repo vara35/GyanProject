@@ -5,7 +5,7 @@ export const DomainNameList = styled.li`
    display: flex;
    justify-content: space-between;
    align-items: center;
-   margin: 0;
+   margin: 0px;
 `
 export const ListDescription = styled.p`
   font-family: "Roboto";
@@ -16,7 +16,8 @@ export const ListDescription = styled.p`
   line-height: 0.1;
   letter-spacing: normal;
   color: #171f46 ;
-  margin-top:0;
+  margin-top:10px;
+  
 }
 `
 export const SuggestListButton = styled.button`

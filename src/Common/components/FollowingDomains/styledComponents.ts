@@ -4,15 +4,14 @@ export const DomainNameList = styled.li`
    list-style-type: none;
 `
 export const ListDescription = styled.p`
- font-family: "Roboto";
+  width: 100px;
+  height: 24px;
+  margin: 8px 64px 8px 0px;
+  font-family: HKGrotesk;
   font-size: 14px;
-  height:15px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 0.1;
-  letter-spacing: normal;
-  color: #171f46 ;
-  margin-top:0;
+  line-height: 1.71;
 }
 `

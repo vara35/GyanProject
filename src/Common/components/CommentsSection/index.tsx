@@ -3,13 +3,13 @@ import InputBarComponenent from '../BottomInputBar'
 import DescriptionOfComments from '../CommentsDescription'
 import Linebreak from '../HorizontalLine'
 import ProfileWithHeartIcon from '../ProfileWithHeartIcon'
+import IconsAndHeartAndComments from '../IconsAndHeartAndComments'
 
 import {
    HeadingAndTagsContainer,
    ImageAndCommentsContainerForalignSelf
 } from '../HeadingAndTags/styledComponents'
 import { GetTagInRow } from '../WritePostScreen/syledComponents'
-import IconsAndHeartAndComments from '../IconsAndHeartAndComments'
 import { MainContainer, ContentBottomImage } from './styledComponents'
 
 const profileObj = {

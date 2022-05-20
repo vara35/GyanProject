@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const PlatFormReviewFirstPageContanier = styled.div`
    ${tw`mt-6 mr-10 ml-12 pt-6 pr-12 pl-12 `}
-   margin-bottom: 262px;
+   margin-bottom: 0px;
    padding-bottom: 178px;
    border: solid 1px #d7dfe9;
    background-color: #ffffff;

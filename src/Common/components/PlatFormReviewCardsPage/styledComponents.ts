@@ -1,17 +1,36 @@
 import styled from 'styled-components'
 
+export const PlatformReviewMainContainer = styled.div`
+   min-height: 1024px;
+   background-color: #fbfbfb;
+   @media screen and (min-width: 767px) {
+      display: flex;
+   }
+`
+
 export const LeftMenuContainer = styled.div`
    width: 240px;
-   height: 2753px;
-   padding: 20px;
+   height: 1024px;
+   margin: 0 48px 0 0;
+   padding: 12px 1px 235px;
+   border: solid 1px #d7dfe9;
+   background-color: var(--white);
    @media screen and (min-width: 767px) {
       width: 25%;
       max-width: 250px;
       border-right: 1px solid #dedede;
    }
 `
+
+export const CardContainer = styled.div`
+   width: 100%;
+   background-color: #fbfbfb;
+`
 export const LeftContainerLogo = styled.img`
-   height: 60px;
+   width: 48px;
+   height: 48px;
+   margin: 0 95px 29px 23px;
+   object-fit: contain;
 `
 export const AllDomainDescription = styled.p`
    font-family: 'Roboto';
@@ -39,15 +58,11 @@ export const MenuUlElement = styled.ul`
    width: 100%;
    padding-left: 0;
 `
-export const YourPostContainer = styled.div`
+
+export const CardUlElement = styled.ul`
    display: flex;
-   align-items: center;
-`
-export const SpanElement = styled.span`
-   display: flex;
-   justify-content: center;
-   color: #0b69ff;
-   background-color: grey;
-   border-radius: 20px;
-   width: 20px;
+   flex-wrap: wrap;
+   width: 100%;
+   padding-left: 20px;
+   padding-right: 20px;
 `

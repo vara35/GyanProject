@@ -1,12 +1,22 @@
 import WritePostButton from '../WritePostBottomButton'
 
-import { TopicDescription } from '../WritePostPlainScreen/styledComponents'
+import CreatePageButtonText from '../CreatePageButtonText'
+import {
+   CommonContainer,
+   ProvideFlex
+} from '../HomeScreenTopComponent/styledComponents'
 import {
    Heading,
    WritePostMainContainer
 } from '../WritePostScreen/syledComponents'
-
-import { FirstMenu } from './styledComponents'
+import {
+   FirstMenu,
+   SecondMenu,
+   TopicDescriptionInCreatePage,
+   ThirdContainer,
+   SearchBar,
+   RecomdedEle
+} from './styledComponents'
 
 const names: Array<string> = [
    'Review',
@@ -20,11 +30,27 @@ const PlainScrenConstaints = {
    subtitle: 'Topic Description'
 }
 
+const recomendText = 'Recommended'
+
 const CreatePageComponent = () => (
    <WritePostMainContainer>
       <Heading>{PlainScrenConstaints.title}</Heading>
-      <TopicDescription>{PlainScrenConstaints.subtitle}</TopicDescription>
-      <FirstMenu>Hello</FirstMenu>
+      <TopicDescriptionInCreatePage>
+         {PlainScrenConstaints.subtitle}
+      </TopicDescriptionInCreatePage>
+      <ProvideFlex>
+         <CommonContainer>
+            <FirstMenu></FirstMenu>
+            <SecondMenu>
+               <SearchBar type='search' placeholder='Search' />
+               <RecomdedEle>{recomendText}</RecomdedEle>
+               <CreatePageButtonText boxField='3D Animation' />
+               <CreatePageButtonText boxField='Jabong' />
+               <CreatePageButtonText boxField='Artificial Intelligence.' />
+            </SecondMenu>
+         </CommonContainer>
+         <ThirdContainer>Ok</ThirdContainer>
+      </ProvideFlex>
       <WritePostButton names={names} bgColor={true} />
    </WritePostMainContainer>
 )

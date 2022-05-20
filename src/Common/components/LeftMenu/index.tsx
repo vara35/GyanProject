@@ -45,36 +45,63 @@ const suggestDomainNames = [
    }
 ]
 
+const LeftMenuConstants = {
+   allDomainsText: 'ALL DOMAINS',
+   followingDomainText: 'FOLLOWING DOMAIN',
+   seeAllText: 'See all',
+   suggestDomainText: 'SUGGEST DOMAIN',
+   myPostsText: 'MY POSTS',
+   number: 6
+}
+
+const LeftMenuUrl = {
+   ibHubsLogo:
+      'https://res.cloudinary.com/image-link-getter/image/upload/v1647758281/IB-Hubs_nbeuia.png',
+   capIconsLogo:
+      'https://res.cloudinary.com/image-link-getter/image/upload/v1647763451/Screenshot_2022-03-20_133349_xlarfw.png'
+}
+
 const LeftMenu = () => (
    <LeftMenuContainer>
-      <LeftContainerLogo src='https://res.cloudinary.com/image-link-getter/image/upload/v1647758281/IB-Hubs_nbeuia.png' />
-      <AllDomainDescription>ALL DOMAINS</AllDomainDescription>
+      <LeftContainerLogo src={LeftMenuUrl.ibHubsLogo} />
+      <AllDomainDescription>
+         {LeftMenuConstants.allDomainsText}
+      </AllDomainDescription>
       <FollowingDomainContainer>
-         <AllDomainDescription>FOLLOWING DOMAIN</AllDomainDescription>
-         <CapIcon src='https://res.cloudinary.com/image-link-getter/image/upload/v1647763451/Screenshot_2022-03-20_133349_xlarfw.png' />
+         <AllDomainDescription>
+            {LeftMenuConstants.followingDomainText}
+         </AllDomainDescription>
+         <CapIcon src={LeftMenuUrl.capIconsLogo} />
       </FollowingDomainContainer>
       <MenuUlElement>
          {DomainNames.map(eachDomain => (
             <FollowingDomain key={eachDomain.id} name={eachDomain.Name} />
          ))}
       </MenuUlElement>
-      <AllDomainDescription>See all</AllDomainDescription>
-
+      <AllDomainDescription>
+         {LeftMenuConstants.seeAllText}
+      </AllDomainDescription>
       <FollowingDomainContainer>
-         <AllDomainDescription>SUGGEST DOMAIN</AllDomainDescription>
-         <CapIcon src='https://res.cloudinary.com/image-link-getter/image/upload/v1647763451/Screenshot_2022-03-20_133349_xlarfw.png' />
+         <AllDomainDescription>
+            {LeftMenuConstants.suggestDomainText}
+         </AllDomainDescription>
+         <CapIcon src={LeftMenuUrl.capIconsLogo} />
       </FollowingDomainContainer>
       <MenuUlElement>
          {suggestDomainNames.map(eachSuggest => (
             <SuggestDomains key={eachSuggest.id} suggestItem={eachSuggest} />
          ))}
       </MenuUlElement>
-      <AllDomainDescription>See all</AllDomainDescription>
+      <AllDomainDescription>
+         {LeftMenuConstants.seeAllText}
+      </AllDomainDescription>
       <FollowingDomainContainer>
-         <AllDomainDescription>MY POSTS</AllDomainDescription>
+         <AllDomainDescription>
+            {LeftMenuConstants.myPostsText}
+         </AllDomainDescription>
          <YourPostContainer>
-            <SpanElement>6</SpanElement>
-            <CapIcon src='https://res.cloudinary.com/image-link-getter/image/upload/v1647763451/Screenshot_2022-03-20_133349_xlarfw.png' />
+            <SpanElement>{LeftMenuConstants.number}</SpanElement>
+            <CapIcon src={LeftMenuUrl.capIconsLogo} />
          </YourPostContainer>
       </FollowingDomainContainer>
    </LeftMenuContainer>
