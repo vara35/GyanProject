@@ -22,6 +22,14 @@ import PlatFormDomainPage from './PlatFormDomainPage'
 import HomeScreen from './HomeScreen'
 import PostScreenComponent from './PostScreenComponent'
 import PostScreenPage from './PostScreen'
+
+//Spotify
+import LoginForm from './LoginForm'
+import ProtectedRoute from './ProtectedRoute'
+import Profile from './ProfileRoute'
+
+//
+
 export const routes = (): React.ReactElement => (
    <Router>
       <Switch>
@@ -67,6 +75,10 @@ export const routes = (): React.ReactElement => (
             path='/platformreviewpagesecond'
             component={PlatFormReviewPageSecond}
          />
+
+         <Route exact path='/login' component={LoginForm} />
+         <Route exact path='/profile' component={Profile} />
+
          <Route
             path={NOT_FOUND_PAGE_PATH}
             key={NOT_FOUND_PAGE}
