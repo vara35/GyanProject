@@ -22,7 +22,7 @@ const SpotifyHeaderConstants = {
 }
 
 interface SpotifyHeaderConstants {
-   isShowHeaderLogo?: boolean
+   isShowHeaderLogo: boolean
    marginTop: string
 }
 

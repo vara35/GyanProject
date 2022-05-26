@@ -21,7 +21,7 @@ import './index.css'
 interface ProfileConstants {
    profileStore: ProfileStore
    name: string
-   followers: number | ''
+   followers: number
 }
 
 @observer
@@ -37,23 +37,29 @@ class Profile extends Component<ProfileConstants> {
       const { userDetails } = profileStore
       const { name, followers } = userDetails
 
+      const followerText = 'Followers'
+      const playlistNum = 20
+      const playListText = 'playList'
+      const logoutButton = 'LOGOUT'
+      const username = 'Vara'
+
       return (
          <ProfileContainer>
             <SpotifyHeader marginTop='295px' isShowHeaderLogo={true} />
             <UserDetailsContainer>
                <BsFillPersonFill className='profile-icon' />
-               <UserName>{name}</UserName>
+               <UserName>{username}</UserName>
                <FollowersAndPlayListContainer>
                   <FollowersContainer>
                      <FollowersCount>{followers}</FollowersCount>
-                     <FollowersText>Followers</FollowersText>
+                     <FollowersText>{followerText}</FollowersText>
                   </FollowersContainer>
                   <FollowersContainer>
-                     <FollowersCount>20</FollowersCount>
-                     <FollowersText>playList</FollowersText>
+                     <FollowersCount>{playlistNum}</FollowersCount>
+                     <FollowersText>{playListText}</FollowersText>
                   </FollowersContainer>
                </FollowersAndPlayListContainer>
-               <LogoutButton typep='button'>LogOut</LogoutButton>
+               <LogoutButton typep='button'>{logoutButton}</LogoutButton>
             </UserDetailsContainer>
          </ProfileContainer>
       )

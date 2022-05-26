@@ -2,12 +2,12 @@ import tw from 'twin.macro'
 import styled from 'styled-components'
 
 export const HeaderMainContainer = styled.div`
-   ${tw`w-24`}
+   ${tw`w-24 pt-6`}
    height: 1024px;
    background: #040306;
 `
 export const HeaderLogo = styled.img`
-   ${tw`ml-3 mr-2 mt-7`}
+   ${tw`ml-3 mr-2`}
 `
 
 export const IconsContainer = styled.div`

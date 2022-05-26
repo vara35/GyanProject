@@ -22,7 +22,7 @@ class ProfileStore {
       const data = await response.json()
       const updatedUserDetails: any = {
          name: data.display_name,
-         followers: data.followers.total
+         followers: data.followers
       }
       this.userDetails = updatedUserDetails
    }

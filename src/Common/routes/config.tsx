@@ -27,6 +27,7 @@ import PostScreenPage from './PostScreen'
 import LoginForm from './LoginForm'
 import ProtectedRoute from './ProtectedRoute'
 import Profile from './ProfileRoute'
+import SpotifyHome from './SpotifyHome'
 
 //
 
@@ -78,6 +79,7 @@ export const routes = (): React.ReactElement => (
 
          <Route exact path='/login' component={LoginForm} />
          <Route exact path='/profile' component={Profile} />
+         <Route exact path='/spotifyhome' component={SpotifyHome} />
 
          <Route
             path={NOT_FOUND_PAGE_PATH}
