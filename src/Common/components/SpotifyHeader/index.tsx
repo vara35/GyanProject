@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, withRouter, useParams } from 'react-router-dom'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
 import { FaItunesNote } from 'react-icons/fa'
@@ -25,10 +25,12 @@ const SpotifyHeaderConstants = {
 interface SpotifyHeaderConstants {
    isShowHeaderLogo: boolean
    marginTop: string
+   marginLeft?: string
 }
 
 const SpotifyHeader = (props: SpotifyHeaderConstants) => {
-   const { isShowHeaderLogo, marginTop } = props
+   const { isShowHeaderLogo, marginTop, marginLeft = '26px' } = props
+
    return (
       <HeaderMainContainer>
          {isShowHeaderLogo && (
@@ -37,22 +39,34 @@ const SpotifyHeader = (props: SpotifyHeaderConstants) => {
             </Link>
          )}
          <IconsContainer marginTop={marginTop}>
-            <HeaderIconsContainer>
-               <BsFillPersonFill className='person-icon' />
-               <ProfileName>{SpotifyHeaderConstants.profileText}</ProfileName>
-            </HeaderIconsContainer>
-            <HeaderIconsContainer>
-               <AiFillHome className='person-icon' />
-               <ProfileName>{SpotifyHeaderConstants.home}</ProfileName>
-            </HeaderIconsContainer>
-            <HeaderIconsContainer>
-               <FaItunesNote className='person-icon' />
-               <ProfileName>{SpotifyHeaderConstants.yourMusic}</ProfileName>
-            </HeaderIconsContainer>
-            <HeaderIconsContainer>
-               <RiPlayListFill className='person-icon' />
-               <ProfileName>{SpotifyHeaderConstants.playLists}</ProfileName>
-            </HeaderIconsContainer>
+            <Link to='/profile'>
+               <HeaderIconsContainer>
+                  <BsFillPersonFill className='person-icon' />
+                  <ProfileName>
+                     {SpotifyHeaderConstants.profileText}
+                  </ProfileName>
+               </HeaderIconsContainer>
+            </Link>
+            <Link to='/spotifyhome'>
+               <HeaderIconsContainer>
+                  <AiFillHome className='person-icon' />
+                  <ProfileName>{SpotifyHeaderConstants.home}</ProfileName>
+               </HeaderIconsContainer>
+            </Link>
+            <Link to='/yourmusic'>
+               <HeaderIconsContainer>
+                  <FaItunesNote className='person-icon' />
+                  <ProfileName marginLeft='20px'>
+                     {SpotifyHeaderConstants.yourMusic}
+                  </ProfileName>
+               </HeaderIconsContainer>
+            </Link>
+            <Link to='/playlist'>
+               <HeaderIconsContainer>
+                  <RiPlayListFill className='person-icon' />
+                  <ProfileName>{SpotifyHeaderConstants.playLists}</ProfileName>
+               </HeaderIconsContainer>
+            </Link>
          </IconsContainer>
       </HeaderMainContainer>
    )

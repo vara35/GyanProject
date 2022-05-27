@@ -6,7 +6,7 @@ export const SongDetailsMainContainer = styled.div`
 `
 
 export const LeftArrowAndBackTextContainer = styled.div`
-   ${tw`flex items-center `}
+   ${tw`flex items-center`}
 `
 
 export const AlbumAndSongContainer = styled.div`
@@ -16,6 +16,8 @@ export const AlbumAndSongContainer = styled.div`
 export const BackTextButton = styled.button`
    ${tw`text-white leading-6 font-sans`}
    font-size: 16px;
+   line-height: 24px;
+   font-style: normal;
 `
 
 export const AlbumProfile = styled.img`
@@ -29,6 +31,8 @@ export const AlbumNameContainer = styled.div`
 
 export const EditorTextEle = styled.div`
    ${tw`font-bold text-white text-base leading-5`}
+   font-family: Roboto;
+   font-style: normal;
 `
 
 export const AlbumName = styled.h1`

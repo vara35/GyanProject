@@ -23,4 +23,5 @@ export const ProfileName = styled.p`
    ${tw`w-16 h-4 font-bold text-xs leading-3 text-white mt-1 ml-8`}
    line-height: 14px;
    color: #9b9b9b;
+   margin-left: ${props => props.marginLeft};
 `

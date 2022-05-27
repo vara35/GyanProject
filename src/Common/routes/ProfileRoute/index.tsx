@@ -24,8 +24,8 @@ interface ProfileConstants {
    followers: number
 }
 
-@observer
 @inject('profileStore')
+@observer
 class Profile extends Component<ProfileConstants> {
    componentDidMount() {
       const { profileStore } = this.props
@@ -41,14 +41,13 @@ class Profile extends Component<ProfileConstants> {
       const playlistNum = 20
       const playListText = 'playList'
       const logoutButton = 'LOGOUT'
-      const username = 'Vara'
 
       return (
          <ProfileContainer>
             <SpotifyHeader marginTop='295px' isShowHeaderLogo={true} />
             <UserDetailsContainer>
                <BsFillPersonFill className='profile-icon' />
-               <UserName>{username}</UserName>
+               <UserName>{name}</UserName>
                <FollowersAndPlayListContainer>
                   <FollowersContainer>
                      <FollowersCount>{followers}</FollowersCount>

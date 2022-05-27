@@ -26,5 +26,5 @@ export const SongAndTableContainer = styled.div`
 export const SpotifyHrLine = styled.hr`
    ${tw`mt-4 ml-8 h-0`}
    width: 1278px;
-   color: #f8fafc;
+   border: 1px solid #475569;
 `

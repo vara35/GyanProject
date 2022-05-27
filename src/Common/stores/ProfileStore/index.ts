@@ -2,7 +2,7 @@ import { observable, action } from 'mobx'
 import Cookies from 'js-cookie'
 
 class ProfileStore {
-   @observable userDetails: { name: string; followers: number } = {
+   @observable userDetails: { name: string; followers: number | string } = {
       name: '',
       followers: 0
    }
