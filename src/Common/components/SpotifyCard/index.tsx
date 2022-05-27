@@ -9,7 +9,7 @@ import {
 interface SpotifyCardProps {
    cardHeading: string
    cardImgUrl: string
-   id: number
+   id: number | string
 }
 
 const SpotifyCard = (props: SpotifyCardProps) => {

@@ -1,7 +1,6 @@
 import { action, observable } from 'mobx'
 import moment from 'moment'
 import Cookies from 'js-cookie'
-import { CardImage } from './../../components/SpotifyCard/styledComponents'
 
 const cardApiConstants = {
    initial: 'INITIAL',
@@ -16,10 +15,16 @@ class SpotifyHomeStore {
       cardImage: string
       id: number
    }[] = [{ name: '', cardImage: '', id: 0 }]
-   @observable cardStatus = cardApiConstants.initial
+
+   @observable categoryData: { id: string; categoryCardImage: string }[] = []
+   @observable newReleaseData: { id: string; categoryCardImage: string }[] = []
+
+   @observable editorStatus = cardApiConstants.initial
+   @observable categoryStatus = cardApiConstants.initial
+   @observable newReleaseStatus = cardApiConstants.initial
 
    @action getEditorPicks = async () => {
-      this.cardStatus = cardApiConstants.in_Progress
+      this.editorStatus = cardApiConstants.in_Progress
       const timestamp = moment(new Date()).format('YYYY-MM-DDTHH:00:00')
       const token = Cookies.get('pa_token')
       const url = `https://api.spotify.com/v1/browse/featured-playlists?country=IN&timestamp=${timestamp}`
@@ -40,8 +45,61 @@ class SpotifyHomeStore {
             name: eachEditorList.name,
             id: eachEditorList.id
          }))
-         this.cardStatus = cardApiConstants.success
+         this.editorStatus = cardApiConstants.success
          this.editorPicksData = updatedEditorData
+      }
+   }
+
+   @action getCategory = async () => {
+      this.categoryStatus = cardApiConstants.in_Progress
+      const token = Cookies.get('pa_token')
+      const url = 'https://api.spotify.com/v1/browse/categories'
+
+      const options = {
+         method: 'GET',
+         headers: {
+            Authorization: `Bearer ${token}`
+         }
+      }
+
+      const categoryResponse = await fetch(url, options)
+      const categoryJsonData = await categoryResponse.json()
+      if (categoryResponse.ok) {
+         const updatedCategoryData = categoryJsonData.categories.items.map(
+            eachCategoryList => ({
+               categoryCardImage: eachCategoryList.icons[0].url,
+               id: eachCategoryList.id
+            })
+         )
+         this.categoryData = updatedCategoryData
+         this.categoryStatus = cardApiConstants.success
+      }
+   }
+
+   @action getNewRelease = async () => {
+      this.newReleaseStatus = cardApiConstants.in_Progress
+      const token = Cookies.get('pa_token')
+      const url = 'https://api.spotify.com/v1/browse/categories'
+
+      const options = {
+         method: 'GET',
+         headers: {
+            Authorization: `Bearer ${token}`
+         }
+      }
+
+      const newReleaseResponse = await fetch(url, options)
+      const newReleaseJsonData = await newReleaseResponse.json()
+      console.log(newReleaseJsonData)
+      if (newReleaseResponse.ok) {
+         // const updatedNewReleaseData = newReleaseJsonData.categories.items.map(
+         //    eachCategoryList => ({
+         //       categoryCardImage: eachCategoryList.icons[0].url,
+         //       id: eachCategoryList.id
+         //    })
+         // )
+         // this.newReleaseData = updatedNewReleaseData
+         this.newReleaseStatus = cardApiConstants.success
       }
    }
 }

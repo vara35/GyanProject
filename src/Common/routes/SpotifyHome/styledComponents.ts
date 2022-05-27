@@ -5,7 +5,7 @@ export const SpotifyHomeMainContainer = styled.div`
    ${tw`flex flex-row `}
    background: #181818;
    width: 1440px;
-   height: 2265px;
+   min-height: 2265px;
 `
 export const CardsMainContainer = styled.div`
    ${tw``};
