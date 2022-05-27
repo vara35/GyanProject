@@ -14,27 +14,82 @@ import {
 
 const editorText = "Editor's picks"
 
-interface SpotifyHomeConstants {
-   spotifyHomeStore: SpotifyHomeStore
+const cardApiConstants = {
+   initial: 'INITIAL',
+   in_Progress: 'InProgress',
+   success: 'SUCCESS',
+   failure: 'FAILURE'
 }
 
-@observer
+interface SpotifyHomeConstants {
+   spotifyHomeStore: SpotifyHomeStore
+   cardHeading: any
+
+   cardImgUrl: string
+}
+
 @inject('spotifyHomeStore')
+@observer
 class SpotifyHome extends Component<SpotifyHomeConstants> {
    componentDidMount() {
       const { spotifyHomeStore } = this.props
       spotifyHomeStore.getEditorPicks()
    }
+
+   showCardSuccessView = () => {
+      const { spotifyHomeStore } = this.props
+      const { editorPicksData } = spotifyHomeStore
+      return (
+         <CardsMainContainer>
+            <EditorHeading marginTop='96px' marginBottom='32px'>
+               {editorText}
+            </EditorHeading>
+            <CardsUlContainer>
+               {editorPicksData.map(
+                  (eachCard: {
+                     name: string
+                     cardImage: string
+                     id: number
+                  }) => (
+                     <SpotifyCard
+                        cardHeading={eachCard.name}
+                        cardImgUrl={eachCard.cardImage}
+                        key={eachCard.id}
+                        id={eachCard.id}
+                     />
+                  )
+               )}
+            </CardsUlContainer>
+            <EditorHeading marginTop='16px' marginBottom='32px'>
+               {editorText}
+            </EditorHeading>
+         </CardsMainContainer>
+      )
+   }
+
+   showCardInprogressView = () => 'ok'
+
+   showCards = () => {
+      const { spotifyHomeStore } = this.props
+      console.log(spotifyHomeStore.cardStatus)
+
+      switch (spotifyHomeStore.cardStatus) {
+         case cardApiConstants.in_Progress:
+            return this.showCardInprogressView()
+         case cardApiConstants.success:
+            return this.showCardSuccessView()
+         default:
+            null
+      }
+   }
+
    render() {
+      const { spotifyHomeStore } = this.props
+      const { editorPicksData } = spotifyHomeStore
       return (
          <SpotifyHomeMainContainer>
             <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
-            <CardsMainContainer>
-               <EditorHeading>{editorText}</EditorHeading>
-               <CardsUlContainer>
-                  <SpotifyCard />
-               </CardsUlContainer>
-            </CardsMainContainer>
+            {this.showCards()}
          </SpotifyHomeMainContainer>
       )
    }

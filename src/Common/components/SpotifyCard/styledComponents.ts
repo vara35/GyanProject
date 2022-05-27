@@ -2,7 +2,7 @@ import tw from 'twin.macro'
 import styled from 'styled-components'
 
 export const SpotifyCardMainContainer = styled.li`
-   ${tw`text-center`}
+   ${tw`text-center mr-12 mb-12`}
    width: 166px;
 `
 export const CardButton = styled.button`
@@ -10,7 +10,7 @@ export const CardButton = styled.button`
 `
 
 export const CardImage = styled.img`
-   ${tw``}
+   ${tw`rounded-lg`}
    height:166px;
    width: 166px;
 `

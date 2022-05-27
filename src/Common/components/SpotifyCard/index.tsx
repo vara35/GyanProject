@@ -1,17 +1,29 @@
+import { Link } from 'react-router-dom'
+
 import {
    SpotifyCardMainContainer,
    CardButton,
    CardImage,
    CardHeading
 } from './styledComponents'
+interface SpotifyCardProps {
+   cardHeading: string
+   cardImgUrl: string
+   id: number
+}
 
-const SpotifyCard = () => (
-   <SpotifyCardMainContainer>
-      <CardButton type='button'>
-         <CardImage src='https://res.cloudinary.com/image-link-getter/image/upload/v1653572729/Rectangle_480_cedyqi.png' />
-      </CardButton>
-      <CardHeading>Telugu Romance</CardHeading>
-   </SpotifyCardMainContainer>
-)
+const SpotifyCard = (props: SpotifyCardProps) => {
+   const { cardHeading, cardImgUrl, id } = props
+   return (
+      <Link to={`/${id}`}>
+         <SpotifyCardMainContainer>
+            <CardButton type='button'>
+               <CardImage src={cardImgUrl} />
+            </CardButton>
+            <CardHeading>{cardHeading}</CardHeading>
+         </SpotifyCardMainContainer>
+      </Link>
+   )
+}
 
 export default SpotifyCard

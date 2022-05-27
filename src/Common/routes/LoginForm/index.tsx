@@ -14,8 +14,8 @@ interface MyProps {
    history: string
 }
 
-@observer
 @inject('counterStore')
+@observer
 class LoginForm extends Component<MyProps> {
    componentDidMount() {
       const hashKey: any = this.getHashKeyFromLocationAfterLogin()
