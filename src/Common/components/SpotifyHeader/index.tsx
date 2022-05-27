@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
 import { FaItunesNote } from 'react-icons/fa'
@@ -31,7 +32,9 @@ const SpotifyHeader = (props: SpotifyHeaderConstants) => {
    return (
       <HeaderMainContainer>
          {isShowHeaderLogo && (
-            <HeaderLogo src={SpotifyHeaderConstants.headerLogoUrl} />
+            <Link to='/spotifyhome'>
+               <HeaderLogo src={SpotifyHeaderConstants.headerLogoUrl} />
+            </Link>
          )}
          <IconsContainer marginTop={marginTop}>
             <HeaderIconsContainer>

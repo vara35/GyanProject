@@ -28,6 +28,7 @@ import LoginForm from './LoginForm'
 import ProtectedRoute from './ProtectedRoute'
 import Profile from './ProfileRoute'
 import SpotifyHome from './SpotifyHome'
+import SpotifySpecificPlayList from './SpotifySpecificPlayList'
 
 //
 
@@ -80,6 +81,7 @@ export const routes = (): React.ReactElement => (
          <Route exact path='/login' component={LoginForm} />
          <Route exact path='/profile' component={Profile} />
          <Route exact path='/spotifyhome' component={SpotifyHome} />
+         <Route exact path='/:id' component={SpotifySpecificPlayList} />
 
          <Route
             path={NOT_FOUND_PAGE_PATH}
