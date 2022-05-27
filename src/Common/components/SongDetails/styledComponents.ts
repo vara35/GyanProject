@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import tw from 'twin.macro'
 
 export const SongDetailsMainContainer = styled.div`
-   ${tw`mt-6 ml-8 mt-8`}
+   ${tw`mt-6 ml-8 mt-8 mb-8`}
 `
 
 export const LeftArrowAndBackTextContainer = styled.div`
