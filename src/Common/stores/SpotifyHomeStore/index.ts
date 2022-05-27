@@ -17,7 +17,11 @@ class SpotifyHomeStore {
    }[] = [{ name: '', cardImage: '', id: 0 }]
 
    @observable categoryData: { id: string; categoryCardImage: string }[] = []
-   @observable newReleaseData: { id: string; categoryCardImage: string }[] = []
+   @observable newReleaseData: {
+      id: string
+      newReleaseImage: string
+      name: string
+   }[] = []
 
    @observable editorStatus = cardApiConstants.initial
    @observable categoryStatus = cardApiConstants.initial
@@ -79,7 +83,7 @@ class SpotifyHomeStore {
    @action getNewRelease = async () => {
       this.newReleaseStatus = cardApiConstants.in_Progress
       const token = Cookies.get('pa_token')
-      const url = 'https://api.spotify.com/v1/browse/categories'
+      const url = `https://api.spotify.com/v1/browse/new-releases?country=IN`
 
       const options = {
          method: 'GET',
@@ -92,13 +96,14 @@ class SpotifyHomeStore {
       const newReleaseJsonData = await newReleaseResponse.json()
       console.log(newReleaseJsonData)
       if (newReleaseResponse.ok) {
-         // const updatedNewReleaseData = newReleaseJsonData.categories.items.map(
-         //    eachCategoryList => ({
-         //       categoryCardImage: eachCategoryList.icons[0].url,
-         //       id: eachCategoryList.id
-         //    })
-         // )
-         // this.newReleaseData = updatedNewReleaseData
+         const updatedNewReleaseData = newReleaseJsonData.albums.items.map(
+            eachNewReleaseList => ({
+               newReleaseImage: eachNewReleaseList.images[0].url,
+               id: eachNewReleaseList.id,
+               name: eachNewReleaseList.name
+            })
+         )
+         this.newReleaseData = updatedNewReleaseData
          this.newReleaseStatus = cardApiConstants.success
       }
    }

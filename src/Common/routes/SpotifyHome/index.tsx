@@ -37,6 +37,44 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
       const { spotifyHomeStore } = this.props
       spotifyHomeStore.getEditorPicks()
       spotifyHomeStore.getCategory()
+      spotifyHomeStore.getNewRelease()
+   }
+
+   showNewRelaseSuccessView = () => {
+      const { spotifyHomeStore } = this.props
+      const { newReleaseData } = spotifyHomeStore
+      return (
+         <>
+            {newReleaseData.map(
+               (eachCard: {
+                  newReleaseImage: string
+                  id: string
+                  name: string
+               }) => (
+                  <SpotifyCard
+                     cardHeading={eachCard.name}
+                     cardImgUrl={eachCard.newReleaseImage}
+                     key={eachCard.id}
+                     id={eachCard.id}
+                  />
+               )
+            )}
+         </>
+      )
+   }
+   showNewRelaseInprogressView = () => 'ok'
+
+   showNewReleaseCards = () => {
+      const { spotifyHomeStore } = this.props
+
+      switch (spotifyHomeStore.categoryStatus) {
+         case cardApiConstants.in_Progress:
+            return this.showNewRelaseInprogressView()
+         case cardApiConstants.success:
+            return this.showNewRelaseSuccessView()
+         default:
+            null
+      }
    }
 
    showCategoryCardSuccessView = () => {
@@ -51,6 +89,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
                      cardImgUrl={eachCard.categoryCardImage}
                      key={eachCard.id}
                      id={eachCard.id}
+                     isText={false}
                   />
                )
             )}
@@ -124,7 +163,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
                <EditorHeading marginTop='16px' marginBottom='32px'>
                   {newReleaseText}
                </EditorHeading>
-               <CardsUlContainer>{this.showCategoryCards()}</CardsUlContainer>
+               <CardsUlContainer>{this.showNewReleaseCards()}</CardsUlContainer>
             </CardsMainContainer>
          </SpotifyHomeMainContainer>
       )
