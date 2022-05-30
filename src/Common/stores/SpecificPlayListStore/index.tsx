@@ -1,6 +1,12 @@
 import { observable, action } from 'mobx'
 import Cookies from 'js-cookie'
-import { withRouter } from 'react-router-dom'
+
+const songsApiConstants = {
+   initial: 'INITIAL',
+   in_Progress: 'InProgress',
+   success: 'SUCCESS',
+   failure: 'FAILURE'
+}
 
 interface SpecificPlayStoreProps {
    name?: string
@@ -8,8 +14,14 @@ interface SpecificPlayStoreProps {
 
 class SpecificPlayListStore {
    @observable specificEditorsData = []
+   @observable songDetailsData: { name: string; songDetailsUrl: string } = {
+      name: '',
+      songDetailsUrl: ''
+   }
+   @observable songStatus = songsApiConstants.initial
 
-   @action.bound getSpecificEditorData = async props => {
+   @action getSpecificEditorData = async props => {
+      this.songStatus = songsApiConstants.in_Progress
       const { match } = props
       const { params } = match
       const { id } = params
@@ -25,9 +37,19 @@ class SpecificPlayListStore {
 
       const specificEditorResponse = await fetch(url, options)
       const editordata = await specificEditorResponse.json()
-      const updatedEditorData = 'ok'
+      if (specificEditorResponse.ok) {
+         const songDetails = {
+            name: editordata.name,
+            songDetailsUrl: editordata.images[0].url
+         }
+         const songDetailsData = songDetails
+         this.songStatus = songsApiConstants.success
 
-      console.log(editordata)
+         const updatedEditorData = 'ok'
+         console.log(editordata)
+      } else {
+         this.songStatus = songsApiConstants.failure
+      }
    }
 }
 

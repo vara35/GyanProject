@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom'
+
 import { BiLeftArrowAlt } from 'react-icons/bi'
+import { observer, inject } from 'mobx-react'
 
 import {
    LeftArrowAndBackTextContainer,
@@ -14,21 +17,33 @@ import './index.css'
 
 const text = `All Out 90s Telugu`
 
-const SongDetails = () => (
-   <SongDetailsMainContainer>
-      <LeftArrowAndBackTextContainer>
-         <BiLeftArrowAlt className='left-arrow' />
-         <BackTextButton type='button'>Back</BackTextButton>
-      </LeftArrowAndBackTextContainer>
-      <AlbumAndSongContainer>
-         <AlbumProfile src='https://res.cloudinary.com/image-link-getter/image/upload/v1653572729/Rectangle_480_cedyqi.png' />
-         <AlbumNameContainer>
-            <EditorTextEle>Editors picks</EditorTextEle>
-            <AlbumName>{text}</AlbumName>
-            <EditorTextEle>Mickey J. Meyer</EditorTextEle>
-         </AlbumNameContainer>
-      </AlbumAndSongContainer>
-   </SongDetailsMainContainer>
-)
+interface SongDetailsProps {
+   specificPlayListStore?: any
+}
+
+const SongDetails = observer((props: SongDetailsProps) => {
+   const { specificPlayListStore } = props
+   const { name, songDetailsUrl } = specificPlayListStore.songDetailsData
+   console.log(name)
+
+   return (
+      <SongDetailsMainContainer>
+         <Link to='/spotifyhome'>
+            <LeftArrowAndBackTextContainer>
+               <BiLeftArrowAlt className='left-arrow' />
+               <BackTextButton type='button'>Back</BackTextButton>
+            </LeftArrowAndBackTextContainer>
+         </Link>
+         <AlbumAndSongContainer>
+            <AlbumProfile src={songDetailsUrl} />
+            <AlbumNameContainer>
+               <EditorTextEle>Editors picks</EditorTextEle>
+               <AlbumName>{name}</AlbumName>
+               <EditorTextEle>Mickey J. Meyer</EditorTextEle>
+            </AlbumNameContainer>
+         </AlbumAndSongContainer>
+      </SongDetailsMainContainer>
+   )
+})
 
 export default SongDetails

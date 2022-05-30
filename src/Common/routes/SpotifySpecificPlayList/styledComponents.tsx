@@ -28,3 +28,7 @@ export const SpotifyHrLine = styled.hr`
    width: 1278px;
    border: 1px solid #475569;
 `
+
+export const EditorsUlContainer = styled.ul`
+   ${tw``}
+`
