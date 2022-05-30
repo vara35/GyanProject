@@ -17,6 +17,9 @@ import {
 
 interface SpotifySpecificPlayListProps {
    specificPlayListStore: SpecificPlayListStore
+   eachSong: {
+      id: string
+   }
 }
 
 const songsApiConstants = {
@@ -34,28 +37,38 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
       specificPlayListStore.getSpecificEditorData(this.props)
    }
 
-   showSongsSuccessView = () => (
-      <>
-         <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
-         <SongAndTableContainer>
-            <SongDetails
-               specificPlayListStore={this.props.specificPlayListStore}
-            />
-            <TableHeader>
-               <TableName width='56px'>#</TableName>
-               <TableName width='258px'>Track </TableName>
-               <TableName width='300px'>Album</TableName>
-               <TableName width='200px'>Time</TableName>
-               <TableName width='250px'>Artist</TableName>
-               <TableName width='200px'>Added</TableName>
-            </TableHeader>
-            <SpotifyHrLine />
-            <EditorsUlContainer>
-               <SpecificEditorSong />
-            </EditorsUlContainer>
-         </SongAndTableContainer>
-      </>
-   )
+   showSongsSuccessView = () => {
+      const { specificPlayListStore } = this.props
+      return (
+         <>
+            <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
+            <SongAndTableContainer>
+               <SongDetails
+                  specificPlayListStore={this.props.specificPlayListStore}
+               />
+               <TableHeader>
+                  <TableName width='56px'>#</TableName>
+                  <TableName width='258px'>Track </TableName>
+                  <TableName width='300px'>Album</TableName>
+                  <TableName width='200px'>Time</TableName>
+                  <TableName width='250px'>Artist</TableName>
+                  <TableName width='200px'>Added</TableName>
+               </TableHeader>
+               <SpotifyHrLine />
+               <EditorsUlContainer>
+                  {specificPlayListStore.specificEditorsData.map(
+                     (eachSong: any) => (
+                        <SpecificEditorSong
+                           songDetailsProps={eachSong}
+                           key={eachSong.id}
+                        />
+                     )
+                  )}
+               </EditorsUlContainer>
+            </SongAndTableContainer>
+         </>
+      )
+   }
 
    showSongsInprogressView = () => 'Ok'
 

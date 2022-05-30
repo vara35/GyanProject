@@ -37,16 +37,29 @@ class SpecificPlayListStore {
 
       const specificEditorResponse = await fetch(url, options)
       const editordata = await specificEditorResponse.json()
+      console.log(editordata)
+
       if (specificEditorResponse.ok) {
          const songDetails = {
             name: editordata.name,
             songDetailsUrl: editordata.images[0].url
          }
-         const songDetailsData = songDetails
-         this.songStatus = songsApiConstants.success
+         const updatedEditorData = editordata.tracks.items.map(eachSong => ({
+            id: eachSong.track.id,
+            songName: eachSong.track.name,
+            duration: eachSong.track.duration_ms,
+            albumName: eachSong.track.album.name,
+            artist:
+               eachSong.track.artists[1] !== undefined
+                  ? eachSong.track.artists[1].name
+                  : 'unknown',
+            addedAt: eachSong.added_at,
+            trackNumber: eachSong.track.track_number
+         }))
 
-         const updatedEditorData = 'ok'
-         console.log(editordata)
+         this.songDetailsData = songDetails
+         this.specificEditorsData = updatedEditorData
+         this.songStatus = songsApiConstants.success
       } else {
          this.songStatus = songsApiConstants.failure
       }

@@ -1,18 +1,44 @@
 import { TableName } from '../../routes/SpotifySpecificPlayList/styledComponents'
+
 import {
    EditorSongListContainer,
    EditorSongButtonEle
 } from './styledComponents'
 
-const SpecificEditorSong = () => (
-   <EditorSongListContainer>
-      <TableName width='56px'>#</TableName>
-      <TableName width='258px'>Track </TableName>
-      <TableName width='300px'>Album</TableName>
-      <TableName width='200px'>Time</TableName>
-      <TableName width='250px'>Artist</TableName>
-      <TableName width='200px'>Added</TableName>
-   </EditorSongListContainer>
-)
+interface SpecificEditorSongProps {
+   songDetailsProps: {
+      id: string
+      songName: string
+      duration: string
+      albumName: string
+      artist: string
+      addedAt: string
+      trackNumber: string
+   }
+}
+
+const SpecificEditorSong = (props: SpecificEditorSongProps) => {
+   const { songDetailsProps } = props
+   const {
+      id,
+      songName,
+      duration,
+      albumName,
+      artist,
+      addedAt,
+      trackNumber
+   } = songDetailsProps
+
+   return (
+      <EditorSongListContainer>
+         <TableName width='56px'>{trackNumber}</TableName>
+         <TableName width='258px'>{songName} </TableName>
+         <TableName width='300px'>{albumName}</TableName>
+         <TableName width='200px'>{duration}</TableName>
+         <TableName width='250px'>{artist}</TableName>
+         <TableName width='200px'>{addedAt}</TableName>
+      </EditorSongListContainer>
+   )
+}
 
 export default SpecificEditorSong

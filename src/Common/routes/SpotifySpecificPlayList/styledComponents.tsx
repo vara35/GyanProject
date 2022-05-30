@@ -30,5 +30,5 @@ export const SpotifyHrLine = styled.hr`
 `
 
 export const EditorsUlContainer = styled.ul`
-   ${tw``}
+   ${tw`overflow-auto`}
 `
