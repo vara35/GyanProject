@@ -19,6 +19,7 @@ class SpecificPlayListStore {
       songDetailsUrl: ''
    }
    @observable songStatus = songsApiConstants.initial
+   @observable songUrl = ''
 
    @action getSpecificEditorData = async props => {
       this.songStatus = songsApiConstants.in_Progress
@@ -54,7 +55,8 @@ class SpecificPlayListStore {
                   ? eachSong.track.artists[1].name
                   : 'unknown',
             addedAt: eachSong.added_at,
-            trackNumber: eachSong.track.track_number
+            trackNumber: eachSong.track.track_number,
+            previewUrl: eachSong.track.preview_url
          }))
 
          this.songDetailsData = songDetails
@@ -63,6 +65,10 @@ class SpecificPlayListStore {
       } else {
          this.songStatus = songsApiConstants.failure
       }
+   }
+
+   @action changeSong(songUrl) {
+      this.songUrl = songUrl
    }
 }
 

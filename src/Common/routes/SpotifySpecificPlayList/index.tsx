@@ -5,6 +5,7 @@ import SpotifyHeader from '../../components/SpotifyHeader'
 import SongDetails from '../../components/SongDetails'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import SpecificEditorSong from '../../components/SpecificEditorSong'
+import Player from '../../components/Player'
 
 import {
    SpotifySpecificMainContainer,
@@ -20,6 +21,7 @@ interface SpotifySpecificPlayListProps {
    eachSong: {
       id: string
    }
+   changeSongStatus: () => void
 }
 
 const songsApiConstants = {
@@ -35,6 +37,11 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
    componentDidMount() {
       const { specificPlayListStore } = this.props
       specificPlayListStore.getSpecificEditorData(this.props)
+   }
+
+   changeSongStatus = (previewUrl = '') => {
+      const { specificPlayListStore } = this.props
+      specificPlayListStore.changeSong(previewUrl)
    }
 
    showSongsSuccessView = () => {
@@ -54,17 +61,19 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
                   <TableName width='250px'>Artist</TableName>
                   <TableName width='200px'>Added</TableName>
                </TableHeader>
-               <SpotifyHrLine />
+               <SpotifyHrLine width='1278px' margin={true} />
                <EditorsUlContainer>
                   {specificPlayListStore.specificEditorsData.map(
                      (eachSong: any) => (
                         <SpecificEditorSong
                            songDetailsProps={eachSong}
                            key={eachSong.id}
+                           changeSongStatus={this.changeSongStatus}
                         />
                      )
                   )}
                </EditorsUlContainer>
+               <Player playerUrl={specificPlayListStore.songUrl} />
             </SongAndTableContainer>
          </>
       )

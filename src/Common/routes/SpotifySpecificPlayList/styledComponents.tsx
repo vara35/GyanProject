@@ -14,9 +14,11 @@ export const TableHeader = styled.div`
 `
 
 export const TableName = styled.h2`
-   ${tw`text-white font-sans font-semibold text-base leading-5`}
+   ${tw`text-white font-sans font-semibold text-base leading-5 mr-2`}
    color: #f8fafc;
    width: ${props => props.width};
+   font-style: normal;
+   font-weight: 400;
 `
 
 export const SongAndTableContainer = styled.div`
@@ -24,11 +26,13 @@ export const SongAndTableContainer = styled.div`
 `
 
 export const SpotifyHrLine = styled.hr`
-   ${tw`mt-4 ml-8 h-0`}
-   width: 1278px;
+   ${tw`mt-4 h-0`}
    border: 1px solid #475569;
+   width: ${props => props.width};
+   ${props => (props.margin ? tw`ml-8` : tw`ml-0`)}
 `
 
 export const EditorsUlContainer = styled.ul`
-   ${tw`overflow-auto`}
+   ${tw`overflow-y-auto`}
+   height:480px;
 `
