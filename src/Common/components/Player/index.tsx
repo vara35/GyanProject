@@ -10,17 +10,23 @@ import {
 
 interface PlayerProps {
    playerUrl: string
+   playerArtist: string
+   playerSongName: string
 }
 
 const Player = (props: PlayerProps) => {
-   const { playerUrl } = props
+   const { playerUrl, playerArtist, playerSongName } = props
+
+   const playerSongText = playerSongName.slice(0, 15)
+   const playerArtistText = playerArtist.slice(0, 15)
+
    return (
       <PlayerContainer>
          <PlayerImageContainer>
             <PlayerImage src='https://res.cloudinary.com/image-link-getter/image/upload/v1653572729/Rectangle_480_cedyqi.png' />
             <PlayerSongNameContainer>
-               <PlayerSongName>Tholiprema</PlayerSongName>
-               <PlayerArtistName>Kala Bairava</PlayerArtistName>
+               <PlayerSongName>{playerSongText}</PlayerSongName>
+               <PlayerArtistName>{playerArtistText}</PlayerArtistName>
             </PlayerSongNameContainer>
          </PlayerImageContainer>
          <AudioElement src={playerUrl} controls></AudioElement>

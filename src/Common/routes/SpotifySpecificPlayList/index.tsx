@@ -16,6 +16,15 @@ import {
    EditorsUlContainer
 } from './styledComponents'
 
+const tableHeader = {
+   hash: '',
+   track: 'Track',
+   album: 'Album',
+   time: 'Time',
+   artist: 'Artist',
+   added: 'Added'
+}
+
 interface SpotifySpecificPlayListProps {
    specificPlayListStore: SpecificPlayListStore
    eachSong: {
@@ -39,9 +48,9 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
       specificPlayListStore.getSpecificEditorData(this.props)
    }
 
-   changeSongStatus = (previewUrl = '') => {
+   changeSongStatus = (previewUrl = '', songName, artist) => {
       const { specificPlayListStore } = this.props
-      specificPlayListStore.changeSong(previewUrl)
+      specificPlayListStore.changeSong(previewUrl, songName, artist)
    }
 
    showSongsSuccessView = () => {
@@ -54,12 +63,12 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
                   specificPlayListStore={this.props.specificPlayListStore}
                />
                <TableHeader>
-                  <TableName width='56px'>#</TableName>
-                  <TableName width='258px'>Track </TableName>
-                  <TableName width='300px'>Album</TableName>
-                  <TableName width='200px'>Time</TableName>
-                  <TableName width='250px'>Artist</TableName>
-                  <TableName width='200px'>Added</TableName>
+                  <TableName width='56px'>{tableHeader.hash}</TableName>
+                  <TableName width='258px'>{tableHeader.track} </TableName>
+                  <TableName width='300px'>{tableHeader.album}</TableName>
+                  <TableName width='200px'>{tableHeader.time}</TableName>
+                  <TableName width='250px'>{tableHeader.artist}</TableName>
+                  <TableName width='200px'>{tableHeader.added}</TableName>
                </TableHeader>
                <SpotifyHrLine width='1278px' margin={true} />
                <EditorsUlContainer>
@@ -73,7 +82,11 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
                      )
                   )}
                </EditorsUlContainer>
-               <Player playerUrl={specificPlayListStore.songUrl} />
+               <Player
+                  playerUrl={specificPlayListStore.songUrl}
+                  playerArtist={specificPlayListStore.artistName}
+                  playerSongName={specificPlayListStore.songName}
+               />
             </SongAndTableContainer>
          </>
       )

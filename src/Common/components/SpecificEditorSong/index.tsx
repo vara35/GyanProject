@@ -16,7 +16,11 @@ interface SpecificEditorSongProps {
       trackNumber: string
       previewUrl: string
    }
-   changeSongStatus: (previewUrl: string) => void
+   changeSongStatus: (
+      previewUrl: string,
+      songName: string,
+      artist: string
+   ) => void
 }
 
 const SpecificEditorSong = (props: SpecificEditorSongProps) => {
@@ -36,7 +40,7 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
    const editedAlbumName = albumName.slice(0, 30)
 
    const changeSong = () => {
-      changeSongStatus(previewUrl)
+      changeSongStatus(previewUrl, songName, artist)
    }
 
    return (
