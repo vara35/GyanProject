@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { BiLeftArrowAlt } from 'react-icons/bi'
-import { observer, inject } from 'mobx-react'
+import { observer } from 'mobx-react'
 
 import {
    LeftArrowAndBackTextContainer,
@@ -15,16 +15,16 @@ import {
 } from './styledComponents'
 import './index.css'
 
-const text = `All Out 90s Telugu`
-
 interface SongDetailsProps {
-   specificPlayListStore?: any
+   songDetailsData: any
+   songDetailsText: string
 }
 
 const SongDetails = observer((props: SongDetailsProps) => {
-   const { specificPlayListStore } = props
-   const { name, songDetailsUrl } = specificPlayListStore.songDetailsData
-   console.log(name)
+   const { songDetailsData, songDetailsText } = props
+   const { name, songDetailsUrl } = songDetailsData
+
+   const editedSongText = name.slice(0, 20)
 
    return (
       <SongDetailsMainContainer>
@@ -37,8 +37,8 @@ const SongDetails = observer((props: SongDetailsProps) => {
          <AlbumAndSongContainer>
             <AlbumProfile src={songDetailsUrl} />
             <AlbumNameContainer>
-               <EditorTextEle>Editors picks</EditorTextEle>
-               <AlbumName>{name}</AlbumName>
+               <EditorTextEle>{songDetailsText}</EditorTextEle>
+               <AlbumName>{editedSongText}</AlbumName>
                <EditorTextEle>Mickey J. Meyer</EditorTextEle>
             </AlbumNameContainer>
          </AlbumAndSongContainer>

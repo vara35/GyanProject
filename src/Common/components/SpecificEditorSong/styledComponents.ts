@@ -7,3 +7,7 @@ export const EditorSongListContainer = styled.li`
 `
 
 export const EditorSongButtonEle = styled.button``
+
+export const PopularityImage = styled.img`
+   ${tw`h-4 w-8`}
+`

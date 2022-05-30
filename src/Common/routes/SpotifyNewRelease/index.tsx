@@ -4,33 +4,38 @@ import { inject, observer } from 'mobx-react'
 import SpotifyHeader from '../../components/SpotifyHeader'
 import SongDetails from '../../components/SongDetails'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
-import SpecificEditorSong from '../../components/SpecificEditorSong'
 import Player from '../../components/Player'
+import SpecificEditorSong from '../../components/SpecificEditorSong'
 
 import {
-   SpotifySpecificMainContainer,
-   TableHeader,
-   TableName,
+   EditorsUlContainer,
    SongAndTableContainer,
    SpotifyHrLine,
-   EditorsUlContainer
-} from './styledComponents'
+   SpotifySpecificMainContainer,
+   TableHeader,
+   TableName
+} from '../SpotifyEditorPlayList/styledComponents'
+
+import {} from './styledComponents'
 
 const tableHeader = {
+   hash: '#',
    track: 'Track',
    album: 'Album',
    time: 'Time',
    artist: 'Artist',
-   added: 'Added'
+   added: 'Added',
+   popularity: 'Popularity'
 }
 
-interface SpotifySpecificPlayListProps {
+interface SpotifyNewReleaseProps {
    specificPlayListStore: SpecificPlayListStore
    eachSong: {
       id: string
    }
    changeSongStatus: () => void
    isHash?: boolean
+   songDetailsText: string
 }
 
 const songsApiConstants = {
@@ -42,48 +47,46 @@ const songsApiConstants = {
 
 @inject('specificPlayListStore')
 @observer
-class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
+class SpotifyNewRelease extends Component<SpotifyNewReleaseProps> {
    componentDidMount() {
       const { specificPlayListStore } = this.props
-      specificPlayListStore.getSpecificEditorData(this.props)
+      specificPlayListStore.getNewReleaseData(this.props)
    }
 
-   changeSongStatus = (previewUrl = '', songName, artist) => {
+   changeSongStatus = (previewUrl = '', songName = '', artist = '') => {
       const { specificPlayListStore } = this.props
       specificPlayListStore.changeSong(previewUrl, songName, artist)
    }
 
-   showSongsSuccessView = () => {
-      const { specificPlayListStore, isHash = false } = this.props
-
-      const hash = isHash ? '#' : null
+   showNewReleaseSuccessView = () => {
+      const { specificPlayListStore } = this.props
 
       return (
          <>
             <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
             <SongAndTableContainer>
                <SongDetails
-                  specificPlayListStore={this.props.specificPlayListStore}
+                  songDetailsData={
+                     this.props.specificPlayListStore.newReleaseSongDetails
+                  }
+                  songDetailsText='New Releases'
                />
                <TableHeader>
-                  <TableName width='56px'>{hash}</TableName>
-                  <TableName width='258px'>{tableHeader.track} </TableName>
-                  <TableName width='300px'>{tableHeader.album}</TableName>
-                  <TableName width='200px'>{tableHeader.time}</TableName>
-                  <TableName width='250px'>{tableHeader.artist}</TableName>
-                  <TableName width='200px'>{tableHeader.added}</TableName>
+                  <TableName width='48px'>{tableHeader.hash} </TableName>
+                  <TableName width='500px'>{tableHeader.track} </TableName>
+                  <TableName width='430px'>{tableHeader.time}</TableName>
+                  <TableName width='300px'>{tableHeader.popularity}</TableName>
                </TableHeader>
                <SpotifyHrLine width='1278px' margin={true} />
                <EditorsUlContainer>
-                  {specificPlayListStore.specificEditorsData.map(
-                     (eachSong: any) => (
-                        <SpecificEditorSong
-                           songDetailsProps={eachSong}
-                           key={eachSong.id}
-                           changeSongStatus={this.changeSongStatus}
-                        />
-                     )
-                  )}
+                  {specificPlayListStore.newReleaseData.map((eachSong: any) => (
+                     <SpecificEditorSong
+                        songDetailsProps={eachSong}
+                        key={eachSong.id}
+                        changeSongStatus={this.changeSongStatus}
+                        isSongs={false}
+                     />
+                  ))}
                </EditorsUlContainer>
                <Player
                   playerUrl={specificPlayListStore.songUrl}
@@ -95,16 +98,16 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
       )
    }
 
-   showSongsInprogressView = () => 'Ok'
+   showNewReleaseInprogressView = () => 'Ok'
 
-   showEditorsongs = () => {
+   showNewReleaseSongs = () => {
       const { specificPlayListStore } = this.props
 
-      switch (specificPlayListStore.songStatus) {
+      switch (specificPlayListStore.newReleaseSongStatus) {
          case songsApiConstants.in_Progress:
-            return this.showSongsInprogressView()
+            return this.showNewReleaseInprogressView()
          case songsApiConstants.success:
-            return this.showSongsSuccessView()
+            return this.showNewReleaseSuccessView()
          default:
             null
       }
@@ -113,10 +116,10 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
    render() {
       return (
          <SpotifySpecificMainContainer>
-            {this.showEditorsongs()}
+            {this.showNewReleaseSongs()}
          </SpotifySpecificMainContainer>
       )
    }
 }
 
-export default SpotifySpecificPlayList
+export default SpotifyNewRelease

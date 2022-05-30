@@ -1,8 +1,9 @@
 import { inject, observer } from 'mobx-react'
 import { Component } from 'react'
 
-import SpotifyCard from '../../components/SpotifyCard'
+import SpotifyEditorCard from '../../components/SpotifyEditorCard'
 import SpotifyHeader from '../../components/SpotifyHeader'
+import SpotifyNewReleaseCard from '../../components/SpotifyNewReleaseCard'
 import SpotifyHomeStore from '../../stores/SpotifyHomeStore'
 
 import {
@@ -51,7 +52,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
                   id: string
                   name: string
                }) => (
-                  <SpotifyCard
+                  <SpotifyNewReleaseCard
                      cardHeading={eachCard.name}
                      cardImgUrl={eachCard.newReleaseImage}
                      key={eachCard.id}
@@ -84,7 +85,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
          <>
             {categoryData.map(
                (eachCard: { categoryCardImage: string; id: string }) => (
-                  <SpotifyCard
+                  <SpotifyEditorCard
                      cardHeading='Hello'
                      cardImgUrl={eachCard.categoryCardImage}
                      key={eachCard.id}
@@ -118,7 +119,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
          <>
             {editorPicksData.map(
                (eachCard: { name: string; cardImage: string; id: number }) => (
-                  <SpotifyCard
+                  <SpotifyEditorCard
                      cardHeading={eachCard.name}
                      cardImgUrl={eachCard.cardImage}
                      key={eachCard.id}

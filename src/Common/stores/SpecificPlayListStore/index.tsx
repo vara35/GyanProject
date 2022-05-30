@@ -14,7 +14,16 @@ interface SpecificPlayStoreProps {
 
 class SpecificPlayListStore {
    @observable specificEditorsData = []
+   @observable newReleaseData = []
+
    @observable songDetailsData: { name: string; songDetailsUrl: string } = {
+      name: '',
+      songDetailsUrl: ''
+   }
+   @observable newReleaseSongDetails: {
+      name: string
+      songDetailsUrl: string
+   } = {
       name: '',
       songDetailsUrl: ''
    }
@@ -22,6 +31,8 @@ class SpecificPlayListStore {
    @observable songUrl = ''
    @observable songName = ''
    @observable artistName = ''
+
+   @observable newReleaseSongStatus = songsApiConstants.initial
 
    @action getSpecificEditorData = async props => {
       this.songStatus = songsApiConstants.in_Progress
@@ -40,7 +51,6 @@ class SpecificPlayListStore {
 
       const specificEditorResponse = await fetch(url, options)
       const editordata = await specificEditorResponse.json()
-      console.log(editordata)
 
       if (specificEditorResponse.ok) {
          const songDetails = {
@@ -66,6 +76,45 @@ class SpecificPlayListStore {
          this.songStatus = songsApiConstants.success
       } else {
          this.songStatus = songsApiConstants.failure
+      }
+   }
+
+   @action getNewReleaseData = async props => {
+      this.newReleaseSongStatus = songsApiConstants.in_Progress
+      const { match } = props
+      const { params } = match
+      const { id } = params
+
+      const token = Cookies.get('pa_token')
+      const categoryUrl = `https://api.spotify.com/v1/albums/${id}`
+      const categoryOptions = {
+         method: 'GET',
+         headers: {
+            Authorization: `Bearer ${token}`
+         }
+      }
+
+      const specificCategoryResponse = await fetch(categoryUrl, categoryOptions)
+      const newReleasedata = await specificCategoryResponse.json()
+      if (specificCategoryResponse.ok) {
+         const newReleaseSongDetails = {
+            name: newReleasedata.name,
+            songDetailsUrl: newReleasedata.images[0].url,
+            artists: newReleasedata.artists[0].name
+         }
+
+         const updatedEditorData = newReleasedata.tracks.items.map(
+            eachSong => ({
+               duration: eachSong.duration_ms,
+               popularity: newReleasedata.popularity,
+               songName: eachSong.name
+            })
+         )
+         this.newReleaseSongDetails = newReleaseSongDetails
+         this.newReleaseData = updatedEditorData
+         this.newReleaseSongStatus = songsApiConstants.success
+      } else {
+         this.newReleaseSongStatus = songsApiConstants.failure
       }
    }
 

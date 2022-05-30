@@ -13,18 +13,19 @@ interface SpotifyCardProps {
    isText?: boolean
 }
 
-const SpotifyCard = (props: SpotifyCardProps) => {
+const SpotifyNewReleaseCard = (props: SpotifyCardProps) => {
    const { cardHeading, cardImgUrl, id, isText = true } = props
+   const editedCardHeading = cardHeading.slice(0, 16)
    return (
-      <Link to={`/${id}`}>
+      <Link to={`/newrelease/${id}`}>
          <SpotifyCardMainContainer>
             <CardButton type='button'>
                <CardImage src={cardImgUrl} />
             </CardButton>
-            {isText && <CardHeading>{cardHeading}</CardHeading>}
+            {isText && <CardHeading>{editedCardHeading}</CardHeading>}
          </SpotifyCardMainContainer>
       </Link>
    )
 }
 
-export default SpotifyCard
+export default SpotifyNewReleaseCard
