@@ -13,6 +13,8 @@ interface PlayerProps {
    playerArtist: string
    playerSongName: string
 }
+const playerImage =
+   'https://res.cloudinary.com/image-link-getter/image/upload/v1653572729/Rectangle_480_cedyqi.png'
 
 const Player = (props: PlayerProps) => {
    const { playerUrl, playerArtist, playerSongName } = props
@@ -23,7 +25,7 @@ const Player = (props: PlayerProps) => {
    return (
       <PlayerContainer>
          <PlayerImageContainer>
-            <PlayerImage src='https://res.cloudinary.com/image-link-getter/image/upload/v1653572729/Rectangle_480_cedyqi.png' />
+            <PlayerImage src={playerImage} />
             <PlayerSongNameContainer>
                <PlayerSongName>{playerSongText}</PlayerSongName>
                <PlayerArtistName>{playerArtistText}</PlayerArtistName>

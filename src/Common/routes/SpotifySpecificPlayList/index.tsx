@@ -17,7 +17,6 @@ import {
 } from './styledComponents'
 
 const tableHeader = {
-   hash: '',
    track: 'Track',
    album: 'Album',
    time: 'Time',
@@ -31,6 +30,7 @@ interface SpotifySpecificPlayListProps {
       id: string
    }
    changeSongStatus: () => void
+   isHash?: boolean
 }
 
 const songsApiConstants = {
@@ -54,7 +54,10 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
    }
 
    showSongsSuccessView = () => {
-      const { specificPlayListStore } = this.props
+      const { specificPlayListStore, isHash = false } = this.props
+
+      const hash = isHash ? '#' : null
+
       return (
          <>
             <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
@@ -63,7 +66,7 @@ class SpotifySpecificPlayList extends Component<SpotifySpecificPlayListProps> {
                   specificPlayListStore={this.props.specificPlayListStore}
                />
                <TableHeader>
-                  <TableName width='56px'>{tableHeader.hash}</TableName>
+                  <TableName width='56px'>{hash}</TableName>
                   <TableName width='258px'>{tableHeader.track} </TableName>
                   <TableName width='300px'>{tableHeader.album}</TableName>
                   <TableName width='200px'>{tableHeader.time}</TableName>

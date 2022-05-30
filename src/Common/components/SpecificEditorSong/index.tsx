@@ -39,6 +39,10 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
    const editedSongName = songName.slice(0, 40)
    const editedAlbumName = albumName.slice(0, 30)
 
+   const convertToSeconds = Math.ceil(parseInt(duration) / 1000)
+   const convertToMinutes = Math.ceil(convertToSeconds / 60)
+   const convertToMinute = Math.ceil(convertToSeconds / 60)
+
    const changeSong = () => {
       changeSongStatus(previewUrl, songName, artist)
    }
