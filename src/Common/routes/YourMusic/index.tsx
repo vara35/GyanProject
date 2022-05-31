@@ -4,6 +4,7 @@ import { Component } from 'react'
 import SpotifyHeader from '../../components/SpotifyHeader'
 import YourMusicStore from '../../stores/YourMusicStore'
 import YourMusicSongs from '../../components/YourMusicSongs'
+import Player from '../../components/Player'
 
 import {
    GenreHeading,
@@ -31,12 +32,19 @@ class YourMusic extends Component<YourMusicProps> {
       const { yourMusicStore } = this.props
       yourMusicStore.getYourMusicdata()
    }
-   showYourMusicSuccessView = () => (
-      <YourMusicUlContainer>
-         <YourMusicSongs />
-      </YourMusicUlContainer>
-   )
+   showYourMusicSuccessView = () => {
+      const { yourMusicStore } = this.props
 
+      return (
+         <YourMusicUlContainer>
+            {yourMusicStore.yourMusicSongsData.map(
+               (eachSong: { id: string }) => (
+                  <YourMusicSongs key={eachSong.id} />
+               )
+            )}
+         </YourMusicUlContainer>
+      )
+   }
    showYourMusicInprogressView = () => 'Ok'
 
    showYourMusic = () => {
@@ -59,6 +67,7 @@ class YourMusic extends Component<YourMusicProps> {
             <VerticalContainer>
                <GenreHeading marginTop='96px'>{yourMusic}</GenreHeading>
                {this.showYourMusic()}
+               <Player playerUrl='' playerArtist='' playerSongName='' />
             </VerticalContainer>
          </YourMusicContainer>
       )

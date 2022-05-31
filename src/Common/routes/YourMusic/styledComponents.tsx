@@ -9,5 +9,5 @@ export const YourMusicContainer = styled.div`
 `
 
 export const YourMusicUlContainer = styled.ul`
-   ${tw`ml-8`}
+   ${tw`ml-8 overflow-y-auto`}
 `

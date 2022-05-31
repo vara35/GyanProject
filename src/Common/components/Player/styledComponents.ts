@@ -11,6 +11,7 @@ export const AudioElement = styled.audio`
 export const PlayerContainer = styled.div`
    ${tw`flex items-center`};
    border-top: 0.5px solid #9b9b9b;
+   width: 1352px;
 `
 
 export const PlayerImageContainer = styled.div`

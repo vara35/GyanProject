@@ -21,6 +21,7 @@ const YourMusicSongs = () => (
                </YourMusicDescription>
             </YourMusicSongDetails>
          </SongImageAndDetailsContainer>
+         <YourMusicDescription>2:04</YourMusicDescription>
       </YourMusicSongButton>
    </YourMusicContainer>
 )
