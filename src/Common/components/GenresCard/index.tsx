@@ -5,23 +5,23 @@ import {
    CardImage,
    SpotifyCardMainContainer
 } from '../SpotifyCategoryCard/styledComponents'
-import { GenreHeadingEle } from './styledComponents'
+import { GenreHeadingEle, GenrePlayList } from './styledComponents'
 
 interface GenresCardProps {
-   GenreHeading: string
-   gentePlayListCount: string
-   genreImgUrl: string
-   id: number | string
+   genreObj: any
 }
 
 const GenresCard = (props: GenresCardProps) => {
-   const { GenreHeading, gentePlayListCount, genreImgUrl, id } = props
+   const { genreObj } = props
+   const { genreImage, name, total, id } = genreObj
+   console.log(genreObj.genreImage)
    return (
       <Link to={`/category/${id}`}>
          <SpotifyCardMainContainer>
             <CardButton type='button'>
-               <CardImage src={genreImgUrl} />
-               <GenreHeadingEle>Hello</GenreHeadingEle>
+               <CardImage src={genreImage} />
+               <GenreHeadingEle>{name}</GenreHeadingEle>
+               <GenrePlayList>30 playlist</GenrePlayList>
             </CardButton>
          </SpotifyCardMainContainer>
       </Link>

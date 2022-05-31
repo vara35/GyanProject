@@ -80,7 +80,6 @@ class SpecificPlayListStore {
             trackNumber: eachSong.track.track_number,
             previewUrl: eachSong.track.preview_url
          }))
-
          this.songDetailsData = songDetails
          this.specificEditorsData = updatedEditorData
          this.songStatus = songsApiConstants.success
@@ -105,24 +104,18 @@ class SpecificPlayListStore {
       }
 
       const specificCategoryResponse = await fetch(categoryUrl, categoryOptions)
-      const categoryData = await specificCategoryResponse.json()
+      const categoryJsonData = await specificCategoryResponse.json()
+
       if (specificCategoryResponse.ok) {
-         const categorySong = {
-            name: categoryData.name,
-            songDetailsUrl: categoryData.images[0].url,
-            artists: categoryData.artists[0].name
-         }
-
-         // const updatedEditorData = newReleasedata.tracks.items.map(
-         //    eachSong => ({
-         //       duration: eachSong.duration_ms,
-         //       popularity: newReleasedata.popularity,
-         //       songName: eachSong.name
-         //    })
-         // )
-
-         this.categorySongDetails = categorySong
-         this.categoryData = []
+         const updatedCategoryData = categoryJsonData.playlists.items.map(
+            eachSong => ({
+               id: eachSong.id,
+               genreImage: eachSong.images[0].url,
+               name: eachSong.name,
+               total: categoryJsonData.playlists.total
+            })
+         )
+         this.categoryData = updatedCategoryData
          this.categorySongStatus = songsApiConstants.success
       } else {
          this.categorySongStatus = songsApiConstants.failure
@@ -149,7 +142,6 @@ class SpecificPlayListStore {
          newReleaseOptions
       )
       const newReleasedata = await specificCategoryResponse.json()
-      console.log(newReleasedata)
 
       if (specificCategoryResponse.ok) {
          const newReleaseSong = {

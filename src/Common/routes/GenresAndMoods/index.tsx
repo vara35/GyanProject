@@ -1,12 +1,15 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { BiLeftArrowAlt } from 'react-icons/bi'
+import { inject, observer } from 'mobx-react'
 
 import SpotifyHeader from '../../components/SpotifyHeader'
+import GenresCard from '../../components/GenresCard'
+import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 
 import { SpotifySpecificMainContainer } from '../SpotifyEditorPlayList/styledComponents'
 import { BackTextButton } from '../../components/SongDetails/styledComponents'
-
+import { CardsUlContainer } from '../SpotifyHome/styledComponents'
 import {
    BackTextArrowContainer,
    GenreHeading,
@@ -16,7 +19,53 @@ import {
 const back = 'Back'
 const podcast = 'Podcast'
 
-class GenreAndMoods extends Component {
+const songsApiConstants = {
+   initial: 'INITIAL',
+   in_Progress: 'InProgress',
+   success: 'SUCCESS',
+   failure: 'FAILURE'
+}
+
+interface GenreAndMoodsProps {
+   specificPlayListStore: SpecificPlayListStore
+}
+
+@inject('specificPlayListStore')
+@observer
+class GenreAndMoods extends Component<GenreAndMoodsProps> {
+   componentDidMount() {
+      const { specificPlayListStore } = this.props
+      specificPlayListStore.getCategoryData(this.props)
+   }
+
+   showCategorySuccessView = () => {
+      const { specificPlayListStore } = this.props
+      return (
+         <CardsUlContainer>
+            {specificPlayListStore.categoryData.map(
+               (eachCategory: { id: string }) => (
+                  <GenresCard genreObj={eachCategory} key={eachCategory.id} />
+               )
+            )}
+         </CardsUlContainer>
+      )
+   }
+
+   showCategoryInprogressView = () => 'Ok'
+
+   showCategoryPlayLists = () => {
+      const { specificPlayListStore } = this.props
+
+      switch (specificPlayListStore.categorySongStatus) {
+         case songsApiConstants.in_Progress:
+            return this.showCategoryInprogressView()
+         case songsApiConstants.success:
+            return this.showCategorySuccessView()
+         default:
+            null
+      }
+   }
+
    render() {
       return (
          <SpotifySpecificMainContainer>
@@ -29,6 +78,7 @@ class GenreAndMoods extends Component {
                   </BackTextArrowContainer>
                </Link>
                <GenreHeading marginTop='48px'>{podcast}</GenreHeading>
+               {this.showCategoryPlayLists()}
             </VerticalContainer>
          </SpotifySpecificMainContainer>
       )
