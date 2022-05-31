@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { inject, observer } from 'mobx-react'
+import Cookies from 'js-cookie'
 
 import SpotifyHeader from '../../components/SpotifyHeader'
 import ProfileStore from '../../stores/ProfileStore'
@@ -20,8 +21,14 @@ import './index.css'
 
 interface ProfileConstants {
    profileStore: ProfileStore
-   name: string
    followers: number
+   userDetails: {
+      name: string
+      followers: {
+         total: number | string
+      }
+   }
+   history: any
 }
 
 @inject('profileStore')
@@ -34,13 +41,18 @@ class Profile extends Component<ProfileConstants> {
 
    render() {
       const { profileStore } = this.props
-      const { userDetails } = profileStore
-      const { name, followers } = userDetails
+      const { name, followers } = profileStore.userData
 
       const followerText = 'Followers'
       const playlistNum = 20
       const playListText = 'playList'
       const logoutButton = 'LOGOUT'
+
+      const removeToken = () => {
+         const { history } = this.props
+         Cookies.remove('pa_token')
+         history.replace('/login')
+      }
 
       return (
          <ProfileContainer>
@@ -50,7 +62,7 @@ class Profile extends Component<ProfileConstants> {
                <UserName>{name}</UserName>
                <FollowersAndPlayListContainer>
                   <FollowersContainer>
-                     <FollowersCount>{followers}</FollowersCount>
+                     <FollowersCount>{followers.total}</FollowersCount>
                      <FollowersText>{followerText}</FollowersText>
                   </FollowersContainer>
                   <FollowersContainer>
@@ -58,7 +70,9 @@ class Profile extends Component<ProfileConstants> {
                      <FollowersText>{playListText}</FollowersText>
                   </FollowersContainer>
                </FollowersAndPlayListContainer>
-               <LogoutButton typep='button'>{logoutButton}</LogoutButton>
+               <LogoutButton typep='button' onClick={removeToken}>
+                  {logoutButton}
+               </LogoutButton>
             </UserDetailsContainer>
          </ProfileContainer>
       )

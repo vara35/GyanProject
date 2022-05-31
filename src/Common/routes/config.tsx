@@ -31,7 +31,7 @@ import SpotifyHome from './SpotifyHome'
 import SpotifyEditorPlayList from './SpotifyEditorPlayList'
 import SpotifyNewRelease from './SpotifyNewRelease'
 import GenreAndMoods from './GenresAndMoods'
-
+import YourMusic from './YourMusic'
 //
 
 export const routes = (): React.ReactElement => (
@@ -86,6 +86,7 @@ export const routes = (): React.ReactElement => (
          <Route exact path='/editor/:id' component={SpotifyEditorPlayList} />
          <Route exact path='/category/:id' component={GenreAndMoods} />
          <Route exact path='/newrelease/:id' component={SpotifyNewRelease} />
+         <Route exact path='/yourmusic' component={YourMusic} />
 
          <Route
             path={NOT_FOUND_PAGE_PATH}

@@ -2,13 +2,15 @@ import { observable, action } from 'mobx'
 import Cookies from 'js-cookie'
 
 class ProfileStore {
-   @observable userDetails: { name: string; followers: number | string } = {
+   @observable userData: {
+      name: string
+      followers: { total: number | string }
+   } = {
       name: '',
-      followers: 0
+      followers: { total: '' }
    }
 
-   @action
-   getUserData = async () => {
+   @action getUserData = async () => {
       const token = Cookies.get('pa_token')
       const url = 'https://api.spotify.com/v1/me'
       const options = {
@@ -20,11 +22,15 @@ class ProfileStore {
 
       const response = await fetch(url, options)
       const data = await response.json()
-      const updatedUserDetails: any = {
-         name: data.display_name,
-         followers: data.followers
+
+      if (response.ok) {
+         const updatedUserDetails: any = {
+            name: data.display_name,
+            followers: data.followers
+         }
+         this.userData = updatedUserDetails
+         console.log(updatedUserDetails)
       }
-      this.userDetails = updatedUserDetails
    }
 }
 

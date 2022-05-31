@@ -14,14 +14,13 @@ interface GenresCardProps {
 const GenresCard = (props: GenresCardProps) => {
    const { genreObj } = props
    const { genreImage, name, total, id } = genreObj
-   console.log(genreObj.genreImage)
    return (
       <Link to={`/category/${id}`}>
          <SpotifyCardMainContainer>
             <CardButton type='button'>
                <CardImage src={genreImage} />
                <GenreHeadingEle>{name}</GenreHeadingEle>
-               <GenrePlayList>30 playlist</GenrePlayList>
+               <GenrePlayList>{`${total} playlist`} </GenrePlayList>
             </CardButton>
          </SpotifyCardMainContainer>
       </Link>
