@@ -6,6 +6,7 @@ import YourMusicStore from '../../stores/YourMusicStore'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import YourMusicSongs from '../../components/YourMusicSongs'
 import Player from '../../components/Player'
+import SpotifyLoader from '../../components/SpotifyLoader'
 
 import {
    GenreHeading,
@@ -69,7 +70,7 @@ class YourMusic extends Component<YourMusicProps> {
          </YourMusicUlContainer>
       )
    }
-   showYourMusicInprogressView = () => 'Ok'
+   showYourMusicInprogressView = () => <SpotifyLoader />
 
    showYourMusic = () => {
       const { yourMusicStore } = this.props

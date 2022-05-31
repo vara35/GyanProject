@@ -10,6 +10,8 @@ import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import { SpotifySpecificMainContainer } from '../SpotifyEditorPlayList/styledComponents'
 import { BackTextButton } from '../../components/SongDetails/styledComponents'
 import { CardsUlContainer } from '../SpotifyHome/styledComponents'
+import SpotifyLoader from '../../components/SpotifyLoader'
+
 import {
    BackTextArrowContainer,
    GenreHeading,
@@ -51,7 +53,7 @@ class GenreAndMoods extends Component<GenreAndMoodsProps> {
       )
    }
 
-   showCategoryInprogressView = () => 'Ok'
+   showCategoryInprogressView = () => <SpotifyLoader />
 
    showCategoryPlayLists = () => {
       const { specificPlayListStore } = this.props

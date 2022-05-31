@@ -6,6 +6,7 @@ import SongDetails from '../../components/SongDetails'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import Player from '../../components/Player'
 import SpecificEditorSong from '../../components/SpecificEditorSong'
+import SpotifyLoader from '../../components/SpotifyLoader'
 
 import {
    EditorsUlContainer,
@@ -104,7 +105,7 @@ class SpotifyNewRelease extends Component<SpotifyNewReleaseProps> {
       )
    }
 
-   showNewReleaseInprogressView = () => 'Ok'
+   showNewReleaseInprogressView = () => <SpotifyLoader />
 
    showNewReleaseSongs = () => {
       const { specificPlayListStore } = this.props

@@ -4,6 +4,7 @@ import { Component } from 'react'
 import SpotifyCategoryCard from '../../components/SpotifyCategoryCard'
 import SpotifyEditorCard from '../../components/SpotifyEditorCard'
 import SpotifyHeader from '../../components/SpotifyHeader'
+import SpotifyLoader from '../../components/SpotifyLoader'
 import SpotifyNewReleaseCard from '../../components/SpotifyNewReleaseCard'
 import SpotifyHomeStore from '../../stores/SpotifyHomeStore'
 
@@ -64,7 +65,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
          </>
       )
    }
-   showNewRelaseInprogressView = () => 'ok'
+   showNewRelaseInprogressView = () => <SpotifyLoader />
 
    showNewReleaseCards = () => {
       const { spotifyHomeStore } = this.props
@@ -96,7 +97,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
          </>
       )
    }
-   showCategoryCardInprogressView = () => 'ok'
+   showCategoryCardInprogressView = () => <SpotifyLoader />
 
    showCategoryCards = () => {
       const { spotifyHomeStore } = this.props
@@ -130,7 +131,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
       )
    }
 
-   showEditorCardInprogressView = () => 'ok'
+   showEditorCardInprogressView = () => <SpotifyLoader />
 
    showEditorCards = () => {
       const { spotifyHomeStore } = this.props

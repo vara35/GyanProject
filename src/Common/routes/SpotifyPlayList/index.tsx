@@ -3,6 +3,7 @@ import { Component } from 'react'
 
 import GenresCard from '../../components/GenresCard'
 import SpotifyHeader from '../../components/SpotifyHeader'
+import SpotifyLoader from '../../components/SpotifyLoader'
 import PlayListStore from '../../stores/PlayListStore'
 
 import {
@@ -43,7 +44,7 @@ class SpotifyPlayList extends Component<PlayListProps> {
          </CardsUlContainer>
       )
    }
-   showPlayListInprogressView = () => 'Ok'
+   showPlayListInprogressView = () => <SpotifyLoader />
 
    showPlayList = () => {
       const { playListStore } = this.props
