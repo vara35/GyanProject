@@ -53,9 +53,14 @@ class SpotifyNewRelease extends Component<SpotifyNewReleaseProps> {
       specificPlayListStore.getNewReleaseData(this.props)
    }
 
-   changeSongStatus = (previewUrl = '', songName = '', artist = '') => {
+   changeSongStatus = (
+      previewUrl = '',
+      songName = '',
+      artist = '',
+      playerUrl
+   ) => {
       const { specificPlayListStore } = this.props
-      specificPlayListStore.changeSong(previewUrl, songName, artist)
+      specificPlayListStore.changeSong(previewUrl, songName, artist, playerUrl)
    }
 
    showNewReleaseSuccessView = () => {
@@ -89,9 +94,10 @@ class SpotifyNewRelease extends Component<SpotifyNewReleaseProps> {
                   ))}
                </EditorsUlContainer>
                <Player
-                  playerUrl={specificPlayListStore.songUrl}
+                  songUrl={specificPlayListStore.songUrl}
                   playerArtist={specificPlayListStore.artistName}
                   playerSongName={specificPlayListStore.songName}
+                  playerUrl={specificPlayListStore.playerImageURl}
                />
             </SongAndTableContainer>
          </>

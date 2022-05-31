@@ -20,7 +20,8 @@ interface YourMusicSongsProps {
    updateSong: (
       previewUrl: string,
       yourMusicSongName: string,
-      yourMusicArtist: string
+      yourMusicArtist: string,
+      playerUrl: string
    ) => void
 }
 
@@ -36,7 +37,12 @@ const YourMusicSongs = (props: YourMusicSongsProps) => {
    } = albumDetails
 
    const updateSongUrl = () => {
-      updateSong(previewUrl, yourMusicSongName, yourMusicArtist)
+      updateSong(
+         previewUrl,
+         yourMusicSongName,
+         yourMusicArtist,
+         yourMusicImageUrl
+      )
    }
 
    return (

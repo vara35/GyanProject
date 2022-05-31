@@ -35,12 +35,13 @@ class YourMusic extends Component<YourMusicProps> {
       yourMusicStore.getYourMusicdata()
    }
 
-   updateSong = (previewUrl, yourMusicSongName, yourMusicArtist) => {
+   updateSong = (previewUrl, yourMusicSongName, yourMusicArtist, playerUrl) => {
       const { specificPlayListStore } = this.props
       specificPlayListStore.changeSong(
          previewUrl,
          yourMusicSongName,
-         yourMusicArtist
+         yourMusicArtist,
+         playerUrl
       )
    }
    showYourMusicSuccessView = () => {
@@ -92,9 +93,10 @@ class YourMusic extends Component<YourMusicProps> {
                <GenreHeading marginTop='96px'>{yourMusic}</GenreHeading>
                {this.showYourMusic()}
                <Player
-                  playerUrl={specificPlayListStore.songUrl}
+                  songUrl={specificPlayListStore.songUrl}
                   playerArtist={specificPlayListStore.artistName}
                   playerSongName={specificPlayListStore.songName}
+                  playerUrl={specificPlayListStore.playerImageURl}
                />
             </VerticalContainer>
          </YourMusicContainer>

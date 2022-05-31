@@ -21,13 +21,20 @@ interface SpecificEditorSongProps {
    changeSongStatus: (
       previewUrl: string,
       songName: string,
-      artist: string
+      artist: string,
+      playerUrl: string
    ) => void
    isSongs: boolean
+   playerUrl?: string
 }
 
 const SpecificEditorSong = (props: SpecificEditorSongProps) => {
-   const { songDetailsProps, changeSongStatus, isSongs = true } = props
+   const {
+      songDetailsProps,
+      changeSongStatus,
+      isSongs = true,
+      playerUrl = ''
+   } = props
    const {
       id,
       songName,
@@ -48,7 +55,7 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
          : 'https://res.cloudinary.com/image-link-getter/image/upload/v1653921028/Group_183_xwydvw.png'
 
    const changeSong = () => {
-      changeSongStatus(previewUrl, songName, artist)
+      changeSongStatus(previewUrl, songName, artist, playerUrl)
    }
 
    const showNewReleaseSongs = () => (

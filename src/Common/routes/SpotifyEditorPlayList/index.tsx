@@ -48,9 +48,9 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
       specificPlayListStore.getSpecificEditorData(this.props)
    }
 
-   changeSongStatus = (previewUrl = '', songName, artist) => {
+   changeSongStatus = (previewUrl = '', songName, artist, playerUrl) => {
       const { specificPlayListStore } = this.props
-      specificPlayListStore.changeSong(previewUrl, songName, artist)
+      specificPlayListStore.changeSong(previewUrl, songName, artist, playerUrl)
    }
 
    showSongsSuccessView = () => {
@@ -90,9 +90,10 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
                   )}
                </EditorsUlContainer>
                <Player
-                  playerUrl={specificPlayListStore.songUrl}
+                  songUrl={specificPlayListStore.songUrl}
                   playerArtist={specificPlayListStore.artistName}
                   playerSongName={specificPlayListStore.songName}
+                  playerUrl={specificPlayListStore.playerImageURl}
                />
             </SongAndTableContainer>
          </>

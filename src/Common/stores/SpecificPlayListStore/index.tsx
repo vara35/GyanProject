@@ -39,6 +39,7 @@ class SpecificPlayListStore {
    @observable songUrl = ''
    @observable songName = ''
    @observable artistName = ''
+   @observable playerImageURl = ''
 
    @action getSpecificEditorData = async props => {
       this.songStatus = songsApiConstants.in_Progress
@@ -162,10 +163,11 @@ class SpecificPlayListStore {
       }
    }
 
-   @action changeSong(songUrl, songName, artist) {
+   @action changeSong(songUrl, songName, artist, playerurl) {
       this.songUrl = songUrl
       this.songName = songName
       this.artistName = artist
+      this.playerImageURl = playerurl
    }
 }
 
