@@ -15,6 +15,11 @@ import {
 } from './styledComponents'
 import './index.css'
 
+const textObj = {
+   back: 'Back',
+   artistText: 'Mickey J. Meyer'
+}
+
 interface SongDetailsProps {
    songDetailsData: any
    songDetailsText: string
@@ -31,7 +36,7 @@ const SongDetails = observer((props: SongDetailsProps) => {
          <Link to='/spotifyhome'>
             <LeftArrowAndBackTextContainer>
                <BiLeftArrowAlt className='left-arrow' />
-               <BackTextButton type='button'>Back</BackTextButton>
+               <BackTextButton type='button'>{textObj.back}</BackTextButton>
             </LeftArrowAndBackTextContainer>
          </Link>
          <AlbumAndSongContainer>
@@ -39,7 +44,7 @@ const SongDetails = observer((props: SongDetailsProps) => {
             <AlbumNameContainer>
                <EditorTextEle>{songDetailsText}</EditorTextEle>
                <AlbumName>{editedSongText}</AlbumName>
-               <EditorTextEle>Mickey J. Meyer</EditorTextEle>
+               <EditorTextEle>{textObj.artistText}</EditorTextEle>
             </AlbumNameContainer>
          </AlbumAndSongContainer>
       </SongDetailsMainContainer>

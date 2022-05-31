@@ -94,7 +94,6 @@ class SpotifyHomeStore {
 
       const newReleaseResponse = await fetch(url, options)
       const newReleaseJsonData = await newReleaseResponse.json()
-      console.log(newReleaseJsonData)
       if (newReleaseResponse.ok) {
          const updatedNewReleaseData = newReleaseJsonData.albums.items.map(
             eachNewReleaseList => ({
@@ -105,6 +104,8 @@ class SpotifyHomeStore {
          )
          this.newReleaseData = updatedNewReleaseData
          this.newReleaseStatus = cardApiConstants.success
+      } else {
+         this.newReleaseStatus = cardApiConstants.failure
       }
    }
 }

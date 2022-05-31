@@ -30,12 +30,12 @@ const tableHeader = {
 
 interface SpotifyNewReleaseProps {
    specificPlayListStore: SpecificPlayListStore
-   eachSong: {
-      id: string
-   }
+
    changeSongStatus: () => void
    isHash?: boolean
    songDetailsText: string
+   songDetailsProps: any
+   eachSong: { newReleaseImage: string; id: string; name: string }
 }
 
 const songsApiConstants = {

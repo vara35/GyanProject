@@ -11,10 +11,10 @@ interface SpecificEditorSongProps {
       id: string
       songName: string
       duration: string
-      albumName: string
+      albumName?: string
       artist: string
-      addedAt: string
-      trackNumber: string
+      addedAt?: string
+      trackNumber?: string
       previewUrl: string
       popularity?: number
    }

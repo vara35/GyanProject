@@ -89,48 +89,6 @@ class SpecificPlayListStore {
       }
    }
 
-   @action getNewReleaseData = async props => {
-      this.newReleaseSongStatus = songsApiConstants.in_Progress
-      const { match } = props
-      const { params } = match
-      const { id } = params
-
-      const token = Cookies.get('pa_token')
-      const newReleaseUrl = `https://api.spotify.com/v1/albums/${id}`
-      const newReleaseOptions = {
-         method: 'GET',
-         headers: {
-            Authorization: `Bearer ${token}`
-         }
-      }
-
-      const specificCategoryResponse = await fetch(
-         newReleaseUrl,
-         newReleaseOptions
-      )
-      const newReleasedata = await specificCategoryResponse.json()
-      if (specificCategoryResponse.ok) {
-         const newReleaseSongDetails = {
-            name: newReleasedata.name,
-            songDetailsUrl: newReleasedata.images[0].url,
-            artists: newReleasedata.artists[0].name
-         }
-
-         const updatedEditorData = newReleasedata.tracks.items.map(
-            eachSong => ({
-               duration: eachSong.duration_ms,
-               popularity: newReleasedata.popularity,
-               songName: eachSong.name
-            })
-         )
-         this.newReleaseSongDetails = newReleaseSongDetails
-         this.newReleaseData = updatedEditorData
-         this.newReleaseSongStatus = songsApiConstants.success
-      } else {
-         this.newReleaseSongStatus = songsApiConstants.failure
-      }
-   }
-
    @action getCategoryData = async props => {
       this.categorySongStatus = songsApiConstants.in_Progress
       const { match } = props
@@ -148,7 +106,6 @@ class SpecificPlayListStore {
 
       const specificCategoryResponse = await fetch(categoryUrl, categoryOptions)
       const categoryData = await specificCategoryResponse.json()
-      console.log(categoryData)
       if (specificCategoryResponse.ok) {
          const categorySong = {
             name: categoryData.name,
@@ -169,6 +126,51 @@ class SpecificPlayListStore {
          this.categorySongStatus = songsApiConstants.success
       } else {
          this.categorySongStatus = songsApiConstants.failure
+      }
+   }
+
+   @action getNewReleaseData = async props => {
+      this.newReleaseSongStatus = songsApiConstants.in_Progress
+      const { match } = props
+      const { params } = match
+      const { id } = params
+
+      const token = Cookies.get('pa_token')
+      const newReleaseUrl = `https://api.spotify.com/v1/albums/${id}`
+      const newReleaseOptions = {
+         method: 'GET',
+         headers: {
+            Authorization: `Bearer ${token}`
+         }
+      }
+
+      const specificCategoryResponse = await fetch(
+         newReleaseUrl,
+         newReleaseOptions
+      )
+      const newReleasedata = await specificCategoryResponse.json()
+      console.log(newReleasedata)
+
+      if (specificCategoryResponse.ok) {
+         const newReleaseSong = {
+            name: newReleasedata.name,
+            songDetailsUrl: newReleasedata.images[0].url,
+            artists: newReleasedata.artists[0].name
+         }
+
+         const updatedEditorData = newReleasedata.tracks.items.map(
+            eachSong => ({
+               id: eachSong.id,
+               duration: eachSong.duration_ms,
+               popularity: newReleasedata.popularity,
+               songName: eachSong.name
+            })
+         )
+         this.newReleaseSongDetails = newReleaseSong
+         this.newReleaseData = updatedEditorData
+         this.newReleaseSongStatus = songsApiConstants.success
+      } else {
+         this.newReleaseSongStatus = songsApiConstants.failure
       }
    }
 

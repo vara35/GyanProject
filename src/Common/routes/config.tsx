@@ -30,6 +30,7 @@ import Profile from './ProfileRoute'
 import SpotifyHome from './SpotifyHome'
 import SpotifyEditorPlayList from './SpotifyEditorPlayList'
 import SpotifyNewRelease from './SpotifyNewRelease'
+import GenreAndMoods from './GenresAndMoods'
 
 //
 
@@ -83,6 +84,7 @@ export const routes = (): React.ReactElement => (
          <Route exact path='/profile' component={Profile} />
          <Route exact path='/spotifyhome' component={SpotifyHome} />
          <Route exact path='/editor/:id' component={SpotifyEditorPlayList} />
+         <Route exact path='/category/:id' component={GenreAndMoods} />
          <Route exact path='/newrelease/:id' component={SpotifyNewRelease} />
 
          <Route
