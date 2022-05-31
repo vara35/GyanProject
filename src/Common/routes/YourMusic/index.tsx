@@ -3,6 +3,7 @@ import { Component } from 'react'
 
 import SpotifyHeader from '../../components/SpotifyHeader'
 import YourMusicStore from '../../stores/YourMusicStore'
+import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import YourMusicSongs from '../../components/YourMusicSongs'
 import Player from '../../components/Player'
 
@@ -23,14 +24,24 @@ const yourMusicApiConstants = {
 
 interface YourMusicProps {
    yourMusicStore: YourMusicStore
+   specificPlayListStore: SpecificPlayListStore
 }
 
-@inject('yourMusicStore')
+@inject('yourMusicStore', 'specificPlayListStore')
 @observer
 class YourMusic extends Component<YourMusicProps> {
    componentDidMount() {
       const { yourMusicStore } = this.props
       yourMusicStore.getYourMusicdata()
+   }
+
+   updateSong = (previewUrl, yourMusicSongName, yourMusicArtist) => {
+      const { specificPlayListStore } = this.props
+      specificPlayListStore.changeSong(
+         previewUrl,
+         yourMusicSongName,
+         yourMusicArtist
+      )
    }
    showYourMusicSuccessView = () => {
       const { yourMusicStore } = this.props
@@ -38,8 +49,20 @@ class YourMusic extends Component<YourMusicProps> {
       return (
          <YourMusicUlContainer>
             {yourMusicStore.yourMusicSongsData.map(
-               (eachSong: { id: string }) => (
-                  <YourMusicSongs key={eachSong.id} />
+               (eachSong: {
+                  id: string
+                  yourMusicImageUrl: string
+                  yourMusicSongName: string
+                  yourMusicArtist: string
+                  movieName: string
+                  duration: string
+                  previewUrl: string
+               }) => (
+                  <YourMusicSongs
+                     key={eachSong.id}
+                     albumDetails={eachSong}
+                     updateSong={this.updateSong}
+                  />
                )
             )}
          </YourMusicUlContainer>
@@ -61,13 +84,18 @@ class YourMusic extends Component<YourMusicProps> {
    }
 
    render() {
+      const { specificPlayListStore } = this.props
       return (
          <YourMusicContainer>
             <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
             <VerticalContainer>
                <GenreHeading marginTop='96px'>{yourMusic}</GenreHeading>
                {this.showYourMusic()}
-               <Player playerUrl='' playerArtist='' playerSongName='' />
+               <Player
+                  playerUrl={specificPlayListStore.songUrl}
+                  playerArtist={specificPlayListStore.artistName}
+                  playerSongName={specificPlayListStore.songName}
+               />
             </VerticalContainer>
          </YourMusicContainer>
       )

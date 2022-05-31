@@ -8,10 +8,6 @@ const songsApiConstants = {
    failure: 'FAILURE'
 }
 
-interface SpecificPlayStoreProps {
-   name?: string
-}
-
 class SpecificPlayListStore {
    @observable specificEditorsData = []
    @observable newReleaseData = []

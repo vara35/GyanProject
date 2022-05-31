@@ -39,6 +39,7 @@ class YourMusicStore {
          }))
          this.yourMusicSongsData = updatedYourMusicData
          this.yourMusicStatus = yourMusicApiConstants.success
+         console.log(updatedYourMusicData)
       } else {
          this.yourMusicStatus = yourMusicApiConstants.failure
       }
