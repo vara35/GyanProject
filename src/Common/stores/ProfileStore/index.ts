@@ -29,7 +29,7 @@ class ProfileStore {
             followers: data.followers
          }
          this.userData = updatedUserDetails
-         console.log(updatedUserDetails)
+         console.log(data)
       }
    }
 }

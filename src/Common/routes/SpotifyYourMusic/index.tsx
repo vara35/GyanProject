@@ -90,7 +90,7 @@ class YourMusic extends Component<YourMusicProps> {
          <YourMusicContainer>
             <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
             <VerticalContainer>
-               <GenreHeading marginTop='96px'>{yourMusic}</GenreHeading>
+               <GenreHeading marginTop='48px'>{yourMusic}</GenreHeading>
                {this.showYourMusic()}
                <Player
                   songUrl={specificPlayListStore.songUrl}

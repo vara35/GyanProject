@@ -15,7 +15,7 @@ const GenresCard = (props: GenresCardProps) => {
    const { genreObj } = props
    const { genreImage, name, total, id } = genreObj
    return (
-      <Link to={`/category/${id}`}>
+      <Link to={`/editor/${id}`}>
          <SpotifyCardMainContainer>
             <CardButton type='button'>
                <CardImage src={genreImage} />

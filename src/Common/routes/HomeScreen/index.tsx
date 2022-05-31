@@ -14,7 +14,7 @@ const HomeScreen = () => (
          <CommonContainer>
             <Header />
             <>
-               <TopComponent />.
+               <TopComponent />
                <ArticleComponent />
                <CommentsComponents />
             </>
