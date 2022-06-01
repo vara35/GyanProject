@@ -78,6 +78,8 @@ class SpotifyHomeStore {
          )
          this.categoryData = updatedCategoryData
          this.categoryStatus = cardApiConstants.success
+      } else {
+         this.categoryStatus = cardApiConstants.failure
       }
    }
 
