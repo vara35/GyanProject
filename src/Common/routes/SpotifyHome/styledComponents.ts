@@ -5,10 +5,10 @@ export const SpotifyHomeMainContainer = styled.div`
    ${tw`flex flex-row `}
    background: #181818;
    width: 1440px;
-   min-height: 2265px;
+   height: 1024px;
 `
 export const CardsMainContainer = styled.div`
-   ${tw``};
+   ${tw`overflow-y-auto`};
 `
 export const EditorHeading = styled.h1`
    ${tw`mt-24 ml-8 mb-8 text-white font-bold font-sans`}

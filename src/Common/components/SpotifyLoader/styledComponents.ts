@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 export const LoadingContainer = styled.div`
    ${tw`flex flex-col justify-center items-center`}
-   width:1200px;
-   height: 300px;
+   width:1400px;
+   height: 900px;
 `
 
 export const LoaderImage = styled.img`

@@ -83,7 +83,7 @@ export const routes = (): React.ReactElement => (
 
          <Route exact path='/login' component={SpotifyLoginForm} />
          <ProtectedRoute exact path='/profile' component={Profile} />
-         <ProtectedRoute exact path='/spotifyhome' component={SpotifyHome} />
+         <Route exact path='/spotifyhome' component={SpotifyHome} />
          <ProtectedRoute
             exact
             path='/editor/:id'
