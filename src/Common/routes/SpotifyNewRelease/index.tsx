@@ -69,7 +69,11 @@ class SpotifyNewRelease extends Component<SpotifyNewReleaseProps> {
 
       return (
          <>
-            <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
+            <SpotifyHeader
+               marginTop='304px'
+               isShowHeaderLogo={true}
+               passProps={this.props}
+            />
             <SongAndTableContainer>
                <SpotifySongDetails
                   songDetailsData={

@@ -29,7 +29,6 @@ class ProfileStore {
             followers: data.followers
          }
          this.userData = updatedUserDetails
-         console.log(data)
       }
    }
 }

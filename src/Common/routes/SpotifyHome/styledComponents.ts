@@ -1,4 +1,5 @@
 import tw from 'twin.macro'
+import css from 'twin.macro'
 import styled from 'styled-components'
 
 export const SpotifyHomeMainContainer = styled.div`
@@ -21,3 +22,5 @@ export const EditorHeading = styled.h1`
 export const CardsUlContainer = styled.ul`
    ${tw`ml-8 flex flex-wrap overflow-y-auto`}
 `
+
+export const BtnCss = css``

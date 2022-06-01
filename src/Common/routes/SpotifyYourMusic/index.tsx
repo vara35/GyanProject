@@ -89,7 +89,11 @@ class YourMusic extends Component<YourMusicProps> {
       const { specificPlayListStore } = this.props
       return (
          <YourMusicContainer>
-            <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
+            <SpotifyHeader
+               marginTop='304px'
+               isShowHeaderLogo={true}
+               passProps={this.props}
+            />
             <VerticalContainer>
                <GenreHeading marginTop='48px'>{yourMusic}</GenreHeading>
                {this.showYourMusic()}

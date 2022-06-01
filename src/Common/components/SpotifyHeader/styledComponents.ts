@@ -16,7 +16,29 @@ export const IconsContainer = styled.div`
 `
 
 export const HeaderIconsContainer = styled.div`
-   ${tw`h-16 w-24 mt-4`}
+   ${tw`flex flex-col justify-center  h-16 w-24 mt-4`}
+   border-left: ${props =>
+      props.pathname === '/spotifyhome' && '6px solid #1ED760'};
+   background: ${props => props.pathname === '/spotifyhome' && '#181818'};
+`
+
+export const IconsContainer1 = styled.div`
+   ${tw`flex flex-col justify-center h-16 w-24 mt-4`}
+   border-left: ${props =>
+      props.pathname === '/profile' && '6px solid #1ED760'};
+      background: ${props => props.pathname === '/profile' && '#181818'};
+`
+export const IconsContainer2 = styled.div`
+   ${tw`flex flex-col justify-center h-16 w-24 mt-4`}
+   border-left: ${props =>
+      props.pathname === '/yourmusic' && '6px solid #1ED760'};
+      background: ${props => props.pathname === '/yourmusic' && '#181818'};
+`
+export const IconsContainer3 = styled.div`
+   ${tw`flex flex-col justify-center h-16 w-24 mt-4`}
+   border-left: ${props =>
+      props.pathname === '/playlist' && '6px solid #1ED760'};
+      background: ${props => props.pathname === '/playlist' && '#181818'};
 `
 
 export const ProfileName = styled.p`

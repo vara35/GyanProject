@@ -56,7 +56,11 @@ class Profile extends Component<ProfileConstants> {
 
       return (
          <ProfileContainer>
-            <SpotifyHeader marginTop='295px' isShowHeaderLogo={true} />
+            <SpotifyHeader
+               marginTop='295px'
+               isShowHeaderLogo={true}
+               passProps={this.props}
+            />
             <UserDetailsContainer>
                <BsFillPersonFill className='profile-icon' />
                <UserName>{name}</UserName>

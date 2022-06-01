@@ -71,7 +71,11 @@ class GenreAndMoods extends Component<GenreAndMoodsProps> {
    render() {
       return (
          <SpotifySpecificMainContainer>
-            <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
+            <SpotifyHeader
+               marginTop='304px'
+               isShowHeaderLogo={true}
+               passProps={this.props}
+            />
             <VerticalContainer>
                <Link to='/spotifyhome'>
                   <BackTextArrowContainer>

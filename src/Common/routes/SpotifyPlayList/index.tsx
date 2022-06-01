@@ -62,7 +62,11 @@ class SpotifyPlayList extends Component<PlayListProps> {
    render() {
       return (
          <PlayListContainer>
-            <SpotifyHeader marginTop='361px' isShowHeaderLogo={false} />
+            <SpotifyHeader
+               marginTop='361px'
+               isShowHeaderLogo={false}
+               passProps={this.props}
+            />
             <VerticalContainer>
                <GenreHeading marginTop='96px'>{yourPlaylists}</GenreHeading>
                {this.showPlayList()}

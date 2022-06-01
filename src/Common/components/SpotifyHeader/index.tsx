@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
 import { FaItunesNote } from 'react-icons/fa'
@@ -9,7 +9,10 @@ import {
    HeaderLogo,
    HeaderMainContainer,
    ProfileName,
-   IconsContainer
+   IconsContainer,
+   IconsContainer1,
+   IconsContainer2,
+   IconsContainer3
 } from './styledComponents'
 import './index.css'
 
@@ -25,11 +28,15 @@ const SpotifyHeaderConstants = {
 interface SpotifyHeaderConstants {
    isShowHeaderLogo: boolean
    marginTop: string
-   marginLeft?: string
+   addStyles?: any
+   passProps?: any
 }
 
 const SpotifyHeader = (props: SpotifyHeaderConstants) => {
-   const { isShowHeaderLogo, marginTop, marginLeft = '26px' } = props
+   const { isShowHeaderLogo, marginTop, passProps } = props
+
+   const { location } = passProps
+   const { pathname } = location
 
    return (
       <HeaderMainContainer>
@@ -40,32 +47,32 @@ const SpotifyHeader = (props: SpotifyHeaderConstants) => {
          )}
          <IconsContainer marginTop={marginTop}>
             <Link to='/profile'>
-               <HeaderIconsContainer>
+               <IconsContainer1 pathname={pathname}>
                   <BsFillPersonFill className='person-icon' />
                   <ProfileName>
                      {SpotifyHeaderConstants.profileText}
                   </ProfileName>
-               </HeaderIconsContainer>
+               </IconsContainer1>
             </Link>
             <Link to='/spotifyhome'>
-               <HeaderIconsContainer>
+               <HeaderIconsContainer pathname={pathname}>
                   <AiFillHome className='person-icon' />
                   <ProfileName>{SpotifyHeaderConstants.home}</ProfileName>
                </HeaderIconsContainer>
             </Link>
             <Link to='/yourmusic'>
-               <HeaderIconsContainer>
+               <IconsContainer2 pathname={pathname}>
                   <FaItunesNote className='person-icon' />
                   <ProfileName marginLeft='20px'>
                      {SpotifyHeaderConstants.yourMusic}
                   </ProfileName>
-               </HeaderIconsContainer>
+               </IconsContainer2>
             </Link>
             <Link to='/playlist'>
-               <HeaderIconsContainer>
+               <IconsContainer3 pathname={pathname}>
                   <RiPlayListFill className='person-icon' />
                   <ProfileName>{SpotifyHeaderConstants.playLists}</ProfileName>
-               </HeaderIconsContainer>
+               </IconsContainer3>
             </Link>
          </IconsContainer>
       </HeaderMainContainer>

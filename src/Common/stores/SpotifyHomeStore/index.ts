@@ -42,7 +42,6 @@ class SpotifyHomeStore {
 
       const response = await fetch(url, options)
       const data = await response.json()
-
       if (response.ok) {
          const updatedEditorData = data.playlists.items.map(eachEditorList => ({
             cardImage: eachEditorList.images[0].url,

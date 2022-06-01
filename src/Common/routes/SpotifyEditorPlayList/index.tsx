@@ -61,7 +61,11 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
 
       return (
          <>
-            <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
+            <SpotifyHeader
+               marginTop='304px'
+               isShowHeaderLogo={true}
+               passProps={this.props}
+            />
             <SongAndTableContainer>
                <SpotifySongDetails
                   songDetailsData={

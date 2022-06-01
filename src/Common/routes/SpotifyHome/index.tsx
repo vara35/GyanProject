@@ -12,7 +12,8 @@ import {
    SpotifyHomeMainContainer,
    CardsMainContainer,
    EditorHeading,
-   CardsUlContainer
+   CardsUlContainer,
+   BtnCss
 } from './styledComponents'
 
 const editorText = "Editor's picks"
@@ -149,7 +150,11 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
    render() {
       return (
          <SpotifyHomeMainContainer>
-            <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
+            <SpotifyHeader
+               marginTop='304px'
+               isShowHeaderLogo={true}
+               passProps={this.props}
+            />
             <CardsMainContainer>
                <EditorHeading marginTop='96px' marginBottom='32px'>
                   {editorText}
