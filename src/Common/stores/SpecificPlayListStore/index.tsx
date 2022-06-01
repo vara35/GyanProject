@@ -58,7 +58,7 @@ class SpecificPlayListStore {
 
       const specificEditorResponse = await fetch(url, options)
       const editordata = await specificEditorResponse.json()
-
+      console.log(editordata)
       if (specificEditorResponse.ok) {
          const songDetails = {
             name: editordata.name,
@@ -74,7 +74,7 @@ class SpecificPlayListStore {
                   ? eachSong.track.artists[1].name
                   : 'unknown',
             addedAt: eachSong.added_at,
-            trackNumber: eachSong.track.track_number,
+            trackNumber: editordata.tracks.items.indexOf(eachSong) + 1,
             previewUrl: eachSong.track.preview_url
          }))
          this.songDetailsData = songDetails

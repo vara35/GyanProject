@@ -8,7 +8,7 @@ import GenresCard from '../../components/GenresCard'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 
 import { SpotifySpecificMainContainer } from '../SpotifyEditorPlayList/styledComponents'
-import { BackTextButton } from '../../components/SongDetails/styledComponents'
+import { BackTextButton } from '../../components/SpotifySongDetails/styledComponents'
 import { CardsUlContainer } from '../SpotifyHome/styledComponents'
 import SpotifyLoader from '../../components/SpotifyLoader'
 

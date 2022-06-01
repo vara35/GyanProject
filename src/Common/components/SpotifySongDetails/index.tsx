@@ -25,7 +25,7 @@ interface SongDetailsProps {
    songDetailsText: string
 }
 
-const SongDetails = observer((props: SongDetailsProps) => {
+const SpotifySongDetails = observer((props: SongDetailsProps) => {
    const { songDetailsData, songDetailsText } = props
    const { name, songDetailsUrl } = songDetailsData
 
@@ -51,4 +51,4 @@ const SongDetails = observer((props: SongDetailsProps) => {
    )
 })
 
-export default SongDetails
+export default SpotifySongDetails

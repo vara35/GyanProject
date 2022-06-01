@@ -2,10 +2,10 @@ import { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 
 import SpotifyHeader from '../../components/SpotifyHeader'
-import SongDetails from '../../components/SongDetails'
+import SpotifySongDetails from '../../components/SpotifySongDetails'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import SpecificEditorSong from '../../components/SpecificEditorSong'
-import Player from '../../components/Player'
+import SpotifyPlayer from '../../components/SpotifyPlayer'
 import SpotifyLoader from '../../components/SpotifyLoader'
 
 import {
@@ -63,7 +63,7 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
          <>
             <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
             <SongAndTableContainer>
-               <SongDetails
+               <SpotifySongDetails
                   songDetailsData={
                      this.props.specificPlayListStore.songDetailsData
                   }
@@ -90,7 +90,7 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
                      )
                   )}
                </EditorsUlContainer>
-               <Player
+               <SpotifyPlayer
                   songUrl={specificPlayListStore.songUrl}
                   playerArtist={specificPlayListStore.artistName}
                   playerSongName={specificPlayListStore.songName}

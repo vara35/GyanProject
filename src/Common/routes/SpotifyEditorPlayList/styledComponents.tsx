@@ -13,12 +13,13 @@ export const TableHeader = styled.div`
    width: 1300px;
 `
 
-export const TableName = styled.h2`
-   ${tw`text-white font-sans font-semibold text-base leading-5 mr-2`}
+export const TableName = styled.p`
+   ${tw`text-white font-sans font-semibold leading-5 mr-2`}
    color: #f8fafc;
    width: ${props => props.width};
    font-style: normal;
    font-weight: 400;
+   font-size: 15px;
 `
 
 export const SongAndTableContainer = styled.div`

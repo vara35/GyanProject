@@ -5,7 +5,7 @@ import SpotifyHeader from '../../components/SpotifyHeader'
 import YourMusicStore from '../../stores/YourMusicStore'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import YourMusicSongs from '../../components/YourMusicSongs'
-import Player from '../../components/Player'
+import SpotifyPlayer from '../../components/SpotifyPlayer'
 import SpotifyLoader from '../../components/SpotifyLoader'
 
 import {
@@ -93,7 +93,7 @@ class YourMusic extends Component<YourMusicProps> {
             <VerticalContainer>
                <GenreHeading marginTop='48px'>{yourMusic}</GenreHeading>
                {this.showYourMusic()}
-               <Player
+               <SpotifyPlayer
                   songUrl={specificPlayListStore.songUrl}
                   playerArtist={specificPlayListStore.artistName}
                   playerSongName={specificPlayListStore.songName}

@@ -34,3 +34,7 @@ export const PlayerArtistName = styled.p`
    ${tw`font-semibold text-white text-xs `};
    color: #9b9b9b;
 `
+
+export const SourceEle = styled.source`
+   ${tw``};
+`

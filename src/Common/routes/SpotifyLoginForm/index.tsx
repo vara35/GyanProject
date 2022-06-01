@@ -16,7 +16,7 @@ interface MyProps {
 
 @inject('counterStore')
 @observer
-class LoginForm extends Component<MyProps> {
+class SpotifyLoginForm extends Component<MyProps> {
    componentDidMount() {
       const hashKey: any = this.getHashKeyFromLocationAfterLogin()
 
@@ -96,9 +96,9 @@ class LoginForm extends Component<MyProps> {
 
    getRedirectURL = () => {
       if (this.isDevelopmentEnvironment()) {
-         return 'http://localhost:3004/home'
+         return 'http://localhost:3004/spotifyhome'
       }
-      return 'https://varaprasad.ccbp.tech/home'
+      return 'https://varaprasad.ccbp.tech/spotifyhome'
    }
 
    openLoginModal = () => {
@@ -143,4 +143,4 @@ class LoginForm extends Component<MyProps> {
    }
 }
 
-export default LoginForm
+export default SpotifyLoginForm

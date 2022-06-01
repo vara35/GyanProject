@@ -2,9 +2,9 @@ import { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 
 import SpotifyHeader from '../../components/SpotifyHeader'
-import SongDetails from '../../components/SongDetails'
+import SpotifySongDetails from '../../components/SpotifySongDetails'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
-import Player from '../../components/Player'
+import SpotifyPlayer from '../../components/SpotifyPlayer'
 import SpecificEditorSong from '../../components/SpecificEditorSong'
 import SpotifyLoader from '../../components/SpotifyLoader'
 
@@ -71,7 +71,7 @@ class SpotifyNewRelease extends Component<SpotifyNewReleaseProps> {
          <>
             <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />
             <SongAndTableContainer>
-               <SongDetails
+               <SpotifySongDetails
                   songDetailsData={
                      this.props.specificPlayListStore.newReleaseSongDetails
                   }
@@ -94,7 +94,7 @@ class SpotifyNewRelease extends Component<SpotifyNewReleaseProps> {
                      />
                   ))}
                </EditorsUlContainer>
-               <Player
+               <SpotifyPlayer
                   songUrl={specificPlayListStore.songUrl}
                   playerArtist={specificPlayListStore.artistName}
                   playerSongName={specificPlayListStore.songName}

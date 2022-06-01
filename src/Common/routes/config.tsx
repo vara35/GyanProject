@@ -24,7 +24,7 @@ import PostScreenComponent from './PostScreenComponent'
 import PostScreenPage from './PostScreen'
 
 //Spotify
-import LoginForm from './LoginForm'
+import SpotifyLoginForm from './SpotifyLoginForm'
 import ProtectedRoute from './ProtectedRoute'
 import Profile from './ProfileRoute'
 import SpotifyHome from './SpotifyHome'
@@ -81,7 +81,7 @@ export const routes = (): React.ReactElement => (
             component={PlatFormReviewPageSecond}
          />
 
-         <Route exact path='/login' component={LoginForm} />
+         <Route exact path='/login' component={SpotifyLoginForm} />
          <Route exact path='/profile' component={Profile} />
          <Route exact path='/spotifyhome' component={SpotifyHome} />
          <Route exact path='/editor/:id' component={SpotifyEditorPlayList} />
