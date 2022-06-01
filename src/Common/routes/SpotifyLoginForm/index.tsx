@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import Cookies from 'js-cookie'
+import { Redirect } from 'react-router'
 
 import CounterStore from '../../stores/CounterStore'
 
@@ -126,6 +127,10 @@ class SpotifyLoginForm extends Component<MyProps> {
    }
 
    render() {
+      const jwt_token = Cookies.get('pa_token')
+      if (jwt_token !== undefined) {
+         return <Redirect to='/spotifyhome' />
+      }
       return (
          <div className='login-form-container'>
             <form className='form-container' onSubmit={this.submitForm}>

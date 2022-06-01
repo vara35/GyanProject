@@ -1,4 +1,4 @@
-import { Link, withRouter, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
 import { FaItunesNote } from 'react-icons/fa'

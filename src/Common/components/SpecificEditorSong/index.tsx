@@ -1,3 +1,4 @@
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import { TableName } from '../../routes/SpotifyEditorPlayList/styledComponents'
 
 import {
@@ -17,6 +18,7 @@ interface SpecificEditorSongProps {
       trackNumber?: string
       previewUrl: string
       popularity?: number
+      songThumbnialUrl?: any
    }
    changeSongStatus: (
       previewUrl: string,
@@ -25,16 +27,10 @@ interface SpecificEditorSongProps {
       playerUrl: string
    ) => void
    isSongs: boolean
-   playerUrl?: string
 }
 
 const SpecificEditorSong = (props: SpecificEditorSongProps) => {
-   const {
-      songDetailsProps,
-      changeSongStatus,
-      isSongs = true,
-      playerUrl = ''
-   } = props
+   const { songDetailsProps, changeSongStatus, isSongs = true } = props
    const {
       id,
       songName,
@@ -44,25 +40,36 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
       addedAt,
       trackNumber,
       previewUrl,
-      popularity
+      popularity,
+      songThumbnialUrl
    } = songDetailsProps
 
    const editedSongName = songName !== undefined && songName.slice(0, 40)
    const editedAlbumName = albumName !== undefined && albumName.slice(0, 30)
+   const editedAddedText = addedAt !== undefined && addedAt.slice(0, 10)
    const popularityImage =
       popularity !== undefined && popularity > 50
          ? 'https://res.cloudinary.com/image-link-getter/image/upload/v1653921036/Group_188_ln78zc.png'
          : 'https://res.cloudinary.com/image-link-getter/image/upload/v1653921028/Group_183_xwydvw.png'
 
    const changeSong = () => {
-      changeSongStatus(previewUrl, songName, artist, playerUrl)
+      changeSongStatus(previewUrl, songName, artist, songThumbnialUrl)
    }
+
+   const getDuration = () => {
+      const convertToSeconds = parseInt(duration) / 1000
+      const convertToMinutes = convertToSeconds / 60
+      const slicedTime = convertToMinutes.toString().slice(0, 4)
+      return slicedTime
+   }
+
+   const result = formatDistanceToNowStrict(new Date(2014, 6, 2))
 
    const showNewReleaseSongs = () => (
       <>
          <TableName width='48px'>{trackNumber}</TableName>
          <TableName width='500px'>{editedSongName} </TableName>
-         <TableName width='430px'>{duration}</TableName>
+         <TableName width='430px'>{getDuration()}</TableName>
          <PopularityImage width='300px' src={popularityImage} />
       </>
    )
@@ -72,9 +79,9 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
          <TableName width='56px'>{trackNumber}</TableName>
          <TableName width='258px'>{editedSongName} </TableName>
          <TableName width='300px'>{editedAlbumName}</TableName>
-         <TableName width='200px'>{duration}</TableName>
+         <TableName width='200px'>{getDuration()}</TableName>
          <TableName width='250px'>{artist}</TableName>
-         <TableName width='200px'>{addedAt}</TableName>
+         <TableName width='200px'>{result}</TableName>
       </>
    )
 

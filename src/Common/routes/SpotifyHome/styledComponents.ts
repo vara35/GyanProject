@@ -19,5 +19,5 @@ export const EditorHeading = styled.h1`
 `
 
 export const CardsUlContainer = styled.ul`
-   ${tw`ml-8 flex flex-wrap`}
+   ${tw`ml-8 flex flex-wrap overflow-y-auto`}
 `

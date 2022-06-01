@@ -147,8 +147,6 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
    }
 
    render() {
-      const { spotifyHomeStore } = this.props
-      const { editorPicksData } = spotifyHomeStore
       return (
          <SpotifyHomeMainContainer>
             <SpotifyHeader marginTop='304px' isShowHeaderLogo={true} />

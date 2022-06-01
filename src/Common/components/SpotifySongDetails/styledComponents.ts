@@ -30,7 +30,7 @@ export const AlbumNameContainer = styled.div`
 `
 
 export const EditorTextEle = styled.div`
-   ${tw`font-bold text-white text-base leading-5`}
+   ${tw`font-bold text-white text-base leading-5 mt-2`}
    font-family: Roboto;
    font-style: normal;
 `

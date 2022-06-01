@@ -58,7 +58,6 @@ class SpecificPlayListStore {
 
       const specificEditorResponse = await fetch(url, options)
       const editordata = await specificEditorResponse.json()
-      console.log(editordata)
       if (specificEditorResponse.ok) {
          const songDetails = {
             name: editordata.name,
@@ -75,7 +74,8 @@ class SpecificPlayListStore {
                   : 'unknown',
             addedAt: eachSong.added_at,
             trackNumber: editordata.tracks.items.indexOf(eachSong) + 1,
-            previewUrl: eachSong.track.preview_url
+            previewUrl: eachSong.track.preview_url,
+            songThumbnialUrl: eachSong.track.album.images[0].url
          }))
          this.songDetailsData = songDetails
          this.specificEditorsData = updatedEditorData
@@ -139,7 +139,6 @@ class SpecificPlayListStore {
          newReleaseOptions
       )
       const newReleasedata = await specificCategoryResponse.json()
-
       if (specificCategoryResponse.ok) {
          const newReleaseSong = {
             name: newReleasedata.name,
@@ -152,7 +151,8 @@ class SpecificPlayListStore {
                id: eachSong.id,
                duration: eachSong.duration_ms,
                popularity: newReleasedata.popularity,
-               songName: eachSong.name
+               songName: eachSong.name,
+               trackNumber: newReleasedata.tracks.items.indexOf(eachSong) + 1
             })
          )
          this.newReleaseSongDetails = newReleaseSong
@@ -163,11 +163,11 @@ class SpecificPlayListStore {
       }
    }
 
-   @action changeSong(songUrl, songName, artist, playerurl) {
+   @action changeSong(songUrl, songName, artist, playerUrl) {
       this.songUrl = songUrl
       this.songName = songName
       this.artistName = artist
-      this.playerImageURl = playerurl
+      this.playerImageURl = playerUrl
    }
 }
 

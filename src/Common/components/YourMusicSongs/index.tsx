@@ -45,6 +45,13 @@ const YourMusicSongs = (props: YourMusicSongsProps) => {
       )
    }
 
+   const yourMusicDuration = () => {
+      const convertToSeconds = parseInt(duration) / 1000
+      const convertToMinutes = convertToSeconds / 60
+      const slicedTime = convertToMinutes.toString().slice(0, 4)
+      return slicedTime
+   }
+
    return (
       <YourMusicContainer>
          <YourMusicSongButton type='button' onClick={updateSongUrl}>
@@ -57,7 +64,7 @@ const YourMusicSongs = (props: YourMusicSongsProps) => {
                   </YourMusicDescription>
                </YourMusicSongDetails>
             </SongImageAndDetailsContainer>
-            <YourMusicDescription>{duration}</YourMusicDescription>
+            <YourMusicDescription>{yourMusicDuration()}</YourMusicDescription>
          </YourMusicSongButton>
       </YourMusicContainer>
    )
