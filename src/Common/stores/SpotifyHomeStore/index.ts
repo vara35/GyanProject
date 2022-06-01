@@ -50,6 +50,8 @@ class SpotifyHomeStore {
          }))
          this.editorStatus = cardApiConstants.success
          this.editorPicksData = updatedEditorData
+      } else {
+         this.editorStatus = cardApiConstants.failure
       }
    }
 

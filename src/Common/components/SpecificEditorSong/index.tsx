@@ -46,7 +46,9 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
 
    const editedSongName = songName !== undefined && songName.slice(0, 40)
    const editedAlbumName = albumName !== undefined && albumName.slice(0, 30)
-   const editedAddedText = addedAt !== undefined && addedAt.slice(0, 10)
+   const editedYear = addedAt !== undefined && addedAt.slice(0, 10)
+   // const editedMonth = addedAt !== undefined && addedAt.slice(5, 7)
+   // const editedDay = addedAt !== undefined && addedAt.slice(8, 10)
    const popularityImage =
       popularity !== undefined && popularity > 50
          ? 'https://res.cloudinary.com/image-link-getter/image/upload/v1653921036/Group_188_ln78zc.png'
@@ -63,7 +65,9 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
       return slicedTime
    }
 
-   const result = formatDistanceToNowStrict(new Date(2014, 6, 2))
+   // const result = formatDistanceToNowStrict(
+   //    new Date(parseInt(editedYear), parseInt(editedMonth), parseInt(editedDay))
+   // )
 
    const showNewReleaseSongs = () => (
       <>
@@ -81,7 +85,7 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
          <TableName width='300px'>{editedAlbumName}</TableName>
          <TableName width='200px'>{getDuration()}</TableName>
          <TableName width='250px'>{artist}</TableName>
-         <TableName width='200px'>{result}</TableName>
+         <TableName width='200px'>{editedYear}</TableName>
       </>
    )
 

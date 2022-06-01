@@ -7,6 +7,7 @@ import SpotifyHeader from '../../components/SpotifyHeader'
 import SpotifyLoader from '../../components/SpotifyLoader'
 import SpotifyNewReleaseCard from '../../components/SpotifyNewReleaseCard'
 import SpotifyHomeStore from '../../stores/SpotifyHomeStore'
+import SpotifyApiFailureView from '../../components/SpotifyApiFailureView'
 
 import {
    SpotifyHomeMainContainer,
@@ -44,6 +45,8 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
       spotifyHomeStore.getNewRelease()
    }
 
+   showNewRelaseFailureView = () => <SpotifyApiFailureView />
+
    showNewRelaseSuccessView = () => {
       const { spotifyHomeStore } = this.props
       const { newReleaseData } = spotifyHomeStore
@@ -76,11 +79,14 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
             return this.showNewRelaseInprogressView()
          case cardApiConstants.success:
             return this.showNewRelaseSuccessView()
+         case cardApiConstants.failure:
+            return this.showNewRelaseFailureView()
          default:
             null
       }
    }
 
+   showCategoryCardFailureView = () => <SpotifyApiFailureView />
    showCategoryCardSuccessView = () => {
       const { spotifyHomeStore } = this.props
       const { categoryData } = spotifyHomeStore
@@ -108,11 +114,14 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
             return this.showCategoryCardInprogressView()
          case cardApiConstants.success:
             return this.showCategoryCardSuccessView()
+         case cardApiConstants.failure:
+            return this.showCategoryCardFailureView()
          default:
             null
       }
    }
 
+   showEditorCardFailureView = () => <SpotifyApiFailureView />
    showEditorCardSuccessView = () => {
       const { spotifyHomeStore } = this.props
       const { editorPicksData } = spotifyHomeStore
@@ -142,6 +151,8 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
             return this.showEditorCardInprogressView()
          case cardApiConstants.success:
             return this.showEditorCardSuccessView()
+         case cardApiConstants.failure:
+            return this.showEditorCardFailureView()
          default:
             null
       }
