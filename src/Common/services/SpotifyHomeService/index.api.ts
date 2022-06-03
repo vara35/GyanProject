@@ -11,10 +11,9 @@ const AUTH_URL = `${Config.NKB_BASE_URL}nkb_auth/`
 import SampleService from '.'
 
 class SpotifyHomeServiceApi {
-   getEditorPicks1 = async (url, options) => {
+   getHomeDataFromService = async (url, options) => {
       const response = await fetch(url, options)
-      const data = await response.json()
-      return data
+      return response
    }
 }
 

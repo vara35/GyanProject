@@ -2,7 +2,9 @@ import { action, observable } from 'mobx'
 import moment from 'moment'
 import Cookies from 'js-cookie'
 
-import SpotifyHomeModel from '../models/SpotifyHomeModel'
+import SpotifyHomeModel from '../models/SpotifyEditorModel'
+import SpotifyCategoryModel from '../models/SpotifyCategoryModel'
+import SpotifyNewReleaseModel from '../models/SpotifyNewReleaseModel'
 
 const cardApiConstants = {
    initial: 'INITIAL',
@@ -11,15 +13,17 @@ const cardApiConstants = {
    failure: 'FAILURE'
 }
 
+export interface EditorDataProps {
+   cardImage: string
+   id: number | string
+   name: string
+}
+
 class SpotifyHomeStore {
    @observable editorPicksData: any = []
 
    @observable categoryData: { id: string; categoryCardImage: string }[] = []
-   @observable newReleaseData: {
-      id: string
-      newReleaseImage: string
-      name: string
-   }[] = []
+   @observable newReleaseData: any = []
 
    @observable editorStatus = cardApiConstants.initial
    @observable categoryStatus = cardApiConstants.initial
@@ -44,26 +48,23 @@ class SpotifyHomeStore {
          }
       }
 
-      // const response = await fetch(url, options)
-      // const data = await response.json()
-      const check = await this.editorServiceData.getEditorPicks1(url, options)
-      const updatedEditorData = check.playlists.items.map(eachEditorList => {
-         const data = new SpotifyHomeModel(eachEditorList)
-         this.editorPicksData.push(data)
-      })
-      this.editorStatus = cardApiConstants.success
-      // if (response.ok) {
-      //    const updatedEditorData = data.playlists.items.map(eachEditorList => ({
-      //       cardImage: eachEditorList.images[0].url,
-      //       name: eachEditorList.name,
-      //       id: eachEditorList.id
-      //    }))
+      const editorResponse = await this.editorServiceData.getHomeDataFromService(
+         url,
+         options
+      )
+      const editorJsonData = await editorResponse.json()
 
-      //    this.editorStatus = cardApiConstants.success
-      //    this.editorPicksData = updatedEditorData
-      // } else {
-      //    this.editorStatus = cardApiConstants.failure
-      // }
+      if (editorResponse.ok) {
+         const updatedEditorData = editorJsonData.playlists.items.map(
+            eachEditorList => {
+               const data = new SpotifyHomeModel(eachEditorList)
+               this.editorPicksData.push(data)
+            }
+         )
+         this.editorStatus = cardApiConstants.success
+      } else {
+         this.editorStatus = cardApiConstants.failure
+      }
    }
 
    @action getCategory = async () => {
@@ -78,16 +79,19 @@ class SpotifyHomeStore {
          }
       }
 
-      const categoryResponse = await fetch(url, options)
+      const categoryResponse = await this.editorServiceData.getHomeDataFromService(
+         url,
+         options
+      )
       const categoryJsonData = await categoryResponse.json()
+
       if (categoryResponse.ok) {
          const updatedCategoryData = categoryJsonData.categories.items.map(
-            eachCategoryList => ({
-               categoryCardImage: eachCategoryList.icons[0].url,
-               id: eachCategoryList.id
-            })
+            eachCategoryList => {
+               const categoryItem = new SpotifyCategoryModel(eachCategoryList)
+               this.categoryData.push(categoryItem)
+            }
          )
-         this.categoryData = updatedCategoryData
          this.categoryStatus = cardApiConstants.success
       } else {
          this.categoryStatus = cardApiConstants.failure
@@ -106,17 +110,21 @@ class SpotifyHomeStore {
          }
       }
 
-      const newReleaseResponse = await fetch(url, options)
+      const newReleaseResponse = await this.editorServiceData.getHomeDataFromService(
+         url,
+         options
+      )
       const newReleaseJsonData = await newReleaseResponse.json()
+
       if (newReleaseResponse.ok) {
          const updatedNewReleaseData = newReleaseJsonData.albums.items.map(
-            eachNewReleaseList => ({
-               newReleaseImage: eachNewReleaseList.images[0].url,
-               id: eachNewReleaseList.id,
-               name: eachNewReleaseList.name
-            })
+            eachNewReleaseList => {
+               const newReleaseItem = new SpotifyNewReleaseModel(
+                  eachNewReleaseList
+               )
+               this.newReleaseData.push(newReleaseItem)
+            }
          )
-         this.newReleaseData = updatedNewReleaseData
          this.newReleaseStatus = cardApiConstants.success
       } else {
          this.newReleaseStatus = cardApiConstants.failure
