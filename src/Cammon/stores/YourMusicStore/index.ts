@@ -1,5 +1,6 @@
 import { observable } from 'mobx'
 import Cookies from 'js-cookie'
+import SpotifyYourMusicModel from '../models/SpotifyYourMusicModel'
 
 const yourMusicApiConstants = {
    initial: 'INITIAL',
@@ -9,8 +10,12 @@ const yourMusicApiConstants = {
 }
 
 class YourMusicStore {
-   @observable yourMusicSongsData = []
+   @observable yourMusicSongsData: any = []
    @observable yourMusicStatus = yourMusicApiConstants.initial
+   spotifyYourMusicServiceData
+   constructor(SpotifyYourMusicService) {
+      this.spotifyYourMusicServiceData = SpotifyYourMusicService
+   }
 
    @observable getYourMusicdata = async () => {
       this.yourMusicStatus = yourMusicApiConstants.in_Progress
@@ -22,22 +27,17 @@ class YourMusicStore {
             Authorization: `Bearer ${token}`
          }
       }
-      const response = await fetch(url, options)
+
+      const response = await this.spotifyYourMusicServiceData.getyourMusicData(
+         url,
+         options
+      )
       const data = await response.json()
       if (response.ok) {
-         const updatedYourMusicData = data.items.map(eachSong => ({
-            id: eachSong.track.id,
-            yourMusicSongName: eachSong.track.name,
-            yourMusicArtist:
-               eachSong.track.artists[0] !== undefined
-                  ? eachSong.track.artists[0].name
-                  : 'unknown',
-            movieName: eachSong.track.album.name,
-            yourMusicImageUrl: eachSong.track.album.images[0].url,
-            duration: eachSong.track.duration_ms,
-            previewUrl: eachSong.track.preview_url
-         }))
-         this.yourMusicSongsData = updatedYourMusicData
+         const updatedYourMusicData = data.items.map(eachSong => {
+            const yourMusicModelData = new SpotifyYourMusicModel(eachSong)
+            this.yourMusicSongsData.push(yourMusicModelData)
+         })
          this.yourMusicStatus = yourMusicApiConstants.success
       } else {
          this.yourMusicStatus = yourMusicApiConstants.failure

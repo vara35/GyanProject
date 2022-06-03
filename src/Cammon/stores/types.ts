@@ -11,3 +11,7 @@ export interface SampleApiResponse {
 export interface GetEditorResponse {
    id?: string
 }
+
+export interface YourMusicResponse {
+   id?: string
+}
