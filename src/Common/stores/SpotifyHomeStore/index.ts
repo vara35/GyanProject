@@ -2,6 +2,8 @@ import { action, observable } from 'mobx'
 import moment from 'moment'
 import Cookies from 'js-cookie'
 
+import SpotifyHomeModel from '../models/SpotifyHomeModel'
+
 const cardApiConstants = {
    initial: 'INITIAL',
    in_Progress: 'InProgress',
@@ -10,11 +12,7 @@ const cardApiConstants = {
 }
 
 class SpotifyHomeStore {
-   @observable editorPicksData: {
-      name: string
-      cardImage: string
-      id: number
-   }[] = [{ name: '', cardImage: '', id: 0 }]
+   @observable editorPicksData: any = []
 
    @observable categoryData: { id: string; categoryCardImage: string }[] = []
    @observable newReleaseData: {
@@ -26,6 +24,12 @@ class SpotifyHomeStore {
    @observable editorStatus = cardApiConstants.initial
    @observable categoryStatus = cardApiConstants.initial
    @observable newReleaseStatus = cardApiConstants.initial
+
+   editorServiceData
+
+   constructor(getEditorData) {
+      this.editorServiceData = getEditorData
+   }
 
    @action getEditorPicks = async () => {
       this.editorStatus = cardApiConstants.in_Progress
@@ -40,19 +44,26 @@ class SpotifyHomeStore {
          }
       }
 
-      const response = await fetch(url, options)
-      const data = await response.json()
-      if (response.ok) {
-         const updatedEditorData = data.playlists.items.map(eachEditorList => ({
-            cardImage: eachEditorList.images[0].url,
-            name: eachEditorList.name,
-            id: eachEditorList.id
-         }))
-         this.editorStatus = cardApiConstants.success
-         this.editorPicksData = updatedEditorData
-      } else {
-         this.editorStatus = cardApiConstants.failure
-      }
+      // const response = await fetch(url, options)
+      // const data = await response.json()
+      const check = await this.editorServiceData.getEditorPicks1(url, options)
+      const updatedEditorData = check.playlists.items.map(eachEditorList => {
+         const data = new SpotifyHomeModel(eachEditorList)
+         this.editorPicksData.push(data)
+      })
+      this.editorStatus = cardApiConstants.success
+      // if (response.ok) {
+      //    const updatedEditorData = data.playlists.items.map(eachEditorList => ({
+      //       cardImage: eachEditorList.images[0].url,
+      //       name: eachEditorList.name,
+      //       id: eachEditorList.id
+      //    }))
+
+      //    this.editorStatus = cardApiConstants.success
+      //    this.editorPicksData = updatedEditorData
+      // } else {
+      //    this.editorStatus = cardApiConstants.failure
+      // }
    }
 
    @action getCategory = async () => {
