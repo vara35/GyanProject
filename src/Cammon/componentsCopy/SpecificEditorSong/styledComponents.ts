@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const EditorSongListContainer = styled.li`
    ${tw`flex flex-row ml-8 mt-4 cursor-pointer mb-8`}
-   width:1300px;
+   width:100vw;
 `
 
 export const EditorSongButtonEle = styled.button``

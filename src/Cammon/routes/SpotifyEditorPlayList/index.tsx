@@ -7,6 +7,7 @@ import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import SpecificEditorSong from '../../componentsCopy/SpecificEditorSong'
 import SpotifyPlayer from '../../componentsCopy/SpotifyPlayer'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
+import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
 
 import {
    SpotifySpecificMainContainer,
@@ -53,6 +54,8 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
       const { specificPlayListStore } = this.props
       specificPlayListStore.changeSong(previewUrl, songName, artist, playerUrl)
    }
+
+   showSongsFailureView = () => <SpotifyApiFailureView />
 
    showSongsSuccessView = () => {
       const { specificPlayListStore, isHash = false } = this.props
@@ -115,6 +118,8 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
             return this.showSongsInprogressView()
          case songsApiConstants.success:
             return this.showSongsSuccessView()
+         case songsApiConstants.failure:
+            return this.showSongsFailureView()
          default:
             null
       }

@@ -7,6 +7,7 @@ import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import YourMusicSongs from '../../componentsCopy/YourMusicSongs'
 import SpotifyPlayer from '../../componentsCopy/SpotifyPlayer'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
+import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
 
 import {
    GenreHeading,
@@ -45,6 +46,9 @@ class YourMusic extends Component<YourMusicProps> {
          playerUrl
       )
    }
+
+   showYourMusicFailureView = () => <SpotifyApiFailureView />
+
    showYourMusicSuccessView = () => {
       const { yourMusicStore } = this.props
 
@@ -80,6 +84,8 @@ class YourMusic extends Component<YourMusicProps> {
             return this.showYourMusicInprogressView()
          case yourMusicApiConstants.success:
             return this.showYourMusicSuccessView()
+         case yourMusicApiConstants.failure:
+            return this.showYourMusicFailureView()
          default:
             null
       }

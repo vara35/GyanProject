@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const HeaderMainContainer = styled.div`
    ${tw`w-24 pt-6`}
    background: #040306;
-   height: 100vh;
+   min-height: 100vh;
 `
 export const HeaderLogo = styled.img`
    ${tw`ml-3 mr-2`}

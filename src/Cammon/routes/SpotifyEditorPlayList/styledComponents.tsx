@@ -3,8 +3,7 @@ import styled from 'styled-components'
 
 export const SpotifySpecificMainContainer = styled.div`
    ${tw`flex flex-row`}
-   width: 1440px;
-   height: 1024px;
+   height: 100vh;
    background: #181818;
 `
 

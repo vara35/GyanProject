@@ -1,11 +1,9 @@
 import { inject, observer } from 'mobx-react'
 import { Component } from 'react'
 
-import SpotifyCategoryCard from '../../componentsCopy/SpotifyCategoryCard'
 import SpotifyEditorCard from '../../componentsCopy/SpotifyEditorCard'
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
-import SpotifyNewReleaseCard from '../../componentsCopy/SpotifyNewReleaseCard'
 import SpotifyHomeStore from '../../stores/SpotifyHomeStore'
 import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
 
@@ -58,11 +56,12 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
                   id: string
                   name: string
                }) => (
-                  <SpotifyNewReleaseCard
+                  <SpotifyEditorCard
                      cardHeading={eachCard.name}
                      cardImgUrl={eachCard.newReleaseImage}
                      key={eachCard.id}
                      id={eachCard.id}
+                     path='newrelease'
                   />
                )
             )}
@@ -94,10 +93,13 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
          <>
             {categoryData.map(
                (eachCard: { categoryCardImage: string; id: string }) => (
-                  <SpotifyCategoryCard
+                  <SpotifyEditorCard
                      cardImgUrl={eachCard.categoryCardImage}
                      key={eachCard.id}
                      id={eachCard.id}
+                     cardHeading=''
+                     path='category'
+                     isShowText={false}
                   />
                )
             )}
@@ -134,6 +136,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
                      cardImgUrl={eachCard.cardImage}
                      key={eachCard.id}
                      id={eachCard.id}
+                     path='editor'
                   />
                )
             )}

@@ -10,18 +10,19 @@ interface SpotifyCardProps {
    cardHeading: string
    cardImgUrl: string
    id: number | string
-   isText?: boolean
+   isShowText?: boolean
+   path?: string
 }
 
 const SpotifyEditorCard = (props: SpotifyCardProps) => {
-   const { cardHeading, cardImgUrl, id, isText = true } = props
+   const { cardHeading, cardImgUrl, id, isShowText = true, path } = props
    return (
-      <Link to={`editor/${id}`}>
+      <Link to={`${path}/${id}`}>
          <SpotifyCardMainContainer>
             <CardButton type='button'>
                <CardImage src={cardImgUrl} />
             </CardButton>
-            {isText && <CardHeading>{cardHeading}</CardHeading>}
+            {isShowText && <CardHeading>{cardHeading}</CardHeading>}
          </SpotifyCardMainContainer>
       </Link>
    )

@@ -37,6 +37,7 @@ class SpotifyHomeStore {
 
    @action getEditorPicks = async () => {
       this.editorStatus = cardApiConstants.in_Progress
+      this.editorPicksData = []
       const timestamp = moment(new Date()).format('YYYY-MM-DDTHH:00:00')
       const token = Cookies.get('pa_token')
       const url = `https://api.spotify.com/v1/browse/featured-playlists?country=IN&timestamp=${timestamp}`
@@ -69,6 +70,7 @@ class SpotifyHomeStore {
 
    @action getCategory = async () => {
       this.categoryStatus = cardApiConstants.in_Progress
+      this.categoryData = []
       const token = Cookies.get('pa_token')
       const url = 'https://api.spotify.com/v1/browse/categories'
 
@@ -100,6 +102,7 @@ class SpotifyHomeStore {
 
    @action getNewRelease = async () => {
       this.newReleaseStatus = cardApiConstants.in_Progress
+      this.newReleaseData = []
       const token = Cookies.get('pa_token')
       const url = `https://api.spotify.com/v1/browse/new-releases?country=IN`
 
