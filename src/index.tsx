@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 
-import './Common/i18n'
+import './Cammon/i18n'
 
 import * as serviceWorker from './serviceWorker'
-import App from './Common/routes/App'
-import LoadingView from './Common/LoadingWrapper/LoadingView'
+import App from './Cammon/routes/App'
+import LoadingView from './Cammon/LoadingWrapper/LoadingView'
 
 import './index.css'
 
