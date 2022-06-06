@@ -56,7 +56,7 @@ const YourMusicSongs = (props: YourMusicSongsProps) => {
       <YourMusicContainer>
          <YourMusicSongButton type='button' onClick={updateSongUrl}>
             <SongImageAndDetailsContainer>
-               <Thumbnail src={yourMusicImageUrl} />
+               <Thumbnail src={yourMusicImageUrl} alt='movieImg' />
                <YourMusicSongDetails>
                   <YourMusicSongName>{yourMusicSongName}</YourMusicSongName>
                   <YourMusicDescription>

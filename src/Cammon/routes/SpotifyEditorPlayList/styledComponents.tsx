@@ -13,12 +13,10 @@ export const TableHeader = styled.div`
 `
 
 export const TableName = styled.p`
-   ${tw`text-white font-sans font-semibold leading-5 mr-2`}
+   ${tw`text-white font-semibold leading-5 mr-2 text-base`}
    color: #f8fafc;
    width: ${props => props.width};
-   font-style: normal;
-   font-weight: 400;
-   font-size: 15px;
+   font-family: 'Assistant';
 `
 
 export const SongAndTableContainer = styled.div`

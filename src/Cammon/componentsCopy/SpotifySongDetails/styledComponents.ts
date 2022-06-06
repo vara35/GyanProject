@@ -31,12 +31,13 @@ export const AlbumNameContainer = styled.div`
 
 export const EditorTextEle = styled.div`
    ${tw`font-bold text-white text-base leading-5 mt-2`}
-   font-family: Roboto;
+   font-family: "Assistant";
    font-style: normal;
 `
 
 export const AlbumName = styled.h1`
-   ${tw`font-normal font-sans text-white  leading-5`}
+   ${tw`font-semibold font-sans text-white`}
    font-size: 80px;
    line-height: 105px;
+   font-family: 'Assistant';
 `

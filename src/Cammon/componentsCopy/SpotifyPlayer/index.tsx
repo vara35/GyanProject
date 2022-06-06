@@ -14,8 +14,6 @@ interface PlayerProps {
    playerSongName: string
    songUrl: string
 }
-const playerImage =
-   'https://res.cloudinary.com/image-link-getter/image/upload/v1653572729/Rectangle_480_cedyqi.png'
 
 const SpotifyPlayer = (props: PlayerProps) => {
    const { playerUrl, songUrl, playerArtist, playerSongName } = props
