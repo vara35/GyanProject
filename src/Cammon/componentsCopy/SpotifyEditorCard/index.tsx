@@ -16,13 +16,14 @@ interface SpotifyCardProps {
 
 const SpotifyEditorCard = (props: SpotifyCardProps) => {
    const { cardHeading, cardImgUrl, id, isShowText = true, path } = props
+   const editedCardHeading = cardHeading.slice(0, 16)
    return (
       <Link to={`${path}/${id}`}>
          <SpotifyCardMainContainer>
             <CardButton type='button'>
                <CardImage src={cardImgUrl} />
             </CardButton>
-            {isShowText && <CardHeading>{cardHeading}</CardHeading>}
+            {isShowText && <CardHeading>{editedCardHeading}</CardHeading>}
          </SpotifyCardMainContainer>
       </Link>
    )

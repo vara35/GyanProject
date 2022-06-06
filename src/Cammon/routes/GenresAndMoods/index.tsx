@@ -77,7 +77,7 @@ class GenreAndMoods extends Component<GenreAndMoodsProps> {
                passProps={this.props}
             />
             <VerticalContainer>
-               <Link to='/spotifyhome'>
+               <Link to='/'>
                   <BackTextArrowContainer>
                      <BiLeftArrowAlt className='left-arrow' />
                      <BackTextButton type='button'>{back}</BackTextButton>

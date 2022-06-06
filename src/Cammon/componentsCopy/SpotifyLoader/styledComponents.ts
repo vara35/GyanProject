@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const LoadingContainer = styled.div`
    ${tw`flex flex-col justify-center items-center`}
-   height:60vh;
+   height:85vh;
    width: 100vw;
 `
 

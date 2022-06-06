@@ -5,8 +5,7 @@ import {
    PlayerImage,
    PlayerSongNameContainer,
    PlayerSongName,
-   PlayerArtistName,
-   SourceEle
+   PlayerArtistName
 } from './styledComponents'
 
 interface PlayerProps {
@@ -21,21 +20,30 @@ const playerImage =
 const SpotifyPlayer = (props: PlayerProps) => {
    const { playerUrl, songUrl, playerArtist, playerSongName } = props
 
-   const playerSongText = playerSongName.slice(0, 15)
-   const playerArtistText = playerArtist.slice(0, 15)
+   const playerSongText =
+      playerSongName === '' ? 'Unknown' : playerSongName.slice(0, 15)
+   const playerArtistText =
+      playerArtist === '' ? 'unknown' : playerArtist.slice(0, 15)
+   const editedPlayerUrl =
+      playerUrl === ''
+         ? 'https://res.cloudinary.com/image-link-getter/image/upload/v1654492068/empty-song-image_jz6lgx.jpg'
+         : playerUrl
 
    return (
       <PlayerContainer>
          <PlayerImageContainer>
-            <PlayerImage src={playerUrl} alt='Logo' />
+            <PlayerImage src={editedPlayerUrl} alt='Logo' />
             <PlayerSongNameContainer>
                <PlayerSongName>{playerSongText}</PlayerSongName>
                <PlayerArtistName>{playerArtistText}</PlayerArtistName>
             </PlayerSongNameContainer>
          </PlayerImageContainer>
-         <AudioElement src={songUrl} controls autoplay>
-            <SourceEle type='audio/mp3' />
-         </AudioElement>
+         <AudioElement
+            src={songUrl}
+            controls
+            autoplay
+            type='audio/mpeg'
+         ></AudioElement>
       </PlayerContainer>
    )
 }
