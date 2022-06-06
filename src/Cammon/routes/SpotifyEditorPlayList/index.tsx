@@ -31,7 +31,7 @@ interface SpotifySpecificPlayListProps {
    eachSong: {
       id: string
    }
-   changeSongStatus: () => void
+
    isHash?: boolean
 }
 
@@ -45,21 +45,23 @@ const songsApiConstants = {
 @inject('specificPlayListStore')
 @observer
 class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
+   state = { editorActiveTabId: '' }
    componentDidMount() {
       const { specificPlayListStore } = this.props
       specificPlayListStore.getSpecificEditorData(this.props)
    }
 
-   changeSongStatus = (previewUrl = '', songName, artist, playerUrl) => {
+   changeSongStatus = (previewUrl = '', songName, artist, playerUrl, id) => {
       const { specificPlayListStore } = this.props
       specificPlayListStore.changeSong(previewUrl, songName, artist, playerUrl)
+      this.setState({ editorActiveTabId: id })
    }
 
    showSongsFailureView = () => <SpotifyApiFailureView />
 
    showSongsSuccessView = () => {
       const { specificPlayListStore, isHash = false } = this.props
-
+      const { editorActiveTabId } = this.state
       const hash = isHash ? '#' : null
 
       return (
@@ -93,6 +95,7 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
                            key={eachSong.id}
                            changeSongStatus={this.changeSongStatus}
                            isSongs={true}
+                           tabId={editorActiveTabId}
                         />
                      )
                   )}

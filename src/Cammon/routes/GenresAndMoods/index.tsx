@@ -4,7 +4,7 @@ import { BiLeftArrowAlt } from 'react-icons/bi'
 import { inject, observer } from 'mobx-react'
 
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
-import GenresCard from '../../componentsCopy/GenresCard'
+import GenresCard from '../../componentsCopy/SpotifyGenresCard'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 
 import { SpotifySpecificMainContainer } from '../SpotifyEditorPlayList/styledComponents'

@@ -24,13 +24,15 @@ interface SpecificEditorSongProps {
       previewUrl: string,
       songName: string,
       artist: string,
-      playerUrl: string
+      playerUrl: string,
+      id: string
    ) => void
    isSongs: boolean
+   tabId?: string
 }
 
 const SpecificEditorSong = (props: SpecificEditorSongProps) => {
-   const { songDetailsProps, changeSongStatus, isSongs = true } = props
+   const { songDetailsProps, changeSongStatus, isSongs = true, tabId } = props
    const {
       id,
       songName,
@@ -59,9 +61,10 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
       popularity !== undefined && popularity > 50
          ? 'https://res.cloudinary.com/image-link-getter/image/upload/v1653921036/Group_188_ln78zc.png'
          : 'https://res.cloudinary.com/image-link-getter/image/upload/v1653921028/Group_183_xwydvw.png'
+   const isBgColor = tabId === id
 
    const changeSong = () => {
-      changeSongStatus(previewUrl, songName, artist, songThumbnialUrl)
+      changeSongStatus(previewUrl, songName, artist, songThumbnialUrl, id)
    }
 
    const getDuration = () => {
@@ -92,7 +95,7 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
    )
 
    return (
-      <EditorSongListContainer onClick={changeSong}>
+      <EditorSongListContainer onClick={changeSong} bgColor={isBgColor}>
          {isSongs ? showEdiotorSongs() : showNewReleaseSongs()}
       </EditorSongListContainer>
    )

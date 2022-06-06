@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react'
 import { Component } from 'react'
 
-import GenresCard from '../../componentsCopy/GenresCard'
+import GenresCard from '../../componentsCopy/SpotifyGenresCard'
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import PlayListStore from '../../stores/PlayListStore'
