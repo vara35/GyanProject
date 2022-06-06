@@ -14,10 +14,11 @@ export const AlbumAndSongContainer = styled.div`
 `
 
 export const BackTextButton = styled.button`
-   ${tw`text-white leading-6 font-sans`}
+   ${tw`text-white leading-6 font-semibold`}
    font-size: 16px;
    line-height: 24px;
    font-style: normal;
+   font-family: 'Assistant';
 `
 
 export const AlbumProfile = styled.img`
@@ -29,7 +30,7 @@ export const AlbumNameContainer = styled.div`
    ${tw`flex flex-col justify-end`}
 `
 
-export const EditorTextEle = styled.div`
+export const EditorTextEle = styled.p`
    ${tw`font-bold text-white text-base leading-5 mt-2`}
    font-family: "Assistant";
    font-style: normal;

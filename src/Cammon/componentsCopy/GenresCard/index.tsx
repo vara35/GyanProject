@@ -20,7 +20,7 @@ const GenresCard = (props: GenresCardProps) => {
             <CardButton type='button'>
                <CardImage src={genreImage} />
                <GenreHeadingEle>{name}</GenreHeadingEle>
-               <GenrePlayList>{`${total} playlist`} </GenrePlayList>
+               <GenrePlayList>{`${total} Tracks`} </GenrePlayList>
             </CardButton>
          </SpotifyCardMainContainer>
       </Link>
