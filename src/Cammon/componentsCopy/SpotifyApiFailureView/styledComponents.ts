@@ -2,11 +2,11 @@ import tw from 'twin.macro'
 import styled from 'styled-components'
 
 export const SpotifyApiFailureContainer = styled.div`
-   ${tw``}
-   width:1400px;
-   height: 900px;
+   ${tw`flex flex-row justify-center items-center`}
+   height: 75vh;
+   width: 100vw;
 `
 
 export const FailureImage = styled.img`
-   ${tw`h-96 `}
+   ${tw`h-96 rounded`}
 `

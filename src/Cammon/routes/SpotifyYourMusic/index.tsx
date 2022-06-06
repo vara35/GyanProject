@@ -50,28 +50,36 @@ class YourMusic extends Component<YourMusicProps> {
    showYourMusicFailureView = () => <SpotifyApiFailureView />
 
    showYourMusicSuccessView = () => {
-      const { yourMusicStore } = this.props
+      const { yourMusicStore, specificPlayListStore } = this.props
 
       return (
-         <YourMusicUlContainer>
-            {yourMusicStore.yourMusicSongsData.map(
-               (eachSong: {
-                  id: string
-                  yourMusicImageUrl: string
-                  yourMusicSongName: string
-                  yourMusicArtist: string
-                  movieName: string
-                  duration: string
-                  previewUrl: string
-               }) => (
-                  <YourMusicSongs
-                     key={eachSong.id}
-                     albumDetails={eachSong}
-                     updateSong={this.updateSong}
-                  />
-               )
-            )}
-         </YourMusicUlContainer>
+         <>
+            <YourMusicUlContainer>
+               {yourMusicStore.yourMusicSongsData.map(
+                  (eachSong: {
+                     id: string
+                     yourMusicImageUrl: string
+                     yourMusicSongName: string
+                     yourMusicArtist: string
+                     movieName: string
+                     duration: string
+                     previewUrl: string
+                  }) => (
+                     <YourMusicSongs
+                        key={eachSong.id}
+                        albumDetails={eachSong}
+                        updateSong={this.updateSong}
+                     />
+                  )
+               )}
+            </YourMusicUlContainer>
+            <SpotifyPlayer
+               songUrl={specificPlayListStore.songUrl}
+               playerArtist={specificPlayListStore.artistName}
+               playerSongName={specificPlayListStore.songName}
+               playerUrl={specificPlayListStore.playerImageURl}
+            />
+         </>
       )
    }
    showYourMusicInprogressView = () => <SpotifyLoader />
@@ -92,7 +100,6 @@ class YourMusic extends Component<YourMusicProps> {
    }
 
    render() {
-      const { specificPlayListStore } = this.props
       return (
          <YourMusicContainer>
             <SpotifyHeader
@@ -103,12 +110,6 @@ class YourMusic extends Component<YourMusicProps> {
             <VerticalContainer>
                <GenreHeading marginTop='48px'>{yourMusic}</GenreHeading>
                {this.showYourMusic()}
-               <SpotifyPlayer
-                  songUrl={specificPlayListStore.songUrl}
-                  playerArtist={specificPlayListStore.artistName}
-                  playerSongName={specificPlayListStore.songName}
-                  playerUrl={specificPlayListStore.playerImageURl}
-               />
             </VerticalContainer>
          </YourMusicContainer>
       )

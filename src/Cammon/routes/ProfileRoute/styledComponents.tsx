@@ -3,16 +3,13 @@ import styled from 'styled-components'
 
 export const ProfileContainer = styled.div`
    ${tw`flex flex-row `}
-   height:1024px;
+   height:100vh;
    background: #181818;
 `
 
 export const UserDetailsContainer = styled.div`
-   ${tw`flex flex-col items-center`}
-   margin-top:316px;
-   margin-left: 508px;
-   margin-right: 648px;
-   margin-bottom: 348px;
+   ${tw`flex flex-col justify-center items-center`}
+   width:100%;
 `
 export const UserName = styled.p`
    ${tw`w-56 font-bold text-white text-center mt-6 font-sans text-white`}

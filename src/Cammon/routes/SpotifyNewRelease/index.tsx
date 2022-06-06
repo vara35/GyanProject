@@ -7,6 +7,7 @@ import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import SpotifyPlayer from '../../componentsCopy/SpotifyPlayer'
 import SpecificEditorSong from '../../componentsCopy/SpecificEditorSong'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
+import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
 
 import {
    EditorsUlContainer,
@@ -64,6 +65,7 @@ class SpotifyNewRelease extends Component<SpotifyNewReleaseProps> {
       specificPlayListStore.changeSong(previewUrl, songName, artist, playerUrl)
    }
 
+   showNewReleaseFailureView = () => <SpotifyApiFailureView />
    showNewReleaseSuccessView = () => {
       const { specificPlayListStore } = this.props
 
@@ -119,6 +121,8 @@ class SpotifyNewRelease extends Component<SpotifyNewReleaseProps> {
             return this.showNewReleaseInprogressView()
          case songsApiConstants.success:
             return this.showNewReleaseSuccessView()
+         case songsApiConstants.failure:
+            return this.showNewReleaseFailureView()
          default:
             null
       }
