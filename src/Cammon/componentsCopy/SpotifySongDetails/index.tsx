@@ -21,7 +21,7 @@ const textObj = {
 }
 
 interface SongDetailsProps {
-   songDetailsData: any
+   songDetailsData: { name: string; songDetailsUrl: string }
    songDetailsText: string
 }
 

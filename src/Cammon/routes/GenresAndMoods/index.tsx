@@ -47,7 +47,12 @@ class GenreAndMoods extends Component<GenreAndMoodsProps> {
       return (
          <CardsUlContainer>
             {specificPlayListStore.categoryData.map(
-               (eachCategory: { id: string }) => (
+               (eachCategory: {
+                  id: string
+                  genreImage: string
+                  name: string
+                  total: string
+               }) => (
                   <SpotifyGenresCard
                      genreObj={eachCategory}
                      key={eachCategory.id}

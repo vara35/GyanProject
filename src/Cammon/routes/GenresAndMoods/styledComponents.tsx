@@ -11,7 +11,7 @@ export const GenreHeading = styled.h1`
 `
 
 export const VerticalContainer = styled.div`
-   ${tw`flex flex-col`}
+   ${tw`flex flex-col w-full`}
 `
 
 export const GenreCardCss = css`

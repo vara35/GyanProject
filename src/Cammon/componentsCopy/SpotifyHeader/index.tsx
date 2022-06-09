@@ -6,14 +6,14 @@ import { RiPlayListFill } from 'react-icons/ri'
 import 'twin.macro'
 
 import {
-   HeaderIconsContainer,
+   HomeIconContainer,
    HeaderLogo,
    HeaderMainContainer,
-   ProfileName,
+   HeaderRouteHeading,
    IconsContainer,
-   IconsContainer1,
-   IconsContainer2,
-   IconsContainer3
+   ProfileContainer,
+   YourMusicIconContainer,
+   PlayListIconContainer
 } from './styledComponents'
 import './index.css'
 
@@ -28,8 +28,6 @@ const SpotifyHeaderConstants = {
 
 interface SpotifyHeaderConstants {
    isShowHeaderLogo: boolean
-
-   addStyles?: any
    passProps?: any
    HeaderCss?: any
 }
@@ -49,30 +47,36 @@ const SpotifyHeader = (props: SpotifyHeaderConstants) => {
          )}
          <IconsContainer css={HeaderCss}>
             <Link to='/profile' className='link'>
-               <IconsContainer1 pathname={pathname}>
+               <ProfileContainer pathname={pathname}>
                   <BsFillPersonFill className='person-icon' />
-                  <ProfileName>
+                  <HeaderRouteHeading>
                      {SpotifyHeaderConstants.profileText}
-                  </ProfileName>
-               </IconsContainer1>
+                  </HeaderRouteHeading>
+               </ProfileContainer>
             </Link>
             <Link to='/' className='link'>
-               <HeaderIconsContainer pathname={pathname}>
+               <HomeIconContainer pathname={pathname}>
                   <AiFillHome className='person-icon' />
-                  <ProfileName>{SpotifyHeaderConstants.home}</ProfileName>
-               </HeaderIconsContainer>
+                  <HeaderRouteHeading>
+                     {SpotifyHeaderConstants.home}
+                  </HeaderRouteHeading>
+               </HomeIconContainer>
             </Link>
             <Link to='/yourmusic' className='link'>
-               <IconsContainer2 pathname={pathname}>
+               <YourMusicIconContainer pathname={pathname}>
                   <FaItunesNote className='person-icon' />
-                  <ProfileName>{SpotifyHeaderConstants.yourMusic}</ProfileName>
-               </IconsContainer2>
+                  <HeaderRouteHeading>
+                     {SpotifyHeaderConstants.yourMusic}
+                  </HeaderRouteHeading>
+               </YourMusicIconContainer>
             </Link>
             <Link to='/playlist' className='link'>
-               <IconsContainer3 pathname={pathname}>
+               <PlayListIconContainer pathname={pathname}>
                   <RiPlayListFill className='person-icon' />
-                  <ProfileName>{SpotifyHeaderConstants.playLists}</ProfileName>
-               </IconsContainer3>
+                  <HeaderRouteHeading>
+                     {SpotifyHeaderConstants.playLists}
+                  </HeaderRouteHeading>
+               </PlayListIconContainer>
             </Link>
          </IconsContainer>
       </HeaderMainContainer>

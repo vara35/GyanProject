@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const LoadingContainer = styled.div`
    ${tw`flex flex-col justify-center items-center`}
    height:85vh;
-   width: 100vw;
+   width: 100%;
 `
 
 export const LoaderImage = styled.img`

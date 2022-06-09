@@ -116,6 +116,6 @@ const songsApiConstants = {
 // )
 
 const SpotifyNewReleaseRoute = () => (
-   <SpotifySpecificMainContainer>Ok</SpotifySpecificMainContainer>
+   <SpotifySpecificMainContainer>ok</SpotifySpecificMainContainer>
 )
 export default SpotifyNewReleaseRoute

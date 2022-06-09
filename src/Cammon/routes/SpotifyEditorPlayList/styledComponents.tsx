@@ -1,4 +1,5 @@
 import tw from 'twin.macro'
+import css from 'twin.macro'
 import styled from 'styled-components'
 
 export const SpotifySpecificMainContainer = styled.div`
@@ -34,4 +35,22 @@ export const SpotifyHrLine = styled.hr`
 export const EditorsUlContainer = styled.ul`
    ${tw`overflow-y-auto`}
    height:480px;
+`
+export const HashCss = css`
+ w-14
+`
+export const TrackHeadingCss = css`
+w-64
+
+`
+export const AlbumCss = css`
+w-80
+
+`
+
+export const TimeHeadingCss = css`
+w-52
+`
+export const ArtistHeadingCss = css`
+w-64
 `

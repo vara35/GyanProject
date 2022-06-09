@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { inject, observer } from 'mobx-react'
+import 'twin.macro'
 
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
 import SpotifySongDetails from '../../componentsCopy/SpotifySongDetails'
@@ -8,15 +9,20 @@ import SpecificEditorSong from '../../componentsCopy/SpecificEditorSong'
 import SpotifyPlayer from '../../componentsCopy/SpotifyPlayer'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
-import { HeaderCss } from '../SpotifyHome/styledComponents'
 
+import { HeaderCss } from '../SpotifyHome/styledComponents'
 import {
    SpotifySpecificMainContainer,
    TableHeader,
    TableName,
    SongAndTableContainer,
    SpotifyHrLine,
-   EditorsUlContainer
+   EditorsUlContainer,
+   HashCss,
+   TrackHeadingCss,
+   AlbumCss,
+   TimeHeadingCss,
+   ArtistHeadingCss
 } from './styledComponents'
 
 const tableHeader = {
@@ -85,17 +91,29 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
                songDetailsText='Editors picks'
             />
             <TableHeader>
-               <TableName width='56px'>{hash}</TableName>
-               <TableName width='258px'>{tableHeader.track} </TableName>
-               <TableName width='300px'>{tableHeader.album}</TableName>
-               <TableName width='200px'>{tableHeader.time}</TableName>
-               <TableName width='250px'>{tableHeader.artist}</TableName>
-               <TableName width='200px'>{tableHeader.added}</TableName>
+               <TableName css={HashCss}>{hash}</TableName>
+               <TableName css={TrackHeadingCss}>{tableHeader.track} </TableName>
+               <TableName css={AlbumCss}>{tableHeader.album}</TableName>
+               <TableName css={TimeHeadingCss}>{tableHeader.time}</TableName>
+               <TableName css={ArtistHeadingCss}>
+                  {tableHeader.artist}
+               </TableName>
+               <TableName css={TimeHeadingCss}>{tableHeader.added}</TableName>
             </TableHeader>
             <SpotifyHrLine width='1278px' margin={true} />
             <EditorsUlContainer>
                {specificPlayListStore.specificEditorsData.map(
-                  (eachSong: any) => (
+                  (eachSong: {
+                     id: string
+                     duration: string
+                     albumName: string
+                     songName: string
+                     addedAt: string
+                     trackNumber: string
+                     previewUrl: string
+                     songThumbnialUrl: string | undefined
+                     artist: string
+                  }) => (
                      <SpecificEditorSong
                         songDetailsProps={eachSong}
                         key={eachSong.id}

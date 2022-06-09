@@ -1,11 +1,6 @@
-import { formatDistance, subDays } from 'date-fns'
 import { TableName } from '../../routes/SpotifyEditorPlayList/styledComponents'
 
-import {
-   EditorSongListContainer,
-   EditorSongButtonEle,
-   PopularityImage
-} from './styledComponents'
+import { EditorSongListContainer } from './styledComponents'
 
 interface SpecificEditorSongProps {
    songDetailsProps: {
@@ -20,6 +15,7 @@ interface SpecificEditorSongProps {
       popularity?: number
       songThumbnialUrl?: any
    }
+
    changeSongStatus: (
       previewUrl: string,
       songName: string,
@@ -42,7 +38,6 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
       addedAt,
       trackNumber,
       previewUrl,
-      popularity,
       songThumbnialUrl
    } = songDetailsProps
 
@@ -52,15 +47,6 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
       albumName !== undefined && albumName !== null && albumName.slice(0, 30)
    const editedYear = addedAt !== undefined && addedAt.slice(0, 10)
 
-   // const editedMonth = new Date(editedYear).getDate()
-   // const editedDay = addedAt !== undefined && addedAt.slice(8, 10)
-   // const result = formatDistance(new Date(2015, 0, 1, 0, 0, 15), new Date())
-   // const convertDate = new Date(result)
-
-   const popularityImage =
-      popularity !== undefined && popularity > 50
-         ? 'https://res.cloudinary.com/image-link-getter/image/upload/v1653921036/Group_188_ln78zc.png'
-         : 'https://res.cloudinary.com/image-link-getter/image/upload/v1653921028/Group_183_xwydvw.png'
    const isBgColor = tabId === id
 
    const changeSong = () => {
@@ -73,15 +59,6 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
       const slicedTime = convertToMinutes.toString().slice(0, 4)
       return slicedTime
    }
-
-   const showNewReleaseSongs = () => (
-      <>
-         <TableName width='48px'>{trackNumber}</TableName>
-         <TableName width='500px'>{editedSongName} </TableName>
-         <TableName width='430px'>{getDuration()}</TableName>
-         <PopularityImage width='300px' src={popularityImage} />
-      </>
-   )
 
    const showEdiotorSongs = () => (
       <>
@@ -96,7 +73,7 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
 
    return (
       <EditorSongListContainer onClick={changeSong} bgColor={isBgColor}>
-         {isSongs ? showEdiotorSongs() : showNewReleaseSongs()}
+         {showEdiotorSongs()}
       </EditorSongListContainer>
    )
 }

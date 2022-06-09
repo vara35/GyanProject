@@ -6,6 +6,7 @@ import {
    CardImage,
    CardHeading
 } from './styledComponents'
+
 interface SpotifyCardProps {
    cardHeading: string
    cardImgUrl: string

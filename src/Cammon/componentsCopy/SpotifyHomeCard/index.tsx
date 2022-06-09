@@ -9,12 +9,12 @@ import {
 interface SpotifyCardProps {
    cardHeading: string
    cardImgUrl: string
-   id: number | string
+   id: string | number
    isShowText?: boolean
    path?: string
 }
 
-const SpotifyEditorCard = (props: SpotifyCardProps) => {
+const SpotifyHomeCard = (props: SpotifyCardProps) => {
    const { cardHeading, cardImgUrl, id, isShowText = true, path } = props
    const editedCardHeading = cardHeading.slice(0, 16)
    return (
@@ -22,11 +22,11 @@ const SpotifyEditorCard = (props: SpotifyCardProps) => {
          <SpotifyCardMainContainer>
             <CardButton type='button'>
                <CardImage src={cardImgUrl} />
+               {isShowText && <CardHeading>{editedCardHeading}</CardHeading>}
             </CardButton>
-            {isShowText && <CardHeading>{editedCardHeading}</CardHeading>}
          </SpotifyCardMainContainer>
       </Link>
    )
 }
 
-export default SpotifyEditorCard
+export default SpotifyHomeCard

@@ -8,7 +8,12 @@ import {
 import { GenreHeadingEle, GenrePlayList } from './styledComponents'
 
 interface GenresCardProps {
-   genreObj: any
+   genreObj: {
+      genreImage: string
+      name: string
+      total: number | string
+      id: string | undefined
+   }
 }
 
 const SpotifyGenresCard = (props: GenresCardProps) => {

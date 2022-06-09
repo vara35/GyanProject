@@ -43,12 +43,19 @@ class SpotifyPlayList extends Component<PlayListProps> {
       const { playListStore } = this.props
       return (
          <CardsUlContainer>
-            {playListStore.playListData.map((eachCategory: { id: string }) => (
-               <SpotifyGenresCard
-                  genreObj={eachCategory}
-                  key={eachCategory.id}
-               />
-            ))}
+            {playListStore.playListData.map(
+               (eachCategory: {
+                  id: string
+                  genreImage: string
+                  name: string
+                  total: number | string
+               }) => (
+                  <SpotifyGenresCard
+                     genreObj={eachCategory}
+                     key={eachCategory.id}
+                  />
+               )
+            )}
          </CardsUlContainer>
       )
    }

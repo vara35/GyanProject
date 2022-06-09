@@ -8,7 +8,7 @@ export const SpotifyHomeMainContainer = styled.div`
    height: 100vh;
 `
 export const CardsMainContainer = styled.div`
-   ${tw`overflow-auto`};
+   ${tw`overflow-auto w-full`};
 `
 export const EditorHeading = styled.h1`
    ${tw`ml-8 mb-8 text-white font-bold font-sans`}
@@ -17,7 +17,7 @@ export const EditorHeading = styled.h1`
 `
 
 export const CardsUlContainer = styled.ul`
-   ${tw`ml-8 flex flex-wrap overflow-y-auto`}
+   ${tw`ml-8 flex flex-wrap overflow-auto`}
 `
 
 export const HeaderCss = css`

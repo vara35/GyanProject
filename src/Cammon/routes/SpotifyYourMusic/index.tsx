@@ -5,7 +5,7 @@ import 'twin.macro'
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
 import YourMusicStore from '../../stores/YourMusicStore'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
-import YourMusicSongs from '../../componentsCopy/YourMusicSongs'
+import YourMusicRouteSong from '../../componentsCopy/YourMusicRouteSong'
 import SpotifyPlayer from '../../componentsCopy/SpotifyPlayer'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
@@ -74,7 +74,7 @@ class YourMusic extends Component<YourMusicProps> {
                      duration: string
                      previewUrl: string
                   }) => (
-                     <YourMusicSongs
+                     <YourMusicRouteSong
                         key={eachSong.id}
                         albumDetails={eachSong}
                         updateSong={this.updateSong}

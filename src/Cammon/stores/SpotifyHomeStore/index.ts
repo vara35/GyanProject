@@ -13,17 +13,28 @@ const cardApiConstants = {
    failure: 'FAILURE'
 }
 
-export interface EditorDataProps {
-   cardImage: string
-   id: number | string
+interface EditorDataObject {
+   id: string
    name: string
+   cardImage: string
+}
+
+interface CategoryDataObject {
+   id: string
+   categoryCardImage: string
+}
+
+interface NewReleaseObject {
+   id: string | number
+   name: string
+   newReleaseImage: string
 }
 
 class SpotifyHomeStore {
-   @observable editorPicksData: any = []
+   @observable editorPicksData: EditorDataObject[] = []
 
-   @observable categoryData: { id: string; categoryCardImage: string }[] = []
-   @observable newReleaseData: any = []
+   @observable categoryData: CategoryDataObject[] = []
+   @observable newReleaseData: NewReleaseObject[] = []
 
    @observable editorStatus = cardApiConstants.initial
    @observable categoryStatus = cardApiConstants.initial

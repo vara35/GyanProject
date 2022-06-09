@@ -3,16 +3,25 @@ import Cookies from 'js-cookie'
 
 import SpotifyPlayListModel from '../models/SpotifyPlayListModel'
 
+interface PlayListStoreObject {
+   genreImage: string
+   id: string
+   name: string
+   total: number | string
+}
+
 const playListApiConstants = {
    initial: 'INITIAL',
    in_Progress: 'InProgress',
    success: 'SUCCESS',
    failure: 'FAILURE'
 }
+
 const username = 'he7oc7sesmn4j2jvhfq1ddqxr'
+
 class PlayListStore {
    @observable playListStatus = playListApiConstants.initial
-   @observable playListData: any = []
+   @observable playListData: PlayListStoreObject[] = []
    spotifyPlayListServiceData
    constructor(spotifyPlayListService) {
       this.spotifyPlayListServiceData = spotifyPlayListService

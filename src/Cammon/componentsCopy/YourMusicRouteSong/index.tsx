@@ -25,7 +25,7 @@ interface YourMusicSongsProps {
    ) => void
 }
 
-const YourMusicSongs = (props: YourMusicSongsProps) => {
+const YourMusicRouteSong = (props: YourMusicSongsProps) => {
    const { albumDetails, updateSong } = props
    const {
       yourMusicImageUrl,
@@ -45,7 +45,7 @@ const YourMusicSongs = (props: YourMusicSongsProps) => {
       )
    }
 
-   const yourMusicDuration = () => {
+   const songDuration = () => {
       const convertToSeconds = parseInt(duration) / 1000
       const convertToMinutes = convertToSeconds / 60
       const slicedTime = convertToMinutes.toString().slice(0, 4)
@@ -64,10 +64,10 @@ const YourMusicSongs = (props: YourMusicSongsProps) => {
                   </YourMusicDescription>
                </YourMusicSongDetails>
             </SongImageAndDetailsContainer>
-            <YourMusicDescription>{yourMusicDuration()}</YourMusicDescription>
+            <YourMusicDescription>{songDuration()}</YourMusicDescription>
          </YourMusicSongButton>
       </YourMusicContainer>
    )
 }
 
-export default YourMusicSongs
+export default YourMusicRouteSong

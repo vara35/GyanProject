@@ -2,7 +2,7 @@ import { inject, observer } from 'mobx-react'
 import { Component } from 'react'
 import 'twin.macro'
 
-import SpotifyEditorCard from '../../componentsCopy/SpotifyEditorCard'
+import SpotifyHomeCard from '../../componentsCopy/SpotifyHomeCard'
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import SpotifyHomeStore from '../../stores/SpotifyHomeStore'
@@ -55,11 +55,11 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
          <>
             {newReleaseData.map(
                (eachCard: {
-                  newReleaseImage: string
-                  id: string
+                  id: string | number
                   name: string
+                  newReleaseImage: string
                }) => (
-                  <SpotifyEditorCard
+                  <SpotifyHomeCard
                      cardHeading={eachCard.name}
                      cardImgUrl={eachCard.newReleaseImage}
                      key={eachCard.id}
@@ -96,7 +96,7 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
          <>
             {categoryData.map(
                (eachCard: { categoryCardImage: string; id: string }) => (
-                  <SpotifyEditorCard
+                  <SpotifyHomeCard
                      cardImgUrl={eachCard.categoryCardImage}
                      key={eachCard.id}
                      id={eachCard.id}
@@ -133,8 +133,8 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
       return (
          <>
             {editorPicksData.map(
-               (eachCard: { name: string; cardImage: string; id: number }) => (
-                  <SpotifyEditorCard
+               (eachCard: { name: string; cardImage: string; id: string }) => (
+                  <SpotifyHomeCard
                      cardHeading={eachCard.name}
                      cardImgUrl={eachCard.cardImage}
                      key={eachCard.id}

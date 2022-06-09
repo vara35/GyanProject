@@ -155,7 +155,7 @@ class SpecificPlayListStore {
             artists: newReleasedata.artists[0].name
          }
 
-         const updatedEditorData = newReleasedata.tracks.items.map(
+         const updatedCategoryData = newReleasedata.tracks.items.map(
             eachSong => ({
                id: eachSong.id,
                duration: eachSong.duration_ms,
@@ -167,7 +167,7 @@ class SpecificPlayListStore {
             })
          )
          this.newReleaseSongDetails = newReleaseSong
-         this.newReleaseData = updatedEditorData
+         this.newReleaseData = updatedCategoryData
          this.newReleaseSongStatus = songsApiConstants.success
       } else {
          this.newReleaseSongStatus = songsApiConstants.failure
