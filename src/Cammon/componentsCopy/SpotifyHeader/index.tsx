@@ -32,6 +32,8 @@ interface SpotifyHeaderConstants {
    HeaderCss?: any
 }
 
+const pathname = ''
+
 const SpotifyHeader = (props: SpotifyHeaderConstants) => {
    const { isShowHeaderLogo, passProps, HeaderCss } = props
 

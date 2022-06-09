@@ -8,3 +8,6 @@ export const Table = styled.table`
 export const PopularityImage = styled.img`
    ${tw`h-4 w-8`}
 `
+export const Tbody = styled.tbody`
+   ${tw`overflow-auto`}
+`

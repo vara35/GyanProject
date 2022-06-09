@@ -1,6 +1,6 @@
+import React from 'react'
 import { useTable } from 'react-table'
 import { v4 as uuid } from 'uuid'
-import React from 'react'
 import { observer } from 'mobx-react'
 
 import { Table, PopularityImage } from './styledComponents'

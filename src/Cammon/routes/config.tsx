@@ -1,5 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+   BrowserRouter as Router,
+   Switch,
+   Route,
+   useHistory
+} from 'react-router-dom'
 
 import {
    NOT_FOUND_PAGE_PATH,
@@ -24,10 +29,11 @@ import SpotifyPlayList from './SpotifyPlayList'
 export const routes = (): React.ReactElement => (
    <Router>
       <Switch>
+         <Route exact path='/' component={SpotifyHome} />
          <Route exact path='/counter' component={CounterWithToast} />
 
          <Route exact path='/login' component={SpotifyLoginForm} />
-         <Route exact path='/' component={SpotifyHome} />
+
          <ProtectedRoute exact path='/profile' component={Profile} />
          <ProtectedRoute
             exact

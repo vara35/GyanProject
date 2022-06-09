@@ -19,6 +19,13 @@ export const IconsContainer = styled.div`
 export const HomeIconContainer = styled.div`
    ${tw`flex flex-col justify-center items-center text-center h-16 w-24 mt-4`}
    border-left: ${props => props.pathname === '/' && '6px solid #1ED760'};
+      border-left: ${props =>
+         props.pathname.slice(0, 7) === '/editor' && '6px solid #1ED760'};
+         border-left: ${props =>
+            props.pathname.slice(0, 9) === '/category' && '6px solid #1ED760'};
+            border-left: ${props =>
+               props.pathname.slice(0, 11) === '/newrelease' &&
+               '6px solid #1ED760'};
    background: ${props => props.pathname === '/' && '#181818'};
   
 `
