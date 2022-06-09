@@ -8,6 +8,7 @@ import ProfileStore from '../../stores/ProfileStore'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
 
+import { HeaderCss } from '../SpotifyHome/styledComponents'
 import {
    ProfileContainer,
    UserDetailsContainer,
@@ -35,13 +36,6 @@ const logoutButton = 'LOGOUT'
 
 interface ProfileConstants {
    profileStore: ProfileStore
-   followers: number
-   userDetails: {
-      name: string
-      followers: {
-         total: number | string
-      }
-   }
    history: any
 }
 
@@ -63,7 +57,7 @@ class Profile extends Component<ProfileConstants> {
 
    profileSuccessView = () => {
       const { profileStore } = this.props
-      const { name, followers } = profileStore.userData
+      const { name, followers } = profileStore.userData[0]
 
       return (
          <UserDetailsContainer>
@@ -106,7 +100,7 @@ class Profile extends Component<ProfileConstants> {
       return (
          <ProfileContainer>
             <SpotifyHeader
-               marginTop='304px'
+               HeaderCss={HeaderCss}
                isShowHeaderLogo={true}
                passProps={this.props}
             />

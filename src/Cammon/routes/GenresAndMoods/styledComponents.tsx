@@ -1,4 +1,5 @@
 import tw from 'twin.macro'
+import css from 'twin.macro'
 import styled from 'styled-components'
 
 export const BackTextArrowContainer = styled.div`
@@ -7,9 +8,12 @@ export const BackTextArrowContainer = styled.div`
 
 export const GenreHeading = styled.h1`
    ${tw`font-semibold text-2xl leading-8 text-white ml-8 mb-8`}
-   margin-top : ${props => props.marginTop};
 `
 
 export const VerticalContainer = styled.div`
    ${tw`flex flex-col`}
+`
+
+export const GenreCardCss = css`
+mt-12
 `

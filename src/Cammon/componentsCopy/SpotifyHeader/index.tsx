@@ -1,8 +1,9 @@
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
 import { FaItunesNote } from 'react-icons/fa'
 import { RiPlayListFill } from 'react-icons/ri'
+import 'twin.macro'
 
 import {
    HeaderIconsContainer,
@@ -27,13 +28,14 @@ const SpotifyHeaderConstants = {
 
 interface SpotifyHeaderConstants {
    isShowHeaderLogo: boolean
-   marginTop: string
+
    addStyles?: any
    passProps?: any
+   HeaderCss?: any
 }
 
 const SpotifyHeader = (props: SpotifyHeaderConstants) => {
-   const { isShowHeaderLogo, marginTop, passProps } = props
+   const { isShowHeaderLogo, passProps, HeaderCss } = props
 
    const { location } = passProps
    const { pathname } = location
@@ -45,7 +47,7 @@ const SpotifyHeader = (props: SpotifyHeaderConstants) => {
                <HeaderLogo src={SpotifyHeaderConstants.headerLogoUrl} />
             </Link>
          )}
-         <IconsContainer marginTop={marginTop}>
+         <IconsContainer css={HeaderCss}>
             <Link to='/profile' className='link'>
                <IconsContainer1 pathname={pathname}>
                   <BsFillPersonFill className='person-icon' />
@@ -63,9 +65,7 @@ const SpotifyHeader = (props: SpotifyHeaderConstants) => {
             <Link to='/yourmusic' className='link'>
                <IconsContainer2 pathname={pathname}>
                   <FaItunesNote className='person-icon' />
-                  <ProfileName marginLeft='20px'>
-                     {SpotifyHeaderConstants.yourMusic}
-                  </ProfileName>
+                  <ProfileName>{SpotifyHeaderConstants.yourMusic}</ProfileName>
                </IconsContainer2>
             </Link>
             <Link to='/playlist' className='link'>

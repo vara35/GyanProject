@@ -1,17 +1,15 @@
 import styled from 'styled-components'
 import tw from 'twin.macro'
 
+export const PlayerContainer = styled.div`
+   ${tw`flex items-center`};
+   border-top: 0.5px solid #9b9b9b;
+`
 export const AudioElement = styled.audio`
    ${tw`ml-8 mb-8`}
    height: 108px;
    width: 1024px;
    margin-left: 85px;
-`
-
-export const PlayerContainer = styled.div`
-   ${tw`flex items-center`};
-   border-top: 0.5px solid #9b9b9b;
-   width: 1352px;
 `
 
 export const PlayerImageContainer = styled.div`

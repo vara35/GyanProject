@@ -64,7 +64,7 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
    const isBgColor = tabId === id
 
    const changeSong = () => {
-      changeSongStatus(previewUrl, songName, artist, songThumbnialUrl, id)
+      changeSongStatus(songThumbnialUrl, songName, artist, previewUrl, id)
    }
 
    const getDuration = () => {

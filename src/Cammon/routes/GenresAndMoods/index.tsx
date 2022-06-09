@@ -2,20 +2,22 @@ import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { BiLeftArrowAlt } from 'react-icons/bi'
 import { inject, observer } from 'mobx-react'
+import 'twin.macro'
 
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
-import GenresCard from '../../componentsCopy/SpotifyGenresCard'
+import SpotifyGenresCard from '../../componentsCopy/SpotifyGenresCard'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
+import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 
 import { SpotifySpecificMainContainer } from '../SpotifyEditorPlayList/styledComponents'
 import { BackTextButton } from '../../componentsCopy/SpotifySongDetails/styledComponents'
-import { CardsUlContainer } from '../SpotifyHome/styledComponents'
-import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
+import { CardsUlContainer, HeaderCss } from '../SpotifyHome/styledComponents'
 
 import {
    BackTextArrowContainer,
    GenreHeading,
-   VerticalContainer
+   VerticalContainer,
+   GenreCardCss
 } from './styledComponents'
 
 const back = 'Back'
@@ -46,7 +48,10 @@ class GenreAndMoods extends Component<GenreAndMoodsProps> {
          <CardsUlContainer>
             {specificPlayListStore.categoryData.map(
                (eachCategory: { id: string }) => (
-                  <GenresCard genreObj={eachCategory} key={eachCategory.id} />
+                  <SpotifyGenresCard
+                     genreObj={eachCategory}
+                     key={eachCategory.id}
+                  />
                )
             )}
          </CardsUlContainer>
@@ -72,7 +77,7 @@ class GenreAndMoods extends Component<GenreAndMoodsProps> {
       return (
          <SpotifySpecificMainContainer>
             <SpotifyHeader
-               marginTop='304px'
+               HeaderCss={HeaderCss}
                isShowHeaderLogo={true}
                passProps={this.props}
             />
@@ -83,7 +88,7 @@ class GenreAndMoods extends Component<GenreAndMoodsProps> {
                      <BackTextButton type='button'>{back}</BackTextButton>
                   </BackTextArrowContainer>
                </Link>
-               <GenreHeading marginTop='48px'>{podcast}</GenreHeading>
+               <GenreHeading css={GenreCardCss}>{podcast}</GenreHeading>
                {this.showCategoryPlayLists()}
             </VerticalContainer>
          </SpotifySpecificMainContainer>

@@ -1,5 +1,6 @@
 import { observable, action } from 'mobx'
 import Cookies from 'js-cookie'
+import SpotifyProfileModel from '../models/SpotifyProfileModel'
 
 const profileApiConstants = {
    initial: 'INITIAL',
@@ -11,13 +12,17 @@ const profileApiConstants = {
 class ProfileStore {
    @observable userData: {
       name: string
-      followers: { total: number | string }
-   } = {
-      name: '',
-      followers: { total: '' }
-   }
+      followers: {
+         total: number | string
+      }
+   }[] = []
 
    @observable profileApiStatus = profileApiConstants.initial
+
+   spotifyProfileServiceData
+   constructor(spotifyProfileService) {
+      this.spotifyProfileServiceData = spotifyProfileService
+   }
 
    @action getUserData = async () => {
       this.profileApiStatus = profileApiConstants.in_progress
@@ -30,15 +35,14 @@ class ProfileStore {
          }
       }
 
-      const response = await fetch(url, options)
+      const response = await this.spotifyProfileServiceData.getUserDetails(
+         url,
+         options
+      )
       const data = await response.json()
-
       if (response.ok) {
-         const updatedUserDetails: any = {
-            name: data.display_name,
-            followers: data.followers
-         }
-         this.userData = updatedUserDetails
+         const profileItem = new SpotifyProfileModel(data)
+         this.userData.push(profileItem)
          this.profileApiStatus = profileApiConstants.success
       } else {
          this.profileApiStatus = profileApiConstants.failure

@@ -1,7 +1,9 @@
 import { inject, observer } from 'mobx-react'
 import { Component } from 'react'
+import 'twin.macro'
 
-import GenresCard from '../../componentsCopy/SpotifyGenresCard'
+import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
+import SpotifyGenresCard from '../../componentsCopy/SpotifyGenresCard'
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import PlayListStore from '../../stores/PlayListStore'
@@ -10,7 +12,8 @@ import {
    GenreHeading,
    VerticalContainer
 } from '../GenresAndMoods/styledComponents'
-import { CardsUlContainer } from '../SpotifyHome/styledComponents'
+import { CardsUlContainer, HeaderCss } from '../SpotifyHome/styledComponents'
+import { GenreHeadingCss } from '../SpotifyYourMusic/styledComponents'
 import { PlayListContainer } from './styledComponents'
 
 const yourPlaylists = 'Your Playlists'
@@ -34,12 +37,17 @@ class SpotifyPlayList extends Component<PlayListProps> {
       playListStore.getPlayListData()
    }
 
+   showPlayListFailureView = () => <SpotifyApiFailureView />
+
    showPlayListSuccessView = () => {
       const { playListStore } = this.props
       return (
          <CardsUlContainer>
             {playListStore.playListData.map((eachCategory: { id: string }) => (
-               <GenresCard genreObj={eachCategory} key={eachCategory.id} />
+               <SpotifyGenresCard
+                  genreObj={eachCategory}
+                  key={eachCategory.id}
+               />
             ))}
          </CardsUlContainer>
       )
@@ -54,6 +62,8 @@ class SpotifyPlayList extends Component<PlayListProps> {
             return this.showPlayListInprogressView()
          case playListApiConstants.success:
             return this.showPlayListSuccessView()
+         case playListApiConstants.failure:
+            return this.showPlayListFailureView()
          default:
             null
       }
@@ -63,12 +73,14 @@ class SpotifyPlayList extends Component<PlayListProps> {
       return (
          <PlayListContainer>
             <SpotifyHeader
-               marginTop='304px'
+               HeaderCss={HeaderCss}
                isShowHeaderLogo={true}
                passProps={this.props}
             />
             <VerticalContainer>
-               <GenreHeading marginTop='96px'>{yourPlaylists}</GenreHeading>
+               <GenreHeading css={GenreHeadingCss}>
+                  {yourPlaylists}
+               </GenreHeading>
                {this.showPlayList()}
             </VerticalContainer>
          </PlayListContainer>

@@ -1,5 +1,6 @@
 import { inject, observer } from 'mobx-react'
 import { Component } from 'react'
+import 'twin.macro'
 
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
 import YourMusicStore from '../../stores/YourMusicStore'
@@ -9,11 +10,14 @@ import SpotifyPlayer from '../../componentsCopy/SpotifyPlayer'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
 
+import { GenreHeading } from '../GenresAndMoods/styledComponents'
+import { HeaderCss } from '../SpotifyHome/styledComponents'
 import {
-   GenreHeading,
-   VerticalContainer
-} from '../GenresAndMoods/styledComponents'
-import { YourMusicContainer, YourMusicUlContainer } from './styledComponents'
+   YourMusicContainer,
+   YourMusicUlContainer,
+   VerticalContainerForYourMusic,
+   GenreHeadingCss
+} from './styledComponents'
 
 const yourMusic = 'Your Music'
 
@@ -37,13 +41,18 @@ class YourMusic extends Component<YourMusicProps> {
       yourMusicStore.getYourMusicdata()
    }
 
-   updateSong = (previewUrl, yourMusicSongName, yourMusicArtist, playerUrl) => {
+   updateSong = (
+      yourMusicImageUrl,
+      yourMusicSongName,
+      yourMusicArtist,
+      previewUrl
+   ) => {
       const { specificPlayListStore } = this.props
       specificPlayListStore.changeSong(
-         previewUrl,
+         yourMusicImageUrl,
          yourMusicSongName,
          yourMusicArtist,
-         playerUrl
+         previewUrl
       )
    }
 
@@ -74,10 +83,10 @@ class YourMusic extends Component<YourMusicProps> {
                )}
             </YourMusicUlContainer>
             <SpotifyPlayer
-               songUrl={specificPlayListStore.songUrl}
+               playerThumbnailUrl={specificPlayListStore.playerThumbnailUrl}
                playerArtist={specificPlayListStore.artistName}
                playerSongName={specificPlayListStore.songName}
-               playerUrl={specificPlayListStore.playerImageURl}
+               playerSongUrl={specificPlayListStore.playerSongUrl}
             />
          </>
       )
@@ -103,14 +112,14 @@ class YourMusic extends Component<YourMusicProps> {
       return (
          <YourMusicContainer>
             <SpotifyHeader
-               marginTop='304px'
+               HeaderCss={HeaderCss}
                isShowHeaderLogo={true}
                passProps={this.props}
             />
-            <VerticalContainer>
-               <GenreHeading marginTop='48px'>{yourMusic}</GenreHeading>
+            <VerticalContainerForYourMusic>
+               <GenreHeading css={GenreHeadingCss}>{yourMusic}</GenreHeading>
                {this.showYourMusic()}
-            </VerticalContainer>
+            </VerticalContainerForYourMusic>
          </YourMusicContainer>
       )
    }

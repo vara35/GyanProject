@@ -38,10 +38,10 @@ const YourMusicSongs = (props: YourMusicSongsProps) => {
 
    const updateSongUrl = () => {
       updateSong(
-         previewUrl,
+         yourMusicImageUrl,
          yourMusicSongName,
          yourMusicArtist,
-         yourMusicImageUrl
+         previewUrl
       )
    }
 

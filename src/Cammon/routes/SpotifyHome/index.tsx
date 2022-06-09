@@ -1,5 +1,6 @@
 import { inject, observer } from 'mobx-react'
 import { Component } from 'react'
+import 'twin.macro'
 
 import SpotifyEditorCard from '../../componentsCopy/SpotifyEditorCard'
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
@@ -12,7 +13,9 @@ import {
    CardsMainContainer,
    EditorHeading,
    CardsUlContainer,
-   BtnCss
+   HeaderCss,
+   EditorHeadingCss,
+   CategoryHeadingCss
 } from './styledComponents'
 
 const editorText = "Editor's picks"
@@ -28,7 +31,7 @@ const cardApiConstants = {
 
 interface SpotifyHomeConstants {
    spotifyHomeStore: SpotifyHomeStore
-   cardHeading: any
+   cardHeading: string
 
    cardImgUrl: string
 }
@@ -165,20 +168,20 @@ class SpotifyHome extends Component<SpotifyHomeConstants> {
       return (
          <SpotifyHomeMainContainer>
             <SpotifyHeader
-               marginTop='304px'
+               HeaderCss={HeaderCss}
                isShowHeaderLogo={true}
                passProps={this.props}
             />
             <CardsMainContainer>
-               <EditorHeading marginTop='96px' marginBottom='32px'>
+               <EditorHeading css={EditorHeadingCss}>
                   {editorText}
                </EditorHeading>
                <CardsUlContainer>{this.showEditorCards()}</CardsUlContainer>
-               <EditorHeading marginTop='16px' marginBottom='32px'>
+               <EditorHeading css={CategoryHeadingCss}>
                   {categoryText}
                </EditorHeading>
                <CardsUlContainer>{this.showCategoryCards()}</CardsUlContainer>
-               <EditorHeading marginTop='16px' marginBottom='32px'>
+               <EditorHeading css={CategoryHeadingCss}>
                   {newReleaseText}
                </EditorHeading>
                <CardsUlContainer>{this.showNewReleaseCards()}</CardsUlContainer>

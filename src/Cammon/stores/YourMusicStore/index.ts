@@ -18,6 +18,7 @@ class YourMusicStore {
    }
 
    @observable getYourMusicdata = async () => {
+      this.yourMusicSongsData = []
       this.yourMusicStatus = yourMusicApiConstants.in_Progress
       const token = Cookies.get('pa_token')
       const url = `https://api.spotify.com/v1/me/tracks`

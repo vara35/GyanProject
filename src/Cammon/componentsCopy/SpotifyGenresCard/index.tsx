@@ -11,7 +11,7 @@ interface GenresCardProps {
    genreObj: any
 }
 
-const GenresCard = (props: GenresCardProps) => {
+const SpotifyGenresCard = (props: GenresCardProps) => {
    const { genreObj } = props
    const { genreImage, name, total, id } = genreObj
    return (
@@ -27,4 +27,4 @@ const GenresCard = (props: GenresCardProps) => {
    )
 }
 
-export default GenresCard
+export default SpotifyGenresCard

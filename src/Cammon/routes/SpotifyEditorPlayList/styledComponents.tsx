@@ -21,6 +21,7 @@ export const TableName = styled.p`
 
 export const SongAndTableContainer = styled.div`
    ${tw`flex flex-col`}
+   width:100%;
 `
 
 export const SpotifyHrLine = styled.hr`

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const YourMusicContainer = styled.li`
    ${tw`mb-8`}
-   width: 100vw;
+   width:100%;
 `
 
 export const YourMusicSongButton = styled.button`

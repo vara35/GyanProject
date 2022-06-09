@@ -8,6 +8,7 @@ import SpecificEditorSong from '../../componentsCopy/SpecificEditorSong'
 import SpotifyPlayer from '../../componentsCopy/SpotifyPlayer'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
+import { HeaderCss } from '../SpotifyHome/styledComponents'
 
 import {
    SpotifySpecificMainContainer,
@@ -51,9 +52,20 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
       specificPlayListStore.getSpecificEditorData(this.props)
    }
 
-   changeSongStatus = (previewUrl = '', songName, artist, playerUrl, id) => {
+   changeSongStatus = (
+      playerThumbnailUrl = '',
+      songName,
+      artist,
+      playerSongUrl,
+      id
+   ) => {
       const { specificPlayListStore } = this.props
-      specificPlayListStore.changeSong(previewUrl, songName, artist, playerUrl)
+      specificPlayListStore.changeSong(
+         playerThumbnailUrl,
+         songName,
+         artist,
+         playerSongUrl
+      )
       this.setState({ editorActiveTabId: id })
    }
 
@@ -65,49 +77,42 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
       const hash = isHash ? '#' : null
 
       return (
-         <>
-            <SpotifyHeader
-               marginTop='304px'
-               isShowHeaderLogo={true}
-               passProps={this.props}
+         <SongAndTableContainer>
+            <SpotifySongDetails
+               songDetailsData={
+                  this.props.specificPlayListStore.songDetailsData
+               }
+               songDetailsText='Editors picks'
             />
-            <SongAndTableContainer>
-               <SpotifySongDetails
-                  songDetailsData={
-                     this.props.specificPlayListStore.songDetailsData
-                  }
-                  songDetailsText='Editors picks'
-               />
-               <TableHeader>
-                  <TableName width='56px'>{hash}</TableName>
-                  <TableName width='258px'>{tableHeader.track} </TableName>
-                  <TableName width='300px'>{tableHeader.album}</TableName>
-                  <TableName width='200px'>{tableHeader.time}</TableName>
-                  <TableName width='250px'>{tableHeader.artist}</TableName>
-                  <TableName width='200px'>{tableHeader.added}</TableName>
-               </TableHeader>
-               <SpotifyHrLine width='1278px' margin={true} />
-               <EditorsUlContainer>
-                  {specificPlayListStore.specificEditorsData.map(
-                     (eachSong: any) => (
-                        <SpecificEditorSong
-                           songDetailsProps={eachSong}
-                           key={eachSong.id}
-                           changeSongStatus={this.changeSongStatus}
-                           isSongs={true}
-                           tabId={editorActiveTabId}
-                        />
-                     )
-                  )}
-               </EditorsUlContainer>
-               <SpotifyPlayer
-                  songUrl={specificPlayListStore.songUrl}
-                  playerArtist={specificPlayListStore.artistName}
-                  playerSongName={specificPlayListStore.songName}
-                  playerUrl={specificPlayListStore.playerImageURl}
-               />
-            </SongAndTableContainer>
-         </>
+            <TableHeader>
+               <TableName width='56px'>{hash}</TableName>
+               <TableName width='258px'>{tableHeader.track} </TableName>
+               <TableName width='300px'>{tableHeader.album}</TableName>
+               <TableName width='200px'>{tableHeader.time}</TableName>
+               <TableName width='250px'>{tableHeader.artist}</TableName>
+               <TableName width='200px'>{tableHeader.added}</TableName>
+            </TableHeader>
+            <SpotifyHrLine width='1278px' margin={true} />
+            <EditorsUlContainer>
+               {specificPlayListStore.specificEditorsData.map(
+                  (eachSong: any) => (
+                     <SpecificEditorSong
+                        songDetailsProps={eachSong}
+                        key={eachSong.id}
+                        changeSongStatus={this.changeSongStatus}
+                        isSongs={true}
+                        tabId={editorActiveTabId}
+                     />
+                  )
+               )}
+            </EditorsUlContainer>
+            <SpotifyPlayer
+               playerThumbnailUrl={specificPlayListStore.playerThumbnailUrl}
+               playerArtist={specificPlayListStore.artistName}
+               playerSongName={specificPlayListStore.songName}
+               playerSongUrl={specificPlayListStore.playerSongUrl}
+            />
+         </SongAndTableContainer>
       )
    }
 
@@ -131,6 +136,11 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
    render() {
       return (
          <SpotifySpecificMainContainer>
+            <SpotifyHeader
+               HeaderCss={HeaderCss}
+               isShowHeaderLogo={true}
+               passProps={this.props}
+            />
             {this.showEditorsongs()}
          </SpotifySpecificMainContainer>
       )

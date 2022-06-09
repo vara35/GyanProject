@@ -36,10 +36,10 @@ class SpecificPlayListStore {
    @observable categorySongStatus = songsApiConstants.initial
    @observable newReleaseSongStatus = songsApiConstants.initial
 
-   @observable songUrl = ''
+   @observable playerThumbnailUrl = ''
    @observable songName = ''
    @observable artistName = ''
-   @observable playerImageURl = ''
+   @observable playerSongUrl = ''
 
    @action getSpecificEditorData = async props => {
       this.songStatus = songsApiConstants.in_Progress
@@ -161,7 +161,9 @@ class SpecificPlayListStore {
                duration: eachSong.duration_ms,
                popularity: newReleasedata.popularity,
                songName: eachSong.name,
-               trackNumber: newReleasedata.tracks.items.indexOf(eachSong) + 1
+               songUrl1: eachSong.preview_url,
+               trackNumber: newReleasedata.tracks.items.indexOf(eachSong) + 1,
+               artists: eachSong.artists[0].name
             })
          )
          this.newReleaseSongDetails = newReleaseSong
@@ -172,11 +174,11 @@ class SpecificPlayListStore {
       }
    }
 
-   @action changeSong(songUrl, songName, artist, playerUrl) {
-      this.songUrl = songUrl
+   @action changeSong(playerThumbnailUrl, songName, artist, playerSongUrl) {
+      this.playerThumbnailUrl = playerThumbnailUrl
       this.songName = songName
       this.artistName = artist
-      this.playerImageURl = playerUrl
+      this.playerSongUrl = playerSongUrl
    }
 }
 
