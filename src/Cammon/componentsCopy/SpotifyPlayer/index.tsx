@@ -44,8 +44,8 @@ const SpotifyPlayer = (props: PlayerProps) => {
          <AudioElement
             src={playerSongUrl}
             controls
-            autoplay
             type='audio/mpeg'
+            autoplay
          ></AudioElement>
       </PlayerContainer>
    )

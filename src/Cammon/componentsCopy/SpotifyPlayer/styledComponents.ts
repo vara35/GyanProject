@@ -11,13 +11,13 @@ export const AudioElement = styled.audio`
    width: 1024px;
    margin-left: 85px;
 
+   &::-webkit-media-controls-panel {
+      background-color: #181818;
+      border-color: #181818;
+   }
    &::-webkit-media-controls-play-button {
       background-color: #ffffff;
       border-radius: 50%;
-   }
-   &::-webkit-media-controls-panel {
-      background: #181818;
-      color: green;
    }
    &::-webkit-media-controls-current-time-display {
       color: #ffffff;
@@ -26,11 +26,8 @@ export const AudioElement = styled.audio`
       color: #ffffff;
    }
    &::-webkit-media-controls-timeline {
-      background-color: blue;
-      color: #ffffff;
    }
    &::-webkit-media-controls-mute-button {
-      background-color: yellow !important;
    }
 `
 

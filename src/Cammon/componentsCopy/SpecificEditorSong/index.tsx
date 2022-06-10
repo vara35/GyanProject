@@ -42,10 +42,11 @@ const SpecificEditorSong = (props: SpecificEditorSongProps) => {
    } = songDetailsProps
 
    const editedSongName =
-      songName !== undefined && songName !== null && songName.slice(0, 40)
+      songName !== undefined && songName !== null && songName.slice(0, 30)
    const editedAlbumName =
       albumName !== undefined && albumName !== null && albumName.slice(0, 30)
-   const editedYear = addedAt !== undefined && addedAt.slice(0, 10)
+   const editedYear =
+      addedAt !== undefined && albumName !== null && addedAt.slice(0, 10)
 
    const isBgColor = tabId === id
 

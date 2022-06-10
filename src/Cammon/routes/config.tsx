@@ -29,11 +29,10 @@ import SpotifyPlayList from './SpotifyPlayList'
 export const routes = (): React.ReactElement => (
    <Router>
       <Switch>
-         <Route exact path='/' component={SpotifyHome} />
          <Route exact path='/counter' component={CounterWithToast} />
 
          <Route exact path='/login' component={SpotifyLoginForm} />
-
+         <Route exact path='/' component={SpotifyHome} />
          <ProtectedRoute exact path='/profile' component={Profile} />
          <ProtectedRoute
             exact

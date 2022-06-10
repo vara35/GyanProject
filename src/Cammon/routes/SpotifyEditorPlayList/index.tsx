@@ -9,8 +9,10 @@ import SpecificEditorSong from '../../componentsCopy/SpecificEditorSong'
 import SpotifyPlayer from '../../componentsCopy/SpotifyPlayer'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
+import SpotifyEditorTable from '../../componentsCopy/SpotifyEditorTable'
 
 import { HeaderCss } from '../SpotifyHome/styledComponents'
+import { TableContainer } from '../SpotifyNewReleaseRoute/styledComponents'
 import {
    SpotifySpecificMainContainer,
    TableHeader,
@@ -35,11 +37,7 @@ const tableHeader = {
 
 interface SpotifySpecificPlayListProps {
    specificPlayListStore: SpecificPlayListStore
-   eachSong: {
-      id: string
-   }
-
-   isHash?: boolean
+   history: any
 }
 
 const songsApiConstants = {
@@ -58,7 +56,7 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
       specificPlayListStore.getSpecificEditorData(this.props)
    }
 
-   changeSongStatus = (
+   updateSongDetails = (
       playerThumbnailUrl = '',
       songName,
       artist,
@@ -78,9 +76,13 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
    showSongsFailureView = () => <SpotifyApiFailureView />
 
    showSongsSuccessView = () => {
-      const { specificPlayListStore, isHash = false } = this.props
+      const { specificPlayListStore } = this.props
       const { editorActiveTabId } = this.state
-      const hash = isHash ? '#' : null
+      const { specificEditorsData } = specificPlayListStore
+
+      const { history } = this.props
+      const { location } = history
+      console.log(location.pathname)
 
       return (
          <SongAndTableContainer>
@@ -90,40 +92,13 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
                }
                songDetailsText='Editors picks'
             />
-            <TableHeader>
-               <TableName css={HashCss}>{hash}</TableName>
-               <TableName css={TrackHeadingCss}>{tableHeader.track} </TableName>
-               <TableName css={AlbumCss}>{tableHeader.album}</TableName>
-               <TableName css={TimeHeadingCss}>{tableHeader.time}</TableName>
-               <TableName css={ArtistHeadingCss}>
-                  {tableHeader.artist}
-               </TableName>
-               <TableName css={TimeHeadingCss}>{tableHeader.added}</TableName>
-            </TableHeader>
-            <SpotifyHrLine width='1278px' margin={true} />
-            <EditorsUlContainer>
-               {specificPlayListStore.specificEditorsData.map(
-                  (eachSong: {
-                     id: string
-                     duration: string
-                     albumName: string
-                     songName: string
-                     addedAt: string
-                     trackNumber: string
-                     previewUrl: string
-                     songThumbnialUrl: string | undefined
-                     artist: string
-                  }) => (
-                     <SpecificEditorSong
-                        songDetailsProps={eachSong}
-                        key={eachSong.id}
-                        changeSongStatus={this.changeSongStatus}
-                        isSongs={true}
-                        tabId={editorActiveTabId}
-                     />
-                  )
-               )}
-            </EditorsUlContainer>
+            <TableContainer>
+               <SpotifyEditorTable
+                  editorsTableData={specificEditorsData}
+                  updateSongDetails={this.updateSongDetails}
+                  editorActiveTabId={editorActiveTabId}
+               />
+            </TableContainer>
             <SpotifyPlayer
                playerThumbnailUrl={specificPlayListStore.playerThumbnailUrl}
                playerArtist={specificPlayListStore.artistName}
@@ -136,7 +111,7 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
 
    showSongsInprogressView = () => <SpotifyLoader />
 
-   showEditorsongs = () => {
+   showEditorSongs = () => {
       const { specificPlayListStore } = this.props
 
       switch (specificPlayListStore.songStatus) {
@@ -159,7 +134,7 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
                isShowHeaderLogo={true}
                passProps={this.props}
             />
-            {this.showEditorsongs()}
+            {this.showEditorSongs()}
          </SpotifySpecificMainContainer>
       )
    }

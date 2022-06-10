@@ -87,7 +87,7 @@ const SpotifyNewReleaseTable = observer(
          <Table
             {...getTableProps()}
             style={{
-               width: '1300px'
+               width: '100%'
             }}
          >
             <thead>

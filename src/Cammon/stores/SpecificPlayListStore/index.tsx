@@ -65,21 +65,21 @@ class SpecificPlayListStore {
             songDetailsUrl: editordata.images[0].url
          }
          const updatedEditorData = editordata.tracks.items.map(eachSong => ({
-            id: eachSong.track !== null ? eachSong.track.id : null,
-            songName: eachSong.track !== null ? eachSong.track.name : null,
+            id: eachSong.track !== null ? eachSong.track.id : 'unknown',
+            songName: eachSong.track !== null ? eachSong.track.name : 'unknown',
             duration:
-               eachSong.track !== null ? eachSong.track.duration_ms : null,
+               eachSong.track !== null ? eachSong.track.duration_ms : 'unknown',
             albumName:
-               eachSong.track !== null ? eachSong.track.album.name : null,
+               eachSong.track !== null ? eachSong.track.album.name : 'unknown',
 
-            addedAt: eachSong.track !== null ? eachSong.added_at : null,
+            addedAt: eachSong.track !== null ? eachSong.added_at : 'unknown',
             trackNumber: editordata.tracks.items.indexOf(eachSong) + 1,
             previewUrl:
-               eachSong.track !== null ? eachSong.track.preview_url : null,
+               eachSong.track !== null ? eachSong.track.preview_url : 'unknown',
             songThumbnialUrl:
                eachSong.track !== null
                   ? eachSong.track.album.images[0].url
-                  : null,
+                  : 'unknown',
             artist:
                eachSong.track !== null &&
                eachSong.track.artists[0].name !== undefined

@@ -27,6 +27,13 @@ export const HomeIconContainer = styled.div`
                props.pathname.slice(0, 11) === '/newrelease' &&
                '6px solid #1ED760'};
    background: ${props => props.pathname === '/' && '#181818'};
+   background: ${props =>
+      props.pathname.slice(0, 7) === '/editor' && '#181818'};
+   background: ${props =>
+      props.pathname.slice(0, 9) === '/category' && '#181818'};
+   background: ${props =>
+      props.pathname.slice(0, 11) === '/newrelease' && '#181818'};
+   
   
 `
 

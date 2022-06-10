@@ -19,12 +19,16 @@ interface GenresCardProps {
 const SpotifyGenresCard = (props: GenresCardProps) => {
    const { genreObj } = props
    const { genreImage, name, total, id } = genreObj
+
+   const editedHeading =
+      name !== undefined && name !== null && name.slice(0, 16)
+
    return (
       <Link to={`/editor/${id}`}>
          <SpotifyCardMainContainer>
             <CardButton type='button'>
                <CardImage src={genreImage} />
-               <GenreHeadingEle>{name}</GenreHeadingEle>
+               <GenreHeadingEle>{editedHeading}</GenreHeadingEle>
                <GenrePlayList>{`${total} Tracks`} </GenrePlayList>
             </CardButton>
          </SpotifyCardMainContainer>
