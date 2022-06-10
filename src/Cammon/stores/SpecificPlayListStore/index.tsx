@@ -129,7 +129,7 @@ class SpecificPlayListStore {
    }
 
    @action getNewReleaseData = async props => {
-      this.newReleaseSongStatus = songsApiConstants.in_Progress
+      this.songStatus = songsApiConstants.in_Progress
       const { match } = props
       const { params } = match
       const { id } = params
@@ -166,11 +166,11 @@ class SpecificPlayListStore {
                artists: eachSong.artists[0].name
             })
          )
-         this.newReleaseSongDetails = newReleaseSong
+         this.songDetailsData = newReleaseSong
          this.newReleaseData = updatedCategoryData
-         this.newReleaseSongStatus = songsApiConstants.success
+         this.songStatus = songsApiConstants.success
       } else {
-         this.newReleaseSongStatus = songsApiConstants.failure
+         this.songStatus = songsApiConstants.failure
       }
    }
 

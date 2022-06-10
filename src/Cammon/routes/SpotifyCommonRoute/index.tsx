@@ -41,9 +41,11 @@ class SpotifyCommonRoute extends Component<SpotifySpecificPlayListProps> {
       const { pathname } = location
 
       const renderRoute = pathname.slice(0, 7) === '/editor'
-      renderRoute
-         ? specificPlayListStore.getSpecificEditorData(this.props)
-         : specificPlayListStore.getNewReleaseData(this.props)
+      {
+         renderRoute
+            ? specificPlayListStore.getSpecificEditorData(this.props)
+            : specificPlayListStore.getNewReleaseData(this.props)
+      }
    }
 
    updateSongDetails = (
