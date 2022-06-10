@@ -8,11 +8,11 @@ import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
 import SpotifyGenresCard from '../../componentsCopy/SpotifyGenresCard'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
+import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
 
 import { SpotifySpecificMainContainer } from '../SpotifyEditorPlayList/styledComponents'
 import { BackTextButton } from '../../componentsCopy/SpotifySongDetails/styledComponents'
 import { CardsUlContainer, HeaderCss } from '../SpotifyHome/styledComponents'
-
 import {
    BackTextArrowContainer,
    GenreHeading,
@@ -41,6 +41,8 @@ class GenreAndMoods extends Component<GenreAndMoodsProps> {
       const { specificPlayListStore } = this.props
       specificPlayListStore.getCategoryData(this.props)
    }
+
+   showCategoryFailureView = () => <SpotifyApiFailureView />
 
    showCategorySuccessView = () => {
       const { specificPlayListStore } = this.props
@@ -73,6 +75,8 @@ class GenreAndMoods extends Component<GenreAndMoodsProps> {
             return this.showCategoryInprogressView()
          case songsApiConstants.success:
             return this.showCategorySuccessView()
+         case songsApiConstants.failure:
+            return this.showCategoryFailureView()
          default:
             null
       }
