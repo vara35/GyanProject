@@ -1,4 +1,4 @@
-import { TableName } from '../../routes/SpotifyEditorPlayList/styledComponents'
+import { TableName } from '../../routes/SpotifyCommonRoute/styledComponents'
 
 import { EditorSongListContainer } from './styledComponents'
 

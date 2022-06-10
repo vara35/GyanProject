@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 
 interface SpotifyEditorTableProps {
    editorsTableData: any
-   editorActiveTabId: string
+   activeTabId: string
    updateSongDetails: (
       songThumbnialUrl: string,
       songName: string,
@@ -16,7 +16,7 @@ interface SpotifyEditorTableProps {
 }
 
 const SpotifyEditorTable = observer((props: SpotifyEditorTableProps) => {
-   const { editorsTableData, editorActiveTabId, updateSongDetails } = props
+   const { editorsTableData, activeTabId, updateSongDetails } = props
 
    const data = React.useMemo(() => [...editorsTableData], [])
 
@@ -141,9 +141,7 @@ const SpotifyEditorTable = observer((props: SpotifyEditorTableProps) => {
                      style={{
                         cursor: 'pointer',
                         background:
-                           row.original.id === editorActiveTabId
-                              ? '#303030'
-                              : null,
+                           row.original.id === activeTabId ? '#303030' : null,
                         margin: '40px'
                      }}
                      key={row.id}

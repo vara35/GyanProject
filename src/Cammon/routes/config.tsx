@@ -19,11 +19,12 @@ import SpotifyLoginForm from './SpotifyLoginForm'
 import ProtectedRoute from './ProtectedRoute'
 import Profile from './ProfileRoute'
 import SpotifyHome from './SpotifyHome'
-import SpotifyEditorPlayList from './SpotifyEditorPlayList'
-import SpotifyNewReleaseRoute from './SpotifyNewReleaseRoute'
+import SpotifyCommonRoute from './SpotifyCommonRoute'
 import GenreAndMoods from './GenresAndMoods'
 import YourMusic from './SpotifyYourMusic'
 import SpotifyPlayList from './SpotifyPlayList'
+import SpotifyNewReleaseRoute from './SpotifyNewReleaseRoute'
+
 //
 
 export const routes = (): React.ReactElement => (
@@ -37,13 +38,13 @@ export const routes = (): React.ReactElement => (
          <ProtectedRoute
             exact
             path='/editor/:id'
-            component={SpotifyEditorPlayList}
+            component={SpotifyCommonRoute}
          />
          <ProtectedRoute exact path='/category/:id' component={GenreAndMoods} />
          <ProtectedRoute
             exact
             path='/newrelease/:id'
-            component={SpotifyNewReleaseRoute}
+            component={SpotifyCommonRoute}
          />
          <ProtectedRoute exact path='/yourmusic' component={YourMusic} />
          <ProtectedRoute exact path='/playlist' component={SpotifyPlayList} />

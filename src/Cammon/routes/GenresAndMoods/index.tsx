@@ -10,7 +10,7 @@ import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
 
-import { SpotifySpecificMainContainer } from '../SpotifyEditorPlayList/styledComponents'
+import { SpotifySpecificMainContainer } from '../SpotifyCommonRoute/styledComponents'
 import { BackTextButton } from '../../componentsCopy/SpotifySongDetails/styledComponents'
 import { CardsUlContainer, HeaderCss } from '../SpotifyHome/styledComponents'
 import {

@@ -12,7 +12,7 @@ import SpotifyNewReleaseTable from '../../componentsCopy/SpotifyNewReleaseTable'
 import {
    SongAndTableContainer,
    SpotifySpecificMainContainer
-} from '../SpotifyEditorPlayList/styledComponents'
+} from '../SpotifyCommonRoute/styledComponents'
 import { HeaderCss } from '../SpotifyHome/styledComponents'
 import { TableContainer } from './styledComponents'
 

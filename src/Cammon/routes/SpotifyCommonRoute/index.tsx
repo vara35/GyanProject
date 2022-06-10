@@ -5,35 +5,18 @@ import 'twin.macro'
 import SpotifyHeader from '../../componentsCopy/SpotifyHeader'
 import SpotifySongDetails from '../../componentsCopy/SpotifySongDetails'
 import SpecificPlayListStore from '../../stores/SpecificPlayListStore'
-import SpecificEditorSong from '../../componentsCopy/SpecificEditorSong'
 import SpotifyPlayer from '../../componentsCopy/SpotifyPlayer'
 import SpotifyLoader from '../../componentsCopy/SpotifyLoader'
 import SpotifyApiFailureView from '../../componentsCopy/SpotifyApiFailureView'
 import SpotifyEditorTable from '../../componentsCopy/SpotifyEditorTable'
+import SpotifyNewReleaseTable from '../../componentsCopy/SpotifyNewReleaseTable'
 
 import { HeaderCss } from '../SpotifyHome/styledComponents'
 import { TableContainer } from '../SpotifyNewReleaseRoute/styledComponents'
 import {
    SpotifySpecificMainContainer,
-   TableHeader,
-   TableName,
-   SongAndTableContainer,
-   SpotifyHrLine,
-   EditorsUlContainer,
-   HashCss,
-   TrackHeadingCss,
-   AlbumCss,
-   TimeHeadingCss,
-   ArtistHeadingCss
+   SongAndTableContainer
 } from './styledComponents'
-
-const tableHeader = {
-   track: 'Track',
-   album: 'Album',
-   time: 'Time',
-   artist: 'Artist',
-   added: 'Added'
-}
 
 interface SpotifySpecificPlayListProps {
    specificPlayListStore: SpecificPlayListStore
@@ -49,11 +32,18 @@ const songsApiConstants = {
 
 @inject('specificPlayListStore')
 @observer
-class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
-   state = { editorActiveTabId: '' }
+class SpotifyCommonRoute extends Component<SpotifySpecificPlayListProps> {
+   state = { activeTabId: '' }
    componentDidMount() {
       const { specificPlayListStore } = this.props
-      specificPlayListStore.getSpecificEditorData(this.props)
+      const { history } = this.props
+      const { location } = history
+      const { pathname } = location
+
+      const renderRoute = pathname.slice(0, 7) === '/editor'
+      renderRoute
+         ? specificPlayListStore.getSpecificEditorData(this.props)
+         : specificPlayListStore.getNewReleaseData(this.props)
    }
 
    updateSongDetails = (
@@ -70,19 +60,21 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
          artist,
          playerSongUrl
       )
-      this.setState({ editorActiveTabId: id })
+      this.setState({ activeTabId: id })
    }
 
    showSongsFailureView = () => <SpotifyApiFailureView />
 
    showSongsSuccessView = () => {
       const { specificPlayListStore } = this.props
-      const { editorActiveTabId } = this.state
+      const { activeTabId } = this.state
       const { specificEditorsData } = specificPlayListStore
 
       const { history } = this.props
       const { location } = history
-      console.log(location.pathname)
+      const { pathname } = location
+
+      const renderRoute = pathname.slice(0, 7) === '/editor'
 
       return (
          <SongAndTableContainer>
@@ -93,11 +85,19 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
                songDetailsText='Editors picks'
             />
             <TableContainer>
-               <SpotifyEditorTable
-                  editorsTableData={specificEditorsData}
-                  updateSongDetails={this.updateSongDetails}
-                  editorActiveTabId={editorActiveTabId}
-               />
+               {renderRoute ? (
+                  <SpotifyEditorTable
+                     editorsTableData={specificEditorsData}
+                     updateSongDetails={this.updateSongDetails}
+                     activeTabId={activeTabId}
+                  />
+               ) : (
+                  <SpotifyNewReleaseTable
+                     tableData={specificPlayListStore.newReleaseData}
+                     updateSongDetails={this.updateSongDetails}
+                     activeTabId={activeTabId}
+                  />
+               )}
             </TableContainer>
             <SpotifyPlayer
                playerThumbnailUrl={specificPlayListStore.playerThumbnailUrl}
@@ -140,4 +140,4 @@ class SpotifyEditorPlayList extends Component<SpotifySpecificPlayListProps> {
    }
 }
 
-export default SpotifyEditorPlayList
+export default SpotifyCommonRoute

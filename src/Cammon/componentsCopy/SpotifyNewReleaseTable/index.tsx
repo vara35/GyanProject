@@ -12,8 +12,8 @@ interface SpotifyNewReleaseTableProps {
       duration: string
       popularity: string
    }[]
-   newreleaseTableTabId: string
-   changeSongStatus: (
+   activeTabId: string
+   updateSongDetails: (
       previewUrl: string,
       songName: string,
       artist: string,
@@ -24,7 +24,7 @@ interface SpotifyNewReleaseTableProps {
 
 const SpotifyNewReleaseTable = observer(
    (props: SpotifyNewReleaseTableProps) => {
-      const { tableData, changeSongStatus, newreleaseTableTabId } = props
+      const { tableData, updateSongDetails, activeTabId } = props
 
       const data = React.useMemo(() => [...tableData], [])
 
@@ -123,7 +123,7 @@ const SpotifyNewReleaseTable = observer(
                         style={{
                            cursor: 'pointer',
                            background:
-                              row.original.id === newreleaseTableTabId
+                              row.original.id === activeTabId
                                  ? '#303030'
                                  : null,
                            margin: '40px'
@@ -138,7 +138,7 @@ const SpotifyNewReleaseTable = observer(
                               songUrl1,
                               id
                            } = original
-                           changeSongStatus(
+                           updateSongDetails(
                               thumbnailUrl,
                               songName,
                               artists,
